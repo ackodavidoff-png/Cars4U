@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Common;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
+using static WebApplication1.Common.ApplicationConstraints;
 
 namespace WebApplication1.Controllers
 {
@@ -12,10 +14,10 @@ namespace WebApplication1.Controllers
         {
             this.context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? pageNumber)
         {
             IEnumerable<ApplicationUser> users = this.context.ApplicationUsers.Include(au => au.Cars).Include(au => au.Town).OrderBy(au => au.FirstName).ThenBy(au => au.LastName).ToArray();
-            return View(users);
+            return View(PaginatedList<ApplicationUser>.Create(users.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         public IActionResult Details(int id)
         {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Common;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using WebApplication1.ViewModels;
@@ -18,10 +19,10 @@ namespace WebApplication1.Controllers
             this.context = applicationDbContext;
         }
         //all cars page
-        public IActionResult Index()
+        public IActionResult Index(int? pageNumber)
         {
-            IEnumerable<Car> cars = context.Cars.Take(MaxEntitiesPerPage).ToArray();
-            return View(cars);
+            IEnumerable<Car> cars = context.Cars.ToArray();
+            return View(PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //details page
         public IActionResult Details(int id)
@@ -85,14 +86,14 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Index));
         }
         //search controller
-        public IActionResult Search(string? searchText)
+        public IActionResult Search(string? searchText, int? pageNumber)
         {
             if(searchText == null || searchText == "")
             {
                 return RedirectToAction(nameof(Index));
             }
-            IEnumerable<Car> carsFound = context.Cars.Include(c => c.Seller).Where(c => c.Brand.ToLower().Contains(searchText.ToLower())).Take(MaxEntitiesPerPage).ToArray();
-            return View(carsFound);
+            IEnumerable<Car> carsFound = context.Cars.Include(c => c.Seller).Where(c => c.Brand.ToLower().Contains(searchText.ToLower())).ToArray();
+            return View(PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //edit Get page
         [HttpGet]

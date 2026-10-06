@@ -1,5 +1,6 @@
 ﻿@using WebApplication1.Data.Models
-@model IEnumerable<ApplicationUser>
+@using WebApplication1.Common
+@model PaginatedList<ApplicationUser>
 @{
     ViewBag.Title = "Users";
 }
@@ -31,3 +32,20 @@
         </tbody>
     </table>
 }
+@{
+    string prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    string nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
+@for (int i = 1; i <= Model.TotalPages; i++)
+{
+    if (i == Model.PageIndex)
+    {
+        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
+    }
+    else
+    {
+        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
+    }
+}
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>
