@@ -1,11 +1,16 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApplication1.Data.Models;
 using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
+
         public IActionResult Index()
         {
             return View();

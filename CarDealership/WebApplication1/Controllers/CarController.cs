@@ -14,6 +14,8 @@ namespace WebApplication1.Controllers
     public class CarController : Controller
     {
         private readonly ApplicationDbContext context;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
         public CarController(ApplicationDbContext applicationDbContext)
         {
             this.context = applicationDbContext;
@@ -38,10 +40,10 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            IEnumerable<SelectListItem> users = context.ApplicationUsers.Select(au => new SelectListItem()
+            IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
             {
                 Value = au.Id.ToString(),
-                Text = au.Username
+                Text = au.UserName
             }).ToList();
             ViewBag.Users = users;
             return View();
@@ -52,10 +54,10 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                IEnumerable<SelectListItem> users = context.ApplicationUsers.Select(au => new SelectListItem()
+                IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
                 {
                     Value = au.Id.ToString(),
-                    Text = au.Username
+                    Text = au.UserName
                 }).ToList();
                 ViewBag.Users = users;
                 return View(carModel);
@@ -99,10 +101,10 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            IEnumerable<SelectListItem> users = context.ApplicationUsers.Select(au => new SelectListItem()
+            IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
             {
                 Value = au.Id.ToString(),
-                Text = au.Username
+                Text = au.UserName
             }).ToList();
             ViewBag.Users = users;
             Car? car = context.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == id);
@@ -141,10 +143,10 @@ namespace WebApplication1.Controllers
             //checking if the model state is valid
             if (!ModelState.IsValid)
             {
-                ViewBag.Users = context.ApplicationUsers.Select(au => new SelectListItem()
+                ViewBag.Users = context.Users.Select(au => new SelectListItem()
                 {
                     Value = au.Id.ToString(),
-                    Text = au.Username
+                    Text = au.UserName
                 });
                 return View(car);
             }
@@ -170,7 +172,7 @@ namespace WebApplication1.Controllers
             car.State = carModel.State;
             car.Description = carModel.Description;
             car.SellerId = carModel.SellerId;
-            car.Seller = context.ApplicationUsers.FirstOrDefault(au => au.Id == carModel.SellerId);
+            car.Seller = context.Users.FirstOrDefault(au => au.Id == carModel.SellerId);
             //saving the changes in the context
             context.SaveChanges();
             return RedirectToAction(nameof(Details), new Car() { Id = car.Id });
