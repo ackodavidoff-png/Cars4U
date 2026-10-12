@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using WebApplication1.Common;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
@@ -37,15 +39,10 @@ namespace WebApplication1.Controllers
             return View(car);
         }
         //create Get method
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
-            IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
-            {
-                Value = au.Id.ToString(),
-                Text = au.UserName
-            }).ToList();
-            ViewBag.Users = users;
             return View();
         }
         //create Post method
@@ -54,13 +51,12 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
-                {
-                    Value = au.Id.ToString(),
-                    Text = au.UserName
-                }).ToList();
-                ViewBag.Users = users;
                 return View(carModel);
+            }
+            int? currentUserId = GetUserId();
+            if (currentUserId == null)// || currentUserId != carModel.SellerId)
+            {
+                return Unauthorized();
             }
             Car car = new Car()
             {
@@ -74,7 +70,7 @@ namespace WebApplication1.Controllers
                 HorsePower = carModel.HorsePower,
                 State = carModel.State,
                 Description = carModel.Description,
-                SellerId = carModel.SellerId,
+                SellerId = (int)currentUserId,
                 CreatedOn = DateTime.Now
             };
             if (image != null)
@@ -98,25 +94,19 @@ namespace WebApplication1.Controllers
             return View(PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //edit Get page
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            IEnumerable<SelectListItem> users = context.Users.Select(au => new SelectListItem()
-            {
-                Value = au.Id.ToString(),
-                Text = au.UserName
-            }).ToList();
-            ViewBag.Users = users;
             Car? car = context.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == id);
             if (car == null)
             {
                 return NotFound();
             }
-            //var userId = userManager.GetUserId(User);
-            //if (car.SellerId.ToString() != userId)
-            //{
-            //    return Unauthorized();
-            //}
+            if (car.SellerId != GetUserId())
+            {
+                return Unauthorized();
+            }
             return View(car);
         }
         //Edit post page
@@ -134,20 +124,13 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            //var userId = userManager.GetUserId(User);
-            //if (car.SellerId.ToString() != userId)
-            //{
-            //    return Unauthorized();
-            //}
-            
+            if (car.SellerId != GetUserId())
+            {
+                return Unauthorized();
+            }
             //checking if the model state is valid
             if (!ModelState.IsValid)
             {
-                ViewBag.Users = context.Users.Select(au => new SelectListItem()
-                {
-                    Value = au.Id.ToString(),
-                    Text = au.UserName
-                });
                 return View(car);
             }
             if (car.Seller == null)
@@ -171,14 +154,13 @@ namespace WebApplication1.Controllers
             car.HorsePower = carModel.HorsePower;
             car.State = carModel.State;
             car.Description = carModel.Description;
-            car.SellerId = carModel.SellerId;
-            car.Seller = context.Users.FirstOrDefault(au => au.Id == carModel.SellerId);
             //saving the changes in the context
             context.SaveChanges();
             return RedirectToAction(nameof(Details), new Car() { Id = car.Id });
         }
         //delete Get page
         [HttpGet]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             Car? carToDelete = context.Cars.FirstOrDefault(c => c.Id == id);
@@ -197,9 +179,22 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
+            if (GetUserId() == null || carToDelete.SellerId != GetUserId())
+            {
+                return Unauthorized();
+            }
             context.Cars.Remove(carToDelete);
             context.SaveChanges();
             return RedirectToAction(nameof(Index));
+        }
+        //My cars page reference
+        [Authorize]
+        [HttpGet]
+        public IActionResult MyCars(int? pageNumber)
+        {
+            IEnumerable<Car> cars = context.Cars.Where(c => c.SellerId == GetUserId()).OrderByDescending(c => c.CreatedOn).ToArray();
+            PaginatedList<Car> paginatedCarList = PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage);
+            return View(paginatedCarList);
         }
         //car image
         public IActionResult Image(int id)
@@ -210,6 +205,16 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
             return File(car.Image, "image/jpeg");
+        }
+        private int? GetUserId()
+        {
+            int? userId = null;
+            Claim? idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (idClaim != null)
+            {
+                userId = int.Parse(idClaim.Value);
+            }
+            return userId;
         }
     }
 }

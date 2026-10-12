@@ -11,7 +11,7 @@
 <h3>Contact information</h3>
 <p>Town: @Model.Seller.Town.Name</p>
 <p>Phone number: @Model.Seller.PhoneNumber</p>
-<p>@(Model.Seller.Email == null ? null : $"Email: {Model.Seller.Email}")</p>
+<p>Email: @Model.Seller.Email</p>
 <p><a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@Model.SellerId">Seller's profile</a></p>
 <h3>Specifications</h3>
 <p>Year produced: @(Model.Year)</p>
@@ -22,5 +22,7 @@
 <p>State: @Model.State</p>
 <p>Description: @(Model.Description == null ? "There is no description" : Model.Description)</p>
 <p>Added at @Model.CreatedOn.ToString("dd.MM.yyyy")</p>
+@*
 <a class="btn btn-secondary" asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
 <a class="btn btn-danger" asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+*@
