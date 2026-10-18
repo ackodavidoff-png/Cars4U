@@ -160,7 +160,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
                     Email = Input.Email
                 };
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 IdentityResult result = await _userManager.CreateAsync(user, Input.Password);
 

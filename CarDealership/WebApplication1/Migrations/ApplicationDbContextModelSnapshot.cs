@@ -305,6 +305,21 @@ namespace WebApplication1.Migrations
                     b.ToTable("Cars");
                 });
 
+            modelBuilder.Entity("WebApplication1.Data.Models.Favorite", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "CarId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("WebApplication1.Data.Models.Town", b =>
                 {
                     b.Property<int>("Id")
@@ -530,6 +545,25 @@ namespace WebApplication1.Migrations
                         .IsRequired();
 
                     b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("WebApplication1.Data.Models.Favorite", b =>
+                {
+                    b.HasOne("WebApplication1.Data.Models.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication1.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Car");
                 });
 
             modelBuilder.Entity("WebApplication1.Data.Models.ApplicationUser", b =>

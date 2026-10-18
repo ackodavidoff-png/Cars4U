@@ -33,12 +33,12 @@
         <span asp-validation-for="Mileage" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="EngineType" class="form-label"></label>
+        <label asp-for="EngineType" class="form-label">Engine type</label>
         <select asp-for="EngineType" asp-items="Html.GetEnumSelectList<EngineType>()" class="form-select"></select>
         <span asp-validation-for="EngineType" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="TransmissionType" class="form-label"></label>
+        <label asp-for="TransmissionType" class="form-label">Transmission type</label>
         <select asp-for="TransmissionType" asp-items="Html.GetEnumSelectList<TransmissionType>()" class="form-select"></select>
         <span asp-validation-for="TransmissionType" class="text-danger"></span>
     </div>

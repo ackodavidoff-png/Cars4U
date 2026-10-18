@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2IFy457RKXs=",
+  "dgSpecHash": "NsCtmRV73tw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -111,18 +111,18 @@
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\10.0.2\\microsoft.visualstudio.web.codegenerators.mvc.10.0.2.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.common\\6.12.1\\nuget.common.6.12.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.configuration\\6.12.1\\nuget.configuration.6.12.1.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.common\\7.9.0\\nuget.common.7.9.0.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.configuration\\7.9.0\\nuget.configuration.7.9.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\nuget.dependencyresolver.core\\6.12.1\\nuget.dependencyresolver.core.6.12.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.frameworks\\6.12.1\\nuget.frameworks.6.12.1.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.frameworks\\7.9.0\\nuget.frameworks.7.9.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\nuget.librarymodel\\6.12.1\\nuget.librarymodel.6.12.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.packaging\\6.12.1\\nuget.packaging.6.12.1.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.packaging\\7.9.0\\nuget.packaging.7.9.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\nuget.projectmodel\\6.12.1\\nuget.projectmodel.6.12.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.protocol\\6.12.1\\nuget.protocol.6.12.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\nuget.versioning\\6.12.1\\nuget.versioning.6.12.1.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.protocol\\7.9.0\\nuget.protocol.7.9.0.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\nuget.versioning\\7.9.0\\nuget.versioning.7.9.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.11\\sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\sqlitepclraw.core\\2.1.11\\sqlitepclraw.core.2.1.11.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.11\\sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\3.53.3\\sqlitepclraw.lib.e_sqlite3.3.53.3.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.11\\sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\system.clientmodel\\1.5.1\\system.clientmodel.1.5.1.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
@@ -140,42 +140,5 @@
     "C:\\Users\\Александър\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.4\\system.security.cryptography.pkcs.9.0.4.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.6\\system.security.cryptography.protecteddata.9.0.6.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "libraryId": "NuGet.Packaging",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "libraryId": "NuGet.Protocol",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
-      "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -2055,35 +2055,35 @@
           }
         }
       },
-      "NuGet.Common/6.12.1": {
+      "NuGet.Common/7.9.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Frameworks": "6.12.1"
+          "NuGet.Frameworks": "7.9.0"
         },
         "compile": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
+          "lib/net8.0/NuGet.Common.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
+          "lib/net8.0/NuGet.Common.dll": {
             "related": ".xml"
           }
         }
       },
-      "NuGet.Configuration/6.12.1": {
+      "NuGet.Configuration/7.9.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Common": "6.12.1",
-          "System.Security.Cryptography.ProtectedData": "4.4.0"
+          "NuGet.Common": "7.9.0",
+          "System.Security.Cryptography.ProtectedData": "8.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
+          "lib/net8.0/NuGet.Configuration.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
+          "lib/net8.0/NuGet.Configuration.dll": {
             "related": ".xml"
           }
         }
@@ -2106,15 +2106,15 @@
           }
         }
       },
-      "NuGet.Frameworks/6.12.1": {
+      "NuGet.Frameworks/7.9.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+          "lib/net8.0/NuGet.Frameworks.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Frameworks.dll": {
+          "lib/net8.0/NuGet.Frameworks.dll": {
             "related": ".xml"
           }
         }
@@ -2136,21 +2136,21 @@
           }
         }
       },
-      "NuGet.Packaging/6.12.1": {
+      "NuGet.Packaging/7.9.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
-          "NuGet.Configuration": "6.12.1",
-          "NuGet.Versioning": "6.12.1",
-          "System.Security.Cryptography.Pkcs": "6.0.4"
+          "NuGet.Configuration": "7.9.0",
+          "NuGet.Versioning": "7.9.0",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
         },
         "compile": {
-          "lib/net5.0/NuGet.Packaging.dll": {
+          "lib/net8.0/NuGet.Packaging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/NuGet.Packaging.dll": {
+          "lib/net8.0/NuGet.Packaging.dll": {
             "related": ".xml"
           }
         }
@@ -2171,31 +2171,31 @@
           }
         }
       },
-      "NuGet.Protocol/6.12.1": {
+      "NuGet.Protocol/7.9.0": {
         "type": "package",
         "dependencies": {
-          "NuGet.Packaging": "6.12.1"
+          "NuGet.Packaging": "7.9.0"
         },
         "compile": {
-          "lib/net5.0/NuGet.Protocol.dll": {
+          "lib/net8.0/NuGet.Protocol.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/NuGet.Protocol.dll": {
+          "lib/net8.0/NuGet.Protocol.dll": {
             "related": ".xml"
           }
         }
       },
-      "NuGet.Versioning/6.12.1": {
+      "NuGet.Versioning/7.9.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
+          "lib/net8.0/NuGet.Versioning.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
+          "lib/net8.0/NuGet.Versioning.dll": {
             "related": ".xml"
           }
         }
@@ -2222,7 +2222,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
+      "SQLitePCLRaw.lib.e_sqlite3/3.53.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -2234,61 +2234,149 @@
           "buildTransitive/net9.0/SQLitePCLRaw.lib.e_sqlite3.targets": {}
         },
         "runtimeTargets": {
+          "runtimes/android-arm/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "android-arm"
+          },
+          "runtimes/android-arm64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "android-arm64"
+          },
+          "runtimes/android-x64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "android-x64"
+          },
+          "runtimes/android-x86/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "android-x86"
+          },
           "runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a": {
             "assetType": "native",
             "rid": "browser-wasm"
+          },
+          "runtimes/ios-arm/native/e_sqlite3.a": {
+            "assetType": "native",
+            "rid": "ios-arm"
+          },
+          "runtimes/ios-arm64/native/e_sqlite3.a": {
+            "assetType": "native",
+            "rid": "ios-arm64"
+          },
+          "runtimes/iossimulator-arm64/native/e_sqlite3.a": {
+            "assetType": "native",
+            "rid": "iossimulator-arm64"
+          },
+          "runtimes/iossimulator-x64/native/e_sqlite3.a": {
+            "assetType": "native",
+            "rid": "iossimulator-x64"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-arm"
           },
           "runtimes/linux-arm/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-arm"
           },
+          "runtimes/linux-arm64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
           "runtimes/linux-arm64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-arm64"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-armel"
           },
           "runtimes/linux-armel/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-armel"
           },
+          "runtimes/linux-mips64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-mips64"
+          },
           "runtimes/linux-mips64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-mips64"
+          },
+          "runtimes/linux-musl-arm/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-musl-arm"
           },
           "runtimes/linux-musl-arm/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-arm"
           },
+          "runtimes/linux-musl-arm64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-musl-arm64"
+          },
           "runtimes/linux-musl-arm64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-arm64"
+          },
+          "runtimes/linux-musl-riscv64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-musl-riscv64"
           },
           "runtimes/linux-musl-riscv64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-riscv64"
           },
+          "runtimes/linux-musl-s390x/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-musl-s390x"
+          },
           "runtimes/linux-musl-s390x/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-s390x"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
           },
           "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-musl-x64"
           },
+          "runtimes/linux-ppc64le/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-ppc64le"
+          },
           "runtimes/linux-ppc64le/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-ppc64le"
+          },
+          "runtimes/linux-riscv64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-riscv64"
           },
           "runtimes/linux-riscv64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-riscv64"
           },
+          "runtimes/linux-s390x/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-s390x"
+          },
           "runtimes/linux-s390x/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-s390x"
           },
+          "runtimes/linux-x64/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
           "runtimes/linux-x64/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.a": {
+            "assetType": "native",
+            "rid": "linux-x86"
           },
           "runtimes/linux-x86/native/libe_sqlite3.so": {
             "assetType": "native",
@@ -2309,10 +2397,6 @@
           "runtimes/osx-x64/native/libe_sqlite3.dylib": {
             "assetType": "native",
             "rid": "osx-x64"
-          },
-          "runtimes/win-arm/native/e_sqlite3.dll": {
-            "assetType": "native",
-            "rid": "win-arm"
           },
           "runtimes/win-arm64/native/e_sqlite3.dll": {
             "assetType": "native",
@@ -6052,10 +6136,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Common/6.12.1": {
-      "sha512": "nk8nTdhQl4x2VaAQUvefI7DDYAuBDlE+OZZRffm50Qx5dUAEq8wkc5JIqrN2lTEohObHPI/SXyG2UFdMQkrdyg==",
+    "NuGet.Common/7.9.0": {
+      "sha512": "OWFEzHpwvgzSaHYmWzfbyTm6oBOy/BFSFEDk73zM9jiJaxdopYZ/DrqIQogaM3F+ZGTppBJffmzu5adetEI/YA==",
       "type": "package",
-      "path": "nuget.common/6.12.1",
+      "path": "nuget.common/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6063,16 +6147,16 @@
         "icon.png",
         "lib/net472/NuGet.Common.dll",
         "lib/net472/NuGet.Common.xml",
-        "lib/netstandard2.0/NuGet.Common.dll",
-        "lib/netstandard2.0/NuGet.Common.xml",
-        "nuget.common.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Common.dll",
+        "lib/net8.0/NuGet.Common.xml",
+        "nuget.common.7.9.0.nupkg.sha512",
         "nuget.common.nuspec"
       ]
     },
-    "NuGet.Configuration/6.12.1": {
-      "sha512": "IRwlY1379ZgJ0oEJvjD+lDuOhJ5S1fsU5n/bEC5/i0+N9bo2WIMDAdaQ/qIdyK/gMJ/YWS+++GSX6rN7luqEvg==",
+    "NuGet.Configuration/7.9.0": {
+      "sha512": "oY9XZp+TWjOmiGmU4R4JWBRY3F4TAVo7tqPr/z7MOsFcEpdYHMryjNSscoLBxUTR3WmFmYgO0Gvu4eRbz6pzOg==",
       "type": "package",
-      "path": "nuget.configuration/6.12.1",
+      "path": "nuget.configuration/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6080,9 +6164,9 @@
         "icon.png",
         "lib/net472/NuGet.Configuration.dll",
         "lib/net472/NuGet.Configuration.xml",
-        "lib/netstandard2.0/NuGet.Configuration.dll",
-        "lib/netstandard2.0/NuGet.Configuration.xml",
-        "nuget.configuration.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Configuration.dll",
+        "lib/net8.0/NuGet.Configuration.xml",
+        "nuget.configuration.7.9.0.nupkg.sha512",
         "nuget.configuration.nuspec"
       ]
     },
@@ -6105,10 +6189,10 @@
         "nuget.dependencyresolver.core.nuspec"
       ]
     },
-    "NuGet.Frameworks/6.12.1": {
-      "sha512": "kPaRD5RJC0ByUg+yGX6bDz5XHMI7OYmQwP8kbtef+vZ+csj/VDb5Bwas4ChxwhoAbI8lEvwP5/3aViQPpgNBow==",
+    "NuGet.Frameworks/7.9.0": {
+      "sha512": "w2adPmgUafmW9ON1MzDjuHmViN0vtiPV48Dz3OE6px8BiGSqrnWHOjwFEPOEPAZx20J1c7bxp90Hxo9l4xGWtw==",
       "type": "package",
-      "path": "nuget.frameworks/6.12.1",
+      "path": "nuget.frameworks/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6116,9 +6200,9 @@
         "icon.png",
         "lib/net472/NuGet.Frameworks.dll",
         "lib/net472/NuGet.Frameworks.xml",
-        "lib/netstandard2.0/NuGet.Frameworks.dll",
-        "lib/netstandard2.0/NuGet.Frameworks.xml",
-        "nuget.frameworks.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Frameworks.dll",
+        "lib/net8.0/NuGet.Frameworks.xml",
+        "nuget.frameworks.7.9.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
@@ -6139,10 +6223,10 @@
         "nuget.librarymodel.nuspec"
       ]
     },
-    "NuGet.Packaging/6.12.1": {
-      "sha512": "6s5NO3VNX6fIx6GwuWZtIsal9W1xkelYd3Vg2KUAg1zGqnKC3wB5IZlombvVGVGcwyl/A+iDvpUwSvgeDoB3wA==",
+    "NuGet.Packaging/7.9.0": {
+      "sha512": "Q2jxuud5kJLV0rUzsC02iC5ts8QsQu9UVyMvF8lULY3TwHL/W/PrnQ9bQFvMR7jJkzF1uilRPI1o+7VOtc2XMg==",
       "type": "package",
-      "path": "nuget.packaging/6.12.1",
+      "path": "nuget.packaging/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6150,11 +6234,9 @@
         "icon.png",
         "lib/net472/NuGet.Packaging.dll",
         "lib/net472/NuGet.Packaging.xml",
-        "lib/net5.0/NuGet.Packaging.dll",
-        "lib/net5.0/NuGet.Packaging.xml",
-        "lib/netstandard2.0/NuGet.Packaging.dll",
-        "lib/netstandard2.0/NuGet.Packaging.xml",
-        "nuget.packaging.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Packaging.dll",
+        "lib/net8.0/NuGet.Packaging.xml",
+        "nuget.packaging.7.9.0.nupkg.sha512",
         "nuget.packaging.nuspec"
       ]
     },
@@ -6177,10 +6259,10 @@
         "nuget.projectmodel.nuspec"
       ]
     },
-    "NuGet.Protocol/6.12.1": {
-      "sha512": "VBN7OtG/Y9Rnj1WT3G8X88ZHu5Pq+yzca5Z6OI/FWXcENVAQkUl0ml6Cv8ghOqYyiuvnObGDV9oWLD/bIuVtDw==",
+    "NuGet.Protocol/7.9.0": {
+      "sha512": "Ts0qPUGJYfFHhlNSSWWrkaSG6++WqS6ry32WmQA7eNdzTc9SumyhDflITcusBYkT6pEQD5BI1UEByakciV3s0A==",
       "type": "package",
-      "path": "nuget.protocol/6.12.1",
+      "path": "nuget.protocol/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6188,18 +6270,16 @@
         "icon.png",
         "lib/net472/NuGet.Protocol.dll",
         "lib/net472/NuGet.Protocol.xml",
-        "lib/net5.0/NuGet.Protocol.dll",
-        "lib/net5.0/NuGet.Protocol.xml",
-        "lib/netstandard2.0/NuGet.Protocol.dll",
-        "lib/netstandard2.0/NuGet.Protocol.xml",
-        "nuget.protocol.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Protocol.dll",
+        "lib/net8.0/NuGet.Protocol.xml",
+        "nuget.protocol.7.9.0.nupkg.sha512",
         "nuget.protocol.nuspec"
       ]
     },
-    "NuGet.Versioning/6.12.1": {
-      "sha512": "fJ6rFYANDnohFsdpaY79FvrJxI6murmoOxXz6nZlf819F48+IBKMnAIg3oIBRtZq5y498ObMtKnro5IitvizUg==",
+    "NuGet.Versioning/7.9.0": {
+      "sha512": "r4sZuVpVqwSBLe4qYDrnpScqdyctlRXg0HSF5OoCGkeBc8b+o8BBYHuI/u1RoWYX78PbieijU13TBt71/Xf3lw==",
       "type": "package",
-      "path": "nuget.versioning/6.12.1",
+      "path": "nuget.versioning/7.9.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6207,9 +6287,9 @@
         "icon.png",
         "lib/net472/NuGet.Versioning.dll",
         "lib/net472/NuGet.Versioning.xml",
-        "lib/netstandard2.0/NuGet.Versioning.dll",
-        "lib/netstandard2.0/NuGet.Versioning.xml",
-        "nuget.versioning.6.12.1.nupkg.sha512",
+        "lib/net8.0/NuGet.Versioning.dll",
+        "lib/net8.0/NuGet.Versioning.xml",
+        "nuget.versioning.7.9.0.nupkg.sha512",
         "nuget.versioning.nuspec"
       ]
     },
@@ -6245,51 +6325,69 @@
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
-      "sha512": "Ev2ytaXiOlWZ4b3R67GZBsemTINslLD1DCJr2xiacpn4tbapu0Q4dHEzSvZSMnVWeE5nlObU3VZN2p81q3XOYQ==",
+    "SQLitePCLRaw.lib.e_sqlite3/3.53.3": {
+      "sha512": "ZXiSbBkrlw2Of/dBqny/qtQol7dlThrUD8zH/jkQicCFm2yn2BbhKsQW0+YHAzhANWz4ZJCz7gvo88BwluVhkA==",
       "type": "package",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.1.11",
+      "path": "sqlitepclraw.lib.e_sqlite3/3.53.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "buildTransitive/net461/SQLitePCLRaw.lib.e_sqlite3.targets",
-        "buildTransitive/net6.0/SQLitePCLRaw.lib.e_sqlite3.targets",
-        "buildTransitive/net7.0/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "LICENSE.txt",
+        "README.md",
+        "build/net471/SQLitePCLRaw.lib.e_sqlite3.props",
+        "build/net471/SQLitePCLRaw.lib.e_sqlite3.targets",
+        "buildTransitive/net471/SQLitePCLRaw.lib.e_sqlite3.props",
+        "buildTransitive/net471/SQLitePCLRaw.lib.e_sqlite3.targets",
         "buildTransitive/net8.0/SQLitePCLRaw.lib.e_sqlite3.targets",
         "buildTransitive/net9.0/SQLitePCLRaw.lib.e_sqlite3.targets",
-        "lib/net461/_._",
+        "lib/net471/_._",
         "lib/netstandard2.0/_._",
-        "runtimes/browser-wasm/nativeassets/net6.0/e_sqlite3.a",
-        "runtimes/browser-wasm/nativeassets/net7.0/e_sqlite3.a",
+        "runtimes/android-arm/native/libe_sqlite3.so",
+        "runtimes/android-arm64/native/libe_sqlite3.so",
+        "runtimes/android-x64/native/libe_sqlite3.so",
+        "runtimes/android-x86/native/libe_sqlite3.so",
         "runtimes/browser-wasm/nativeassets/net8.0/e_sqlite3.a",
         "runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a",
+        "runtimes/ios-arm/native/e_sqlite3.a",
+        "runtimes/ios-arm64/native/e_sqlite3.a",
+        "runtimes/iossimulator-arm64/native/e_sqlite3.a",
+        "runtimes/iossimulator-x64/native/e_sqlite3.a",
+        "runtimes/linux-arm/native/libe_sqlite3.a",
         "runtimes/linux-arm/native/libe_sqlite3.so",
+        "runtimes/linux-arm64/native/libe_sqlite3.a",
         "runtimes/linux-arm64/native/libe_sqlite3.so",
+        "runtimes/linux-armel/native/libe_sqlite3.a",
         "runtimes/linux-armel/native/libe_sqlite3.so",
+        "runtimes/linux-mips64/native/libe_sqlite3.a",
         "runtimes/linux-mips64/native/libe_sqlite3.so",
+        "runtimes/linux-musl-arm/native/libe_sqlite3.a",
         "runtimes/linux-musl-arm/native/libe_sqlite3.so",
+        "runtimes/linux-musl-arm64/native/libe_sqlite3.a",
         "runtimes/linux-musl-arm64/native/libe_sqlite3.so",
+        "runtimes/linux-musl-riscv64/native/libe_sqlite3.a",
         "runtimes/linux-musl-riscv64/native/libe_sqlite3.so",
+        "runtimes/linux-musl-s390x/native/libe_sqlite3.a",
         "runtimes/linux-musl-s390x/native/libe_sqlite3.so",
+        "runtimes/linux-musl-x64/native/libe_sqlite3.a",
         "runtimes/linux-musl-x64/native/libe_sqlite3.so",
+        "runtimes/linux-ppc64le/native/libe_sqlite3.a",
         "runtimes/linux-ppc64le/native/libe_sqlite3.so",
+        "runtimes/linux-riscv64/native/libe_sqlite3.a",
         "runtimes/linux-riscv64/native/libe_sqlite3.so",
+        "runtimes/linux-s390x/native/libe_sqlite3.a",
         "runtimes/linux-s390x/native/libe_sqlite3.so",
+        "runtimes/linux-x64/native/libe_sqlite3.a",
         "runtimes/linux-x64/native/libe_sqlite3.so",
+        "runtimes/linux-x86/native/libe_sqlite3.a",
         "runtimes/linux-x86/native/libe_sqlite3.so",
         "runtimes/maccatalyst-arm64/native/libe_sqlite3.dylib",
         "runtimes/maccatalyst-x64/native/libe_sqlite3.dylib",
         "runtimes/osx-arm64/native/libe_sqlite3.dylib",
         "runtimes/osx-x64/native/libe_sqlite3.dylib",
-        "runtimes/win-arm/native/e_sqlite3.dll",
         "runtimes/win-arm64/native/e_sqlite3.dll",
         "runtimes/win-x64/native/e_sqlite3.dll",
         "runtimes/win-x86/native/e_sqlite3.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
-        "sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.3.53.3.nupkg.sha512",
         "sqlitepclraw.lib.e_sqlite3.nuspec"
       ]
     },
@@ -6719,7 +6817,10 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.6",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2",
+      "NuGet.Packaging >= 7.9.0",
+      "NuGet.Protocol >= 7.9.0",
+      "SQLitePCLRaw.lib.e_sqlite3 >= 3.53.3"
     ]
   },
   "packageFolders": {
@@ -6806,6 +6907,18 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[10.0.2, )"
+          },
+          "NuGet.Packaging": {
+            "target": "Package",
+            "version": "[7.9.0, )"
+          },
+          "NuGet.Protocol": {
+            "target": "Package",
+            "version": "[7.9.0, )"
+          },
+          "SQLitePCLRaw.lib.e_sqlite3": {
+            "target": "Package",
+            "version": "[3.53.3, )"
           }
         },
         "imports": [
@@ -7244,37 +7357,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Packaging",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Protocol",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
-      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  }
 }

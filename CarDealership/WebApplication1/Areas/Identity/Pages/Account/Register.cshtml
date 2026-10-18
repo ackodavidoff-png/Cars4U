@@ -25,10 +25,10 @@
                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
             <div>
+                <label asp-for="Input.TownId" class="text-black"></label>
                 <select asp-for="Input.TownId" asp-items="Model.Towns" class="form-select">
                     <option value="">-- Select town --</option>
                 </select>
-                <label asp-for="Input.TownId" class="text-danger"></label>
                 <span asp-validation-for="Input.TownId" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">

@@ -1,28 +1,38 @@
 ﻿@using WebApplication1.Data.Models
-@model Car
+@model CarDetailsViewModel
 @{
-    ViewBag.Title = $"{Model.Brand} {Model.Model}";
+    ViewBag.Title = $"{Model.Car.Brand} {Model.Car.Model}";
 }
-<h1>@(Model.Brand) @(Model.Model)</h1>
+<h1>@(Model.Car.Brand) @(Model.Car.Model)</h1>
 @*<img src="@Model.ImageUrl" alt="No photo" style="width: 1280px; height: 800px; object-fit: cover;" />*@
-<img src="@Url.Action("Image", "Car", new { id = Model.Id })" alt="No photo" style="width: 1280px; height: 800px; object-fit: cover;" />
-<h1>@(Model.Price.ToString("#,##0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</h1>
-<h2>Seller: @Model.Seller.FirstName @Model.Seller.LastName</h2>
+<img src="@Url.Action("Image", "Car", new { id = Model.Car.Id })" alt="No photo" style="width: 1280px; height: 800px; object-fit: cover;" />
+<h1>@(Model.Car.Price.ToString("#,##0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</h1>
+<h2>Seller: @Model.Car.Seller.FirstName @Model.Car.Seller.LastName (@Model.Car.Seller.UserName)</h2>
 <h3>Contact information</h3>
-<p>Town: @Model.Seller.Town.Name</p>
-<p>Phone number: @Model.Seller.PhoneNumber</p>
-<p>Email: @Model.Seller.Email</p>
-<p><a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@Model.SellerId">Seller's profile</a></p>
+<p>Town: @Model.Car.Seller.Town.Name</p>
+<p>Phone number: @Model.Car.Seller.PhoneNumber</p>
+<p>Email: @Model.Car.Seller.Email</p>
+<p><a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@Model.Car.SellerId">Seller's profile</a></p>
 <h3>Specifications</h3>
-<p>Year produced: @(Model.Year)</p>
-<p>Mileage: @Model.Mileage.ToString("#,##", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ") km</p>
-<p>Engine type: @Model.EngineType</p>
-<p>Transmission type: @Model.TransmissionType</p>
-<p>HP: @Model.HorsePower</p>
-<p>State: @Model.State</p>
-<p>Description: @(Model.Description == null ? "There is no description" : Model.Description)</p>
-<p>Added at @Model.CreatedOn.ToString("dd.MM.yyyy")</p>
-@*
-<a class="btn btn-secondary" asp-area="" asp-controller="Car" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-<a class="btn btn-danger" asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-*@
+<p>Year produced: @(Model.Car.Year)</p>
+<p>Mileage: @Model.Car.Mileage.ToString("#,##", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ") km</p>
+<p>Engine type: @Model.Car.EngineType</p>
+<p>Transmission type: @Model.Car.TransmissionType</p>
+<p>HP: @Model.Car.HorsePower</p>
+<p>State: @Model.Car.State</p>
+<p>Description: @(Model.Car.Description == null ? "There is no description" : Model.Car.Description)</p>
+<p>Added at @Model.Car.CreatedOn.ToString("dd.MM.yyyy")</p>
+@if (Model.IsFavorite)
+{
+    <form asp-controller="Favorites" asp-action="Remove" method="post">
+        <input type="hidden" name="carId" value="@Model.Car.Id" />
+        <button type="submit" class="btn btn-danger">❤️Remove</button>
+    </form>
+}
+else
+{
+    <form asp-controller="Favorites" asp-action="Add" method="post">
+        <input type="hidden" name="carId" value="@Model.Car.Id" />
+        <button type="submit" class="btn btn-primary">❤️Add</button>
+    </form>
+}

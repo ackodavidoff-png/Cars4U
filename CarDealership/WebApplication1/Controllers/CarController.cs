@@ -18,25 +18,36 @@ namespace WebApplication1.Controllers
         private readonly ApplicationDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        public CarController(ApplicationDbContext applicationDbContext)
+        public CarController(ApplicationDbContext applicationDbContext, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.context = applicationDbContext;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
         }
         //all cars page
+        [HttpGet]
         public IActionResult Index(int? pageNumber)
         {
-            IEnumerable<Car> cars = context.Cars.ToArray();
+            IEnumerable<Car> cars = context.Cars.OrderByDescending(c => c.CreatedOn).ToArray();
             return View(PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //details page
-        public IActionResult Details(int id)
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
         {
-            Car? car = context.Cars.Include(c => c.Seller).ThenInclude(au => au.Town).FirstOrDefault(c => c.Id == id);
+            Car? car = await context.Cars.Include(c => c.Seller).ThenInclude(au => au.Town).FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
                 return NotFound();
             }
-            return View(car);
+            int userId = int.Parse(userManager.GetUserId(User));
+            bool isFavorite = await context.Favorites.AnyAsync(f => f.CarId == id && f.UserId == userId);
+            CarDetailsViewModel viewModel = new CarDetailsViewModel()
+            {
+                Car = car,
+                IsFavorite = isFavorite,
+            };
+            return View(viewModel);
         }
         //create Get method
         [Authorize]
