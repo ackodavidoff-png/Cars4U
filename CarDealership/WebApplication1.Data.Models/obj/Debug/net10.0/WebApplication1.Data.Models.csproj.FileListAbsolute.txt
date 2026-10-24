@@ -1,0 +1,16 @@
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\bin\Debug\net10.0\WebApplication1.Data.Models.deps.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\bin\Debug\net10.0\WebApplication1.Data.Models.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\bin\Debug\net10.0\WebApplication1.Data.Models.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\bin\Debug\net10.0\WebApplication1.GCommon.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\bin\Debug\net10.0\WebApplication1.GCommon.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.csproj.AssemblyReference.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.AssemblyInfoInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.AssemblyInfo.cs
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.csproj.CoreCompileInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.sourcelink.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebAppli.EC4924D2.Up2Date
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\refint\WebApplication1.Data.Models.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\WebApplication1.Data.Models.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Data.Models\obj\Debug\net10.0\ref\WebApplication1.Data.Models.dll

@@ -1,0 +1,13 @@
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\bin\Debug\net10.0\WebApplication1.GCommon.deps.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\bin\Debug\net10.0\WebApplication1.GCommon.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\bin\Debug\net10.0\WebApplication1.GCommon.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.csproj.AssemblyReference.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.AssemblyInfoInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.AssemblyInfo.cs
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.csproj.CoreCompileInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.sourcelink.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\refint\WebApplication1.GCommon.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\ref\WebApplication1.GCommon.dll

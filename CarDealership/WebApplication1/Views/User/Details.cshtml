@@ -1,5 +1,5 @@
 ﻿@using WebApplication1.Data.Models
-@using WebApplication1.Common
+@using WebApplication1.GCommon
 @model ApplicationUser
 @{
     ViewBag.Title = $"{Model.FirstName} {Model.LastName}";
@@ -9,10 +9,6 @@
 <p>Phone number: @Model.PhoneNumber</p>
 <p>Town: @Model.Town.Name</p>
 <p>@(Model.Email == null ? null : $"Email: {Model.Email}")</p>
-@if (Model.IsAdmin)
-{
-    <p>This user is an administrator</p>
-}
 <h2>Cars</h2>
 @if (Model.Cars.Any())
 {

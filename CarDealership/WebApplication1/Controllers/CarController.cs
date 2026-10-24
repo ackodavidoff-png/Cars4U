@@ -4,12 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using WebApplication1.Common;
+using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
+using WebApplication1.Services;
+using WebApplication1.Services.Core;
 using WebApplication1.ViewModels;
 using static System.Net.Mime.MediaTypeNames;
-using static WebApplication1.Common.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstraints;
+using static WebApplication1.GCommon.ErrorMessages;
 
 namespace WebApplication1.Controllers
 {
@@ -18,24 +21,26 @@ namespace WebApplication1.Controllers
         private readonly ApplicationDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        public CarController(ApplicationDbContext applicationDbContext, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        private readonly ICarService carService;
+        public CarController(ApplicationDbContext applicationDbContext, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICarService carService)
         {
             this.context = applicationDbContext;
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.carService = carService;
         }
         //all cars page
         [HttpGet]
         public IActionResult Index(int? pageNumber)
         {
-            IEnumerable<Car> cars = context.Cars.OrderByDescending(c => c.CreatedOn).ToArray();
+            IEnumerable<Car> cars = carService.ShowAllCars();
             return View(PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //details page
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            Car? car = await context.Cars.Include(c => c.Seller).ThenInclude(au => au.Town).FirstOrDefaultAsync(c => c.Id == id);
+            Car? car = await carService.GetDetailsAsync(id);
             if (car == null)
             {
                 return NotFound();
@@ -58,40 +63,18 @@ namespace WebApplication1.Controllers
         }
         //create Post method
         [HttpPost]
-        public IActionResult Create(CreateCarViewModel carModel, IFormFile? image)
+        public async Task<IActionResult> Create(CreateCarViewModel carModel, IFormFile? image)
         {
             if (!ModelState.IsValid)
             {
                 return View(carModel);
             }
-            int? currentUserId = GetUserId();
-            if (currentUserId == null)// || currentUserId != carModel.SellerId)
+            int currentUserId = GetUserId() ?? 0;
+            bool isCarCreated = await carService.CreateCarAsync(carModel, image, currentUserId);
+            if (!isCarCreated)
             {
-                return Unauthorized();
+                return BadRequest(BadRequestErrorMessage);
             }
-            Car car = new Car()
-            {
-                Brand = carModel.Brand,
-                Model = carModel.Model,
-                Year = carModel.Year,
-                Price = carModel.Price,
-                Mileage = carModel.Mileage,
-                EngineType = carModel.EngineType,
-                TransmissionType = carModel.TransmissionType,
-                HorsePower = carModel.HorsePower,
-                State = carModel.State,
-                Description = carModel.Description,
-                SellerId = (int)currentUserId,
-                CreatedOn = DateTime.Now
-            };
-            if (image != null)
-            {
-                using MemoryStream memoryStream = new MemoryStream();
-                image.CopyTo(memoryStream);
-                car.Image = memoryStream.ToArray();
-            }
-            context.Cars.Add(car);
-            context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
         //search controller
@@ -101,7 +84,7 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction(nameof(Index));
             }
-            IEnumerable<Car> carsFound = context.Cars.Include(c => c.Seller).Where(c => c.Brand.ToLower().Contains(searchText.ToLower())).ToArray();
+            IEnumerable<Car> carsFound = carService.ShowSearchResults(searchText);
             return View(PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //edit Get page
@@ -122,52 +105,14 @@ namespace WebApplication1.Controllers
         }
         //Edit post page
         [HttpPost]
-        public IActionResult Edit(int id, EditCarViewModel carModel, IFormFile? image)
+        public async Task<IActionResult> Edit(int id, EditCarViewModel carModel, IFormFile? image)
         {
-            //validating the car
-            if (id != carModel.Id)
+            bool isCarEdited = await carService.EditCarAsync(carModel, image, GetUserId() ?? 0, carModel.Id);
+            if (!isCarEdited)
             {
-                return BadRequest();
+                return BadRequest(BadRequestErrorMessage);
             }
-            Car? car = context.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == id);
-            //checking if the car exists
-            if (car == null)
-            {
-                return NotFound();
-            }
-            if (car.SellerId != GetUserId())
-            {
-                return Unauthorized();
-            }
-            //checking if the model state is valid
-            if (!ModelState.IsValid)
-            {
-                return View(car);
-            }
-            if (car.Seller == null)
-            {
-                return BadRequest();
-            }
-            //setting the car new properties
-            if (image != null)
-            {
-                using MemoryStream memoryStream = new MemoryStream();
-                image.CopyTo(memoryStream);
-                car.Image = memoryStream.ToArray();
-            }
-            car.Brand = carModel.Brand;
-            car.Model = carModel.Model;
-            car.Year = carModel.Year;
-            car.Price = carModel.Price;
-            car.Mileage = carModel.Mileage;
-            car.EngineType = carModel.EngineType;
-            car.TransmissionType = carModel.TransmissionType;
-            car.HorsePower = carModel.HorsePower;
-            car.State = carModel.State;
-            car.Description = carModel.Description;
-            //saving the changes in the context
-            context.SaveChanges();
-            return RedirectToAction(nameof(Details), new Car() { Id = car.Id });
+            return RedirectToAction(nameof(Details), new Car() { Id = carModel.Id });
         }
         //delete Get page
         [HttpGet]
@@ -183,19 +128,13 @@ namespace WebApplication1.Controllers
         }
         //delete confirmation Post method
         [HttpPost]
-        public IActionResult DeleteConfirmation(int id)
+        public async Task<IActionResult> DeleteConfirmation(int id)
         {
-            Car? carToDelete = context.Cars.FirstOrDefault(c => c.Id == id);
-            if (carToDelete == null)
+            bool isCarDeleted = await carService.DeleteCarAsync(id);
+            if (!isCarDeleted)
             {
-                return NotFound();
+                return BadRequest(BadRequestErrorMessage);
             }
-            if (GetUserId() == null || carToDelete.SellerId != GetUserId())
-            {
-                return Unauthorized();
-            }
-            context.Cars.Remove(carToDelete);
-            context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
         //My cars page reference

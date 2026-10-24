@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
+using WebApplication1.Services;
+using WebApplication1.Services.Core;
+using static WebApplication1.GCommon.IdentityConstants;
 
 namespace WebApplication1
 {
@@ -20,20 +23,15 @@ namespace WebApplication1
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
             builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = false;
-                options.Password.RequireDigit = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
+                options.SignIn.RequireConfirmedAccount = RequireConfirmedAccount;
+                options.Password.RequireDigit = RequireDigit;
+                options.Password.RequireNonAlphanumeric = RequireNonAlphanumeric;
+                options.Password.RequireUppercase = RequireUppercase;
+                options.Password.RequireLowercase = RequireLowercase;
             }).AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
-            //{
-            //    options.Password.RequireDigit = true;
-            //    options.Password.RequireNonAlphanumeric = false;
-            //    options.Password.RequireUppercase = false;
-            //    options.Password.RequireLowercase = false;
-            //});
+            builder.Services.AddScoped<ICarService, CarService>();
+            builder.Services.AddScoped<IFavoriteService, FavoriteService>();
             WebApplication app = builder.Build();
 
             // Configure the HTTP request pipeline.

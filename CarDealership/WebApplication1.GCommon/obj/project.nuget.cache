@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "Vv/K0U9cE80=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.13\\microsoft.entityframeworkcore.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.13\\microsoft.entityframeworkcore.abstractions.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.13\\microsoft.entityframeworkcore.analyzers.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.13\\microsoft.extensions.caching.abstractions.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.13\\microsoft.extensions.caching.memory.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.13\\microsoft.extensions.dependencyinjection.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.13\\microsoft.extensions.dependencyinjection.abstractions.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.logging\\10.0.13\\microsoft.extensions.logging.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.13\\microsoft.extensions.logging.abstractions.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.options\\10.0.13\\microsoft.extensions.options.10.0.13.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.13\\microsoft.extensions.primitives.10.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

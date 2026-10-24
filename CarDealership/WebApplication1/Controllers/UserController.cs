@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Common;
+using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
-using static WebApplication1.Common.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstraints;
 
 namespace WebApplication1.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ApplicationDbContext context;
         public UserController(ApplicationDbContext context)
         {

@@ -1,3 +1,8 @@
 <Solution>
+  <Project Path="WebApplication1.Data.Models/WebApplication1.Data.Models.csproj" Id="e8de26f2-1839-41bc-9f66-8af0f2ea9edd" />
+  <Project Path="WebApplication1.Data/WebApplication1.Data.csproj" Id="9ce2c7b2-c846-4e7e-8a80-9c6bf0397f28" />
+  <Project Path="WebApplication1.GCommon/WebApplication1.GCommon.csproj" Id="0d0e3a83-cbf5-4a9c-8f00-40aa6d535708" />
+  <Project Path="WebApplication1.Services/WebApplication1.Services.csproj" Id="34e612fc-4e46-4348-a73f-ea1d8a62b382" />
+  <Project Path="WebApplication1.ViewModels/WebApplication1.ViewModels.csproj" Id="d95d3ab4-8932-4340-9e4b-94d33dcf74ee" />
   <Project Path="WebApplication1/WebApplication1.csproj" />
 </Solution>
