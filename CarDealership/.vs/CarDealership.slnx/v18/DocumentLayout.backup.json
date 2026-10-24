@@ -3,76 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.services\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|solutionrelative:webapplication1.services\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\car\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\car\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.viewmodels\\createcarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|solutionrelative:webapplication1.viewmodels\\createcarviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261018150357_removeisadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261018150357_removeisadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261013074001_addfavorites.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261013074001_addfavorites.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261008070027_initialmig.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261008070027_initialmig.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261008070027_initialmig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261008070027_initialmig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261018150357_removeisadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261018150357_removeisadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.services\\core\\icarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|solutionrelative:webapplication1.services\\core\\icarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\webapplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\webapplication1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8DE26F2-1839-41BC-9F66-8AF0F2EA9EDD}|WebApplication1.Data.Models\\WebApplication1.Data.Models.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8DE26F2-1839-41BC-9F66-8AF0F2EA9EDD}|WebApplication1.Data.Models\\WebApplication1.Data.Models.csproj|solutionrelative:webapplication1.data.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.data\\migrations\\20261013074001_addfavorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE2C7B2-C846-4E7E-8A80-9C6BF0397F28}|WebApplication1.Data\\WebApplication1.Data.csproj|solutionrelative:webapplication1.data\\migrations\\20261013074001_addfavorites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\controllers\\favoritescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\favoritescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D0E3A83-CBF5-4A9C-8F00-40AA6D535708}|WebApplication1.GCommon\\WebApplication1.GCommon.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.gcommon\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0E3A83-CBF5-4A9C-8F00-40AA6D535708}|WebApplication1.GCommon\\WebApplication1.GCommon.csproj|solutionrelative:webapplication1.gcommon\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\car\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\car\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,245 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateCarViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\CreateCarViewModel.cs",
-              "RelativeDocumentMoniker": "WebApplication1.ViewModels\\CreateCarViewModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\CreateCarViewModel.cs",
-              "RelativeToolTip": "WebApplication1.ViewModels\\CreateCarViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T11:01:54.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20261018150357_RemoveIsAdmin.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.Designer.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.Designer.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.Designer.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T08:12:56.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "20261013074001_AddFavorites.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.Designer.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.Designer.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.Designer.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T08:12:53.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20261008070027_InitialMig.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261008070027_InitialMig.Designer.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261008070027_InitialMig.Designer.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261008070027_InitialMig.Designer.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261008070027_InitialMig.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T08:11:47.615Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "WebApplication1.Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:59:01.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ApplicationDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:52:15.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20261018150357_RemoveIsAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261018150357_RemoveIsAdmin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:52:09.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20261013074001_AddFavorites.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261013074001_AddFavorites.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:52:01.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "20261008070027_InitialMig.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261008070027_InitialMig.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data\\Migrations\\20261008070027_InitialMig.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data\\Migrations\\20261008070027_InitialMig.cs",
-              "RelativeToolTip": "WebApplication1.Data\\Migrations\\20261008070027_InitialMig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:51:51.108Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data.Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Data.Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data.Models\\ApplicationUser.cs",
-              "RelativeToolTip": "WebApplication1.Data.Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:37:40.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "FavoritesController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Controllers\\FavoritesController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\FavoritesController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Controllers\\FavoritesController.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\FavoritesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAD4vxIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:43:46.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CarController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Controllers\\CarController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\CarController.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Controllers\\CarController.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\CarController.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAMwHMAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:12:46.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ICarService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\Core\\ICarService.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Services\\Core\\ICarService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\Core\\ICarService.cs",
-              "RelativeToolTip": "WebApplication1.Services\\Core\\ICarService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T07:12:04.574Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CarService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\CarService.cs",
-              "RelativeDocumentMoniker": "WebApplication1.Services\\CarService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\CarService.cs",
-              "RelativeToolTip": "WebApplication1.Services\\CarService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T13:38:33.079Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "WebApplication1.csproj",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-              "RelativeDocumentMoniker": "WebApplication1\\WebApplication1.csproj",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\WebApplication1.csproj",
-              "RelativeToolTip": "WebApplication1\\WebApplication1.csproj",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-10-23T13:38:06.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "PaginatedList.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\PaginatedList.cs",
-              "RelativeDocumentMoniker": "WebApplication1.GCommon\\PaginatedList.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\PaginatedList.cs",
-              "RelativeToolTip": "WebApplication1.GCommon\\PaginatedList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T13:30:29.424Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Car\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Car\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Car\\Edit.cshtml*",
+              "RelativeToolTip": "WebApplication1\\Views\\Car\\Edit.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-24T11:15:30.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "WebApplication1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T13:22:05.234Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Car\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Car\\Create.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Car\\Create.cshtml*",
+              "RelativeToolTip": "WebApplication1\\Views\\Car\\Create.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-24T11:14:17.261Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "WebApplication1\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "WebApplication1\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-23T13:18:41.334Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }
