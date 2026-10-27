@@ -15,7 +15,9 @@ namespace WebApplication1
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
             
             // Add services to the container.
-            string connectionString = builder.Configuration.GetConnectionString("SqlServerDev") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            //Console.WriteLine($"SQL Server instance: {new Microsoft.Data.SqlClient.SqlConnectionStringBuilder(connectionString).DataSource}");
+            //Environment.Exit(0);
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
