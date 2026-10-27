@@ -5,5 +5,240 @@
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-<p>This page will be done soon.Please be patient!</p>
+<h1 id="-cars4u">🚀 Cars4U</h1>
+<p>
+    <img src="https://img.shields.io/badge/.NET-10.0-purple" alt=".NET Version">
+    <img src="https://img.shields.io/badge/ASP.NET_Core-10.0-blue" alt="ASP.NET Core">
+    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
+<hr>
+<h2 id="-table-of-contents">📋 Table of Contents</h2>
+<ul>
+    <li><a href="#about-the-project">About the Project</a></li>
+    <li><a href="#technologies-used">Technologies Used</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#database-setup">Database Setup</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+<hr>
+<h2 id="-about-the-project">📖 About the Project</h2>
+<p>Cars4U is a web-based application, built as part of the <em>ASP.NET Fundamentals</em> course, using the ASP.NET technology, MVC architecture and Entity Framework technology. Cars4U is a car selling platform, similar to a famous bulgarian car selling platform. In Cars4U users can be registered in the machine local SQL database server.  </p>
+<hr>
+<h2 id="-technologies-used">🛠️ Technologies Used</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Technology</th>
+            <th>Version</th>
+            <th>Purpose</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ASP.NET Core MVC</td>
+            <td>10.0</td>
+            <td>Web framework</td>
+        </tr>
+        <tr>
+            <td>Entity Framework Core</td>
+            <td>10.0</td>
+            <td>ORM / Database access</td>
+        </tr>
+        <tr>
+            <td>Transact SQL</td>
+            <td>22</td>
+            <td>Database</td>
+        </tr>
+        <tr>
+            <td>Bootstrap</td>
+            <td>5.3</td>
+            <td>Frontend styling</td>
+        </tr>
+        <tr>
+            <td>Razor Pages / Views</td>
+            <td>-</td>
+            <td>Server-side HTML rendering</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h2 id="-prerequisites">✅ Prerequisites</h2>
+<p>Make sure you have the following installed before running the project:</p>
+<ul>
+    <li><a href="https://dotnet.microsoft.com/download">.NET SDK 8.0+</a></li>
+    <li><a href="https://visualstudio.microsoft.com/">Visual Studio 2022</a> or <a href="https://code.visualstudio.com/">VS Code</a></li>
+    <li><a href="https://www.microsoft.com/en-us/sql-server">SQL Server</a> or SQLite (if used)</li>
+    <li><a href="https://git-scm.com/">Git</a></li>
+</ul>
+<hr>
+<h2 id="-getting-started">🚀 Getting Started</h2>
+<p>Follow these steps to get the project running locally.</p>
+<h3 id="1-clone-the-repository">1. Clone the repository</h3>
+<pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/ackodavidoff-png/Cars4U.git
+cd Cars4U
+</code></pre>
+<h3 id="2-restore-dependencies">2. Restore dependencies</h3>
+<pre><code class="lang-bash">dotnet <span class="hljs-built_in">restore</span>
+</code></pre>
+<h3 id="3-apply-database-migrations">3. Apply database migrations</h3>
+<pre><code class="lang-bash"><span class="hljs-attribute">dotnet ef database update</span>
+</code></pre>
+<h3 id="4-run-the-application">4. Run the application</h3>
+<pre><code class="lang-bash">dotnet <span class="hljs-keyword">run</span><span class="bash"></span>
+</code></pre>
+<p>The app will be available at <code>https://localhost:5001</code> or <code>http://localhost:5000</code>.</p>
+<hr>
+<h2 id="-project-structure">📁 Project Structure</h2>
+<pre><code>WebApplication1/
+│
+├── Areas/                    <span class="hljs-comment"># Code for Identity</span>
+├── Controllers/              <span class="hljs-comment"># MVC Controllers</span>
+├── Properties/               <span class="hljs-comment"># Json information about the project</span>
+├── SQLQueries/               <span class="hljs-comment"># Helpful SQL queries</span>
+├── Views/                    <span class="hljs-comment"># Razor Views (.cshtml)</span>
+├── wwwroot/                  <span class="hljs-comment"># Static files (CSS, JS, images)</span>
+├── appsettings.json          <span class="hljs-comment"># App configuration</span>
+└── Program.cs                <span class="hljs-comment"># App entry point and middleware setup</span>
+
+WebApplication1.<span class="hljs-built_in">Data</span>
+|
+├── Configuration/
+│   │
+│   ├── Favorites/            <span class="hljs-comment"># Configuration for favorites in DbContext</span>
+│   └── Towns/                <span class="hljs-comment"># Configuration for towns in DbContext</span>
+├── Migrations/               <span class="hljs-comment"># Contains information about the migrations in DbContext</span>
+└── ApplicationDbContext.cs   <span class="hljs-comment"># Application Database context</span>
+
+WebApplication1.<span class="hljs-built_in">Data</span>.Models/
+│
+├── Enums/                    <span class="hljs-comment"># Contains enumerations in the Database</span>
+├── ApplicationUser.cs        <span class="hljs-comment"># Contains properties about the application user</span>
+├── Car.cs                    <span class="hljs-comment"># Contains properties about the car</span>
+├── Favorite.cs               <span class="hljs-comment"># Contains properties about the avorites</span>
+└── Town.cs                   <span class="hljs-comment"># Contains properties about the towns</span>
+
+WebApplication1.GCommon/
+│
+├── ApplicationConstraints.cs <span class="hljs-comment"># Constraints for the application</span>
+├── EntityConstraints.cs      <span class="hljs-comment"># Constraints for the entities in the database</span>
+├── Error messages.cs         <span class="hljs-comment"># Error messages for the application</span>
+├── IdentityConstants.cs      <span class="hljs-comment"># Constants for identity</span>
+└── PaginatedList.cs          <span class="hljs-comment"># An enumerable for paginations</span>
+
+WebApplication1.Services/     <span class="hljs-comment">#Business logic / service layer</span>
+│
+├── Core/                     <span class="hljs-comment"># Interfaces for the services</span>
+├── CarService.cs             <span class="hljs-comment"># Car service</span>
+└── FavoriteService.cs        <span class="hljs-comment"># Favorites service</span>
+
+WebApplication1.ViewModels/   <span class="hljs-comment"># ViewModels</span>
+</code></pre>
+<hr>
+<h2 id="-features">✨ Features</h2>
+<ul>
+    <li>[ ] User registration and login (ASP.NET Identity)</li>
+    <li>[ ] Create car (Login required)</li>
+    <li>[ ] Preview car</li>
+    <li>[ ] Edit car (Login required)</li>
+    <li>[ ] Delete car (Login required)</li>
+    <li>[ ] RESTful API endpoints</li>
+    <li>[ ] Input validation (server-side &amp; client-side)</li>
+    <li>[ ] Responsive UI with Bootstrap</li>
+</ul>
+<hr>
+<h2 id="-usage">💻 Usage</h2>
+<p>
+    Describe how to use the main features of the app after launching it. Add screenshots if possible.
+    How to register<br><img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/register_screenshot.png" alt="Register">
+</p>
+<pre><code><span class="hljs-number">1.</span> Go <span class="hljs-keyword">to</span> Register.
+<span class="hljs-number">2.</span> Type your firstname, <span class="hljs-keyword">last</span> <span class="hljs-built_in">name</span>, username, town, password, <span class="hljs-keyword">then</span> confirm your password.
+<span class="hljs-number">3.</span> Click <span class="hljs-string">"Register"</span>.
+</code></pre><p>How to login<br><img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/screenshot_login.png" alt="Login"></p>
+<pre><code><span class="hljs-number">1</span>. Go to Login.
+<span class="hljs-number">2</span>. Type your username <span class="hljs-keyword">and</span> password.
+<span class="hljs-number">3</span>. Click <span class="hljs-string">"Login"</span>.
+</code></pre><p>How to add a car<br><img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/cars_screenshot.png" alt="Cars"><br><img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/car_created_screenshot.png" alt="AddCars"><br><img src="docs/images/car_created_screenshot.png" alt="CarAdded">  </p>
+<pre><code><span class="hljs-number">1</span>. Make sure you are logged in.
+<span class="hljs-number">2</span>. Go to Cars or My cars.
+<span class="hljs-number">3</span>. Click <span class="hljs-string">"Add car"</span>.
+<span class="hljs-number">4</span>. Type your information about the car.
+<span class="hljs-number">5</span>. Click <span class="hljs-string">"Add"</span>.
+</code></pre><p>
+<img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/my_cars_screenshot.png" alt="MyCars">
+<img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/edit_car_screenshot.png" alt="EditCar"><br><img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/car_edited_screenshot.png" alt="CarEdited">
+</p>
+<p>How to edit a car</p>
+<ol>
+    <li>Make sure you are logged in.</li>
+    <li>Go to My cars.</li>
+    <li>Click &quot;Edit&quot; on the car you want to edit.</li>
+    <li>Edit some of the fields.</li>
+    <li>
+        Click &quot;Save changes&quot;.
+        ```
+    </li>
+</ol>
+<p>
+    <img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/delete_car_screenshot.png" alt="DeleteCar">
+    <img src="https://raw.githubusercontent.com/ackodavidoff-png/Cars4U/refs/heads/main/docs/images/car_delete_confirmation.png" alt="CarDeleteConfirmation">
+</p>
+<p>How to delete a car</p>
+<pre><code><span class="hljs-number">1.</span> Make sure you are logged <span class="hljs-keyword">in</span>.
+<span class="hljs-number">2.</span> Go <span class="hljs-keyword">to</span> My cars.
+<span class="hljs-number">3.</span> Click <span class="hljs-string">"Delete"</span> <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> car you want <span class="hljs-keyword">to</span> delete.
+<span class="hljs-number">4.</span> On <span class="hljs-keyword">the</span> confirmation page click <span class="hljs-keyword">on</span> <span class="hljs-string">"Yes"</span>
+</code></pre>
+<h2 id="-database-setup">🗄️ Database Setup</h2>
+<p>The project uses <strong>Entity Framework Core</strong> with a Code-First approach.</p>
+<p>Connection string is configured in <code>appsettings.json</code>:</p>
+<pre><code class="lang-json"><span class="hljs-string">"ConnectionStrings"</span>: {
+  <span class="hljs-string">"DefaultConnection"</span>: <span class="hljs-string">"Server=(localdb)\\MSSQLLocalDB;Database=Cars4U;Trusted_Connection=True;Encrypt=false"</span>
+}
+</code></pre>
+<p>To create and seed the database:</p>
+<pre><code class="lang-bash">dotnet ef migrations <span class="hljs-keyword">add</span><span class="bash"> InitialCreate
+</span>dotnet ef database update
+</code></pre>
+<hr>
+<h2 id="-configuration">⚙️ Configuration</h2>
+<p>Key settings in <code>appsettings.json</code>:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-attr">"ConnectionStrings"</span>: {
+    <span class="hljs-attr">"DefaultConnection"</span>: <span class="hljs-string">"Server=(localdb)\\MSSQLLocalDB;Database=Cars4U;Trusted_Connection=True;Encrypt=false"</span>
+  },
+  <span class="hljs-attr">"Logging"</span>: {
+    <span class="hljs-attr">"LogLevel"</span>: {
+      <span class="hljs-attr">"Default"</span>: <span class="hljs-string">"Information"</span>,
+      <span class="hljs-attr">"Microsoft.AspNetCore"</span>: <span class="hljs-string">"Warning"</span>
+    }
+  },
+  <span class="hljs-attr">"AllowedHosts"</span>: <span class="hljs-string">"*"</span>
+}
+</code></pre>
+<p><strong>Important:</strong> If the default connection string does not work, go to the <code>appsettings.json</code> and change the server name to your local database SQL server.</p>
+<h2 id="-contributing">🤝 Contributing</h2>
+<p>Contributions are welcome! To contribute:</p>
+<ol>
+    <li>Fork the repository</li>
+    <li>Create a new branch: <code>git checkout -b feature/your-feature-name</code></li>
+    <li>Commit your changes: <code>git commit -m &quot;Add some feature&quot;</code></li>
+    <li>Push to the branch: <code>git push origin feature/your-feature-name</code></li>
+    <li>Open a Pull Request</li>
+</ol>
+<hr>
+<h2 id="-license">📄 License</h2>
+<p>This project is licensed under the <strong>MIT License</strong>.</p>
+<hr>
+<h2 id="-contact">📬 Contact</h2>
+<p><strong>Your Name</strong> – <a href="(https://github.com/ackodavidoff-png/">ackodavidoff-png</a></p>
+<p>Project Link: <a href="https://github.com/ackodavidoff-png/Cars4U">https://github.com/ackodavidoff-png/Cars4U</a></p>
+<hr>
+<p><em>Built as part of the <strong>ASP.NET Fundamentals</strong> course.</em></p>
