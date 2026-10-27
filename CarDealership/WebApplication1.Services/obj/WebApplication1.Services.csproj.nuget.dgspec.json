@@ -30,7 +30,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj": {
@@ -53,13 +52,8 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
-            "Microsoft.AspNet.Identity.EntityFramework": {
-              "target": "Package",
-              "version": "[2.2.4, )"
-            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[10.0.13, )"
@@ -389,7 +383,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data.Models\\WebApplication1.Data.Models.csproj": {
@@ -415,7 +408,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
@@ -423,6 +415,14 @@
               "version": "[10.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "System.Security.Cryptography.Pkcs": {
               "target": "Package",
               "version": "[10.0.13, )"
             }
@@ -747,7 +747,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -766,7 +765,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
@@ -1094,7 +1092,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data.Models\\WebApplication1.Data.Models.csproj": {
@@ -1126,7 +1123,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Cors": {
@@ -1134,6 +1130,10 @@
               "version": "[2.3.13, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "System.Security.Cryptography.Xml": {
               "target": "Package",
               "version": "[10.0.13, )"
             }
@@ -1458,7 +1458,6 @@
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
               "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Data.Models\\WebApplication1.Data.Models.csproj": {
@@ -1484,12 +1483,15 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.TagHelpers": {
               "target": "Package",
               "version": "[2.3.13, )"
+            },
+            "System.Security.Cryptography.Xml": {
+              "target": "Package",
+              "version": "[10.0.13, )"
             }
           },
           "imports": [

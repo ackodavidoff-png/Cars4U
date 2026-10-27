@@ -9,11 +9,7 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.pdb
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Azure.Core.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Azure.Identity.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\EntityFramework.SqlServer.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\EntityFramework.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Humanizer.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.UI.dll
@@ -43,6 +39,7 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
