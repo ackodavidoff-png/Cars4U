@@ -187,6 +187,7 @@ How to add a car
 ![CarEdited](docs/images/car_edited_screenshot.png)
 
 How to edit a car
+```
 1. Make sure you are logged in.
 2. Go to My cars.
 3. Click "Edit" on the car you want to edit.
