@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Azure.Core/1.50.0": {
@@ -389,20 +389,20 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.Abstractions/2.3.0": {
+      "Microsoft.AspNetCore.Mvc.Abstractions/2.3.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Routing.Abstractions": "2.3.0",
-          "Microsoft.Net.Http.Headers": "2.3.0"
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.3.12",
+          "Microsoft.Net.Http.Headers": "2.3.12"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll": {
-            "related": ".xml"
+            "related": ".pdb;.xml"
           }
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll": {
-            "related": ".xml"
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -1880,7 +1880,7 @@
           }
         }
       },
-      "Microsoft.Net.Http.Headers/2.3.11": {
+      "Microsoft.Net.Http.Headers/2.3.12": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Primitives": "8.0.0"
@@ -2263,6 +2263,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.13",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.3.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "10.0.13",
           "System.Security.Cryptography.Pkcs": "10.0.13",
@@ -2656,16 +2657,17 @@
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Abstractions/2.3.0": {
-      "sha512": "xrF8Fh10hEAS6Qp967IgPqNw2iz3/3Q8FQo+Jowbytaj1JJN86p0z851hSH4XP/sFnI5gFu7mGdkplirAJMWPw==",
+    "Microsoft.AspNetCore.Mvc.Abstractions/2.3.13": {
+      "sha512": "jfboYyG4SBc0wOBYOrM1d4I3+oEegkvbB0mOPcX9KDi8mBoJeaXR6GoBF5VKDppsRcq1M0yM7OLjOWE5nwFnmg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.abstractions/2.3.0",
+      "path": "microsoft.aspnetcore.mvc.abstractions/2.3.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.pdb",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.xml",
-        "microsoft.aspnetcore.mvc.abstractions.2.3.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.abstractions.2.3.13.nupkg.sha512",
         "microsoft.aspnetcore.mvc.abstractions.nuspec"
       ]
     },
@@ -5139,16 +5141,16 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.Net.Http.Headers/2.3.11": {
-      "sha512": "rs0fiTFlQEYqylnwdleaNeBYzfG1nfoDMZdLTsALU5hT0cmPrDgmR+lsmPsI0jqJAVEqqd/EgJr7i6MM4H4ExA==",
+    "Microsoft.Net.Http.Headers/2.3.12": {
+      "sha512": "lh9agX9zEuQy69kxwPTT2+OmK2Y49OA8r7qdwZNWNKGug45V050HLH3xhPF23y4sr5Nl6JKXo0AofCwxkNd6zw==",
       "type": "package",
-      "path": "microsoft.net.http.headers/2.3.11",
+      "path": "microsoft.net.http.headers/2.3.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll",
         "lib/netstandard2.0/Microsoft.Net.Http.Headers.xml",
-        "microsoft.net.http.headers.2.3.11.nupkg.sha512",
+        "microsoft.net.http.headers.2.3.12.nupkg.sha512",
         "microsoft.net.http.headers.nuspec"
       ]
     },
@@ -5856,7 +5858,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net10.0": {
@@ -5892,7 +5894,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

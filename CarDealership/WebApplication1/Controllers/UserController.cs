@@ -5,24 +5,27 @@ using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using static WebApplication1.GCommon.ApplicationConstraints;
+using WebApplication1.Services.Core;
 
 namespace WebApplication1.Controllers
 {
     public class UserController : Controller
     {
         private readonly ApplicationDbContext context;
-        public UserController(ApplicationDbContext context)
+        private readonly IUserService userService;
+        public UserController(ApplicationDbContext context, IUserService userService)
         {
             this.context = context;
+            this.userService = userService;
         }
         public IActionResult Index(int? pageNumber)
         {
-            IEnumerable<ApplicationUser> users = this.context.Users.Include(au => au.Cars).Include(au => au.Town).OrderBy(au => au.FirstName).ThenBy(au => au.LastName).ToArray();
+            IEnumerable<ApplicationUser> users = userService.GetAllUsers();
             return View(PaginatedList<ApplicationUser>.Create(users.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            ApplicationUser? user = context.Users.Include(au => au.Cars).Include(au => au.Town).FirstOrDefault(au => au.Id == id);
+            ApplicationUser? user = await userService.GetUserDetailsAsync(id);
             if (user == null)
             {
                 return NotFound();

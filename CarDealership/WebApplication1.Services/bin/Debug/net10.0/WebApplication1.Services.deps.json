@@ -225,7 +225,7 @@
           "Microsoft.AspNetCore.WebUtilities": "2.3.0",
           "Microsoft.Extensions.ObjectPool": "8.0.11",
           "Microsoft.Extensions.Options": "10.0.13",
-          "Microsoft.Net.Http.Headers": "2.3.11"
+          "Microsoft.Net.Http.Headers": "2.3.12"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll": {
@@ -249,7 +249,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.3.11",
           "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
-          "Microsoft.Net.Http.Headers": "2.3.11"
+          "Microsoft.Net.Http.Headers": "2.3.12"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {
@@ -292,15 +292,15 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.Abstractions/2.3.0": {
+      "Microsoft.AspNetCore.Mvc.Abstractions/2.3.13": {
         "dependencies": {
           "Microsoft.AspNetCore.Routing.Abstractions": "2.3.12",
-          "Microsoft.Net.Http.Headers": "2.3.11"
+          "Microsoft.Net.Http.Headers": "2.3.12"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll": {
-            "assemblyVersion": "2.3.0.0",
-            "fileVersion": "2.3.0.25014"
+            "assemblyVersion": "2.3.13.0",
+            "fileVersion": "2.3.13.26246"
           }
         }
       },
@@ -311,7 +311,7 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.3.0",
           "Microsoft.AspNetCore.Http": "2.3.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.3.12",
-          "Microsoft.AspNetCore.Mvc.Abstractions": "2.3.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.3.13",
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "2.3.0",
           "Microsoft.AspNetCore.Routing": "2.3.0",
           "Microsoft.Extensions.DependencyInjection": "10.0.13",
@@ -485,7 +485,7 @@
       },
       "Microsoft.AspNetCore.WebUtilities/2.3.0": {
         "dependencies": {
-          "Microsoft.Net.Http.Headers": "2.3.11"
+          "Microsoft.Net.Http.Headers": "2.3.12"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {
@@ -1399,14 +1399,14 @@
           }
         }
       },
-      "Microsoft.Net.Http.Headers/2.3.11": {
+      "Microsoft.Net.Http.Headers/2.3.12": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "10.0.13"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {
-            "assemblyVersion": "2.3.11.0",
-            "fileVersion": "2.3.11.26141"
+            "assemblyVersion": "2.3.12.0",
+            "fileVersion": "2.3.12.26216"
           }
         }
       },
@@ -1628,6 +1628,7 @@
       "WebApplication1.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.13",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.3.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "10.0.13",
           "System.Security.Cryptography.Pkcs": "10.0.13",
@@ -1848,12 +1849,12 @@
       "path": "microsoft.aspnetcore.jsonpatch/2.3.0",
       "hashPath": "microsoft.aspnetcore.jsonpatch.2.3.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Mvc.Abstractions/2.3.0": {
+    "Microsoft.AspNetCore.Mvc.Abstractions/2.3.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xrF8Fh10hEAS6Qp967IgPqNw2iz3/3Q8FQo+Jowbytaj1JJN86p0z851hSH4XP/sFnI5gFu7mGdkplirAJMWPw==",
-      "path": "microsoft.aspnetcore.mvc.abstractions/2.3.0",
-      "hashPath": "microsoft.aspnetcore.mvc.abstractions.2.3.0.nupkg.sha512"
+      "sha512": "sha512-jfboYyG4SBc0wOBYOrM1d4I3+oEegkvbB0mOPcX9KDi8mBoJeaXR6GoBF5VKDppsRcq1M0yM7OLjOWE5nwFnmg==",
+      "path": "microsoft.aspnetcore.mvc.abstractions/2.3.13",
+      "hashPath": "microsoft.aspnetcore.mvc.abstractions.2.3.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Core/2.3.0": {
       "type": "package",
@@ -2310,12 +2311,12 @@
       "path": "microsoft.identitymodel.tokens/7.7.1",
       "hashPath": "microsoft.identitymodel.tokens.7.7.1.nupkg.sha512"
     },
-    "Microsoft.Net.Http.Headers/2.3.11": {
+    "Microsoft.Net.Http.Headers/2.3.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rs0fiTFlQEYqylnwdleaNeBYzfG1nfoDMZdLTsALU5hT0cmPrDgmR+lsmPsI0jqJAVEqqd/EgJr7i6MM4H4ExA==",
-      "path": "microsoft.net.http.headers/2.3.11",
-      "hashPath": "microsoft.net.http.headers.2.3.11.nupkg.sha512"
+      "sha512": "sha512-lh9agX9zEuQy69kxwPTT2+OmK2Y49OA8r7qdwZNWNKGug45V050HLH3xhPF23y4sr5Nl6JKXo0AofCwxkNd6zw==",
+      "path": "microsoft.net.http.headers/2.3.12",
+      "hashPath": "microsoft.net.http.headers.2.3.12.nupkg.sha512"
     },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",

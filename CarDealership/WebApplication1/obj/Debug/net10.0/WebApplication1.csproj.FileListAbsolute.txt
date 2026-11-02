@@ -39,7 +39,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -85,7 +84,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.Memory.Data.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.Reflection.MetadataLoadContext.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\af\Humanizer.resources.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\ar\Humanizer.resources.dll
@@ -307,7 +305,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Data.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Data.Models.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.GCommon.dll

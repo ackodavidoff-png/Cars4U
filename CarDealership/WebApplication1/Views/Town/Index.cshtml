@@ -1,0 +1,27 @@
+﻿@model TownIndexViewModel
+@using WebApplication1.Data.Models
+@{
+    ViewBag.Title = "Towns";
+}
+<h1>Towns</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Cars count</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Town town in Model.Towns)
+        {
+            <tr>
+                <td>@town.Name</td>
+                <td>@town.Users.Sum(u => u.Cars.Count)</td>
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Town" asp-action="Details" asp-route-id="@town.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

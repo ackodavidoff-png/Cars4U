@@ -34,6 +34,8 @@ namespace WebApplication1
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IFavoriteService, FavoriteService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ITownService, TownService>();
             WebApplication app = builder.Build();
 
             // Configure the HTTP request pipeline.

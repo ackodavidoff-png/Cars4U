@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nTB+phNqr+o=",
+  "dgSpecHash": "0HZ4KWH0V/M=",
   "success": true,
   "projectFilePath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\WebApplication1.Services.csproj",
   "expectedPackageFiles": [
@@ -27,7 +27,7 @@
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.10\\microsoft.aspnetcore.http.features.2.3.10.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.13.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\2.3.0\\microsoft.aspnetcore.jsonpatch.2.3.0.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.3.0\\microsoft.aspnetcore.mvc.abstractions.2.3.0.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.3.13\\microsoft.aspnetcore.mvc.abstractions.2.3.13.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.3.0\\microsoft.aspnetcore.mvc.core.2.3.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.mvc.dataannotations\\2.3.0\\microsoft.aspnetcore.mvc.dataannotations.2.3.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.aspnetcore.mvc.formatters.json\\2.3.0\\microsoft.aspnetcore.mvc.formatters.json.2.3.0.nupkg.sha512",
@@ -95,7 +95,7 @@
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.7.1\\microsoft.identitymodel.protocols.7.7.1.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.7.1\\microsoft.identitymodel.protocols.openidconnect.7.7.1.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.7.1\\microsoft.identitymodel.tokens.7.7.1.nupkg.sha512",
-    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.net.http.headers\\2.3.11\\microsoft.net.http.headers.2.3.11.nupkg.sha512",
+    "C:\\Users\\Александър\\.nuget\\packages\\microsoft.net.http.headers\\2.3.12\\microsoft.net.http.headers.2.3.12.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\microsoft.visualstudio.solutionpersistence\\1.0.52\\microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
     "C:\\Users\\Александър\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",

@@ -1,0 +1,14 @@
+﻿@using WebApplication1.GCommon
+@model TownDetailsViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+<h1>@Model.Name</h1>
+@if (Model.Cars.Any())
+{
+    <partial name="_CarTable" model="Model.Cars" />
+}
+else
+{
+    <p>There are no cars in @(Model.Name).</p>
+}

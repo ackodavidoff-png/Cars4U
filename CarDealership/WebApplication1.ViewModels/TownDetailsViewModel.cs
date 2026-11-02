@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using WebApplication1.Data.Models;
+using WebApplication1.GCommon;
+
+namespace WebApplication1.ViewModels
+{
+    public class TownDetailsViewModel
+    {
+        public string Name { get; set; }
+        //public ICollection<ApplicationUser> Users { get; set; }
+        public PaginatedList<Car> Cars { get; set; }
+    }
+}
