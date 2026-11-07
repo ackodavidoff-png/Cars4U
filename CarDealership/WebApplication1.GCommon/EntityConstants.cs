@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.GCommon
 {
-    public class EntityConstraints
+    public class EntityConstants
     {
         //car
         public const int CarBrandNameMaxLength = 50;

@@ -1,5 +1,6 @@
-﻿@using WebApplication1.Data.Models
-@model Car
+﻿@using WebApplication1.ViewModels.CarViewModels
+@using static WebApplication1.GCommon.ApplicationConstants
+@model DeleteCarViewModel
 @{
     ViewBag.Title = "Car delete confirmation";
 }
@@ -15,7 +16,7 @@ else
 }
 <h2>@Model.Brand @Model.Model</h2>
 <p>Year: @Model.Year</p>
-<p>@(Model.Price.ToString("#,##0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " "))€</p>
+<p>@(Model.Price.ToString(PriceFormat, System.Globalization.CultureInfo.InvariantCulture).Replace(",", " "))€</p>
 <a class="btn btn-primary" asp-area="" asp-controller="Car" asp-action="Details" asp-route-id="@Model.Id">More details</a>
 <br />
 <form asp-action="DeleteConfirmation" method="post">

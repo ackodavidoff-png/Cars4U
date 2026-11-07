@@ -1,4 +1,5 @@
-﻿@using WebApplication1.Data.Models
+﻿@using static WebApplication1.GCommon.ApplicationConstants
+@using WebApplication1.ViewModels.CarViewModels
 @model CarDetailsViewModel
 @{
     ViewBag.Title = $"{Model.Car.Brand} {Model.Car.Model}";
@@ -6,7 +7,7 @@
 <h1>@(Model.Car.Brand) @(Model.Car.Model)</h1>
 @*<img src="@Model.ImageUrl" alt="No photo" style="width: 1280px; height: 800px; object-fit: cover;" />*@
 <img src="@Url.Action("Image", "Car", new { id = Model.Car.Id })" alt="No photo" style="width: 1280px; height: 800px; object-fit: cover;" />
-<h1>@(Model.Car.Price.ToString("#,##0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</h1>
+<h1>@(Model.Car.Price.ToString(PriceFormat, System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</h1>
 <h2>Seller: @Model.Car.Seller.FirstName @Model.Car.Seller.LastName (@Model.Car.Seller.UserName)</h2>
 <h3>Contact information</h3>
 <p>Town: @Model.Car.Seller.Town.Name</p>
@@ -15,13 +16,13 @@
 <p><a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@Model.Car.SellerId">Seller's profile</a></p>
 <h3>Specifications</h3>
 <p>Year produced: @(Model.Car.Year)</p>
-<p>Mileage: @Model.Car.Mileage.ToString("#,##", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ") km</p>
+<p>Mileage: @Model.Car.Mileage.ToString(MileageFormat, System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ") km</p>
 <p>Engine type: @Model.Car.EngineType</p>
 <p>Transmission type: @Model.Car.TransmissionType</p>
 <p>HP: @Model.Car.HorsePower</p>
 <p>State: @Model.Car.State</p>
-<p>Description: @(Model.Car.Description == null ? "There is no description" : Model.Car.Description)</p>
-<p>Added at @Model.Car.CreatedOn.ToString("dd.MM.yyyy")</p>
+<p>Description: @(Model.Car.Description ?? "There is no description")</p>
+<p>Added at @Model.Car.CreatedOn.ToString(DateFormat)</p>
 @if (Model.IsFavorite)
 {
     <form asp-controller="Favorites" asp-action="Remove" method="post">

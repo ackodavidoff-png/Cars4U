@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Data.Models;
 
-namespace WebApplication1.ViewModels
+namespace WebApplication1.ViewModels.CarViewModels
 {
     public class CarDetailsViewModel
     {
@@ -8,3 +8,4 @@ namespace WebApplication1.ViewModels
         public bool IsFavorite { get; set; }
     }
 }
+

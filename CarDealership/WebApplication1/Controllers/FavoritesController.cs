@@ -8,12 +8,12 @@ using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using WebApplication1.Services.Core;
-using static WebApplication1.GCommon.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstants;
 using static WebApplication1.GCommon.ErrorMessages;
 
 namespace WebApplication1.Controllers
 {
-    public class FavoritesController : Controller
+    public class FavoritesController : BaseController
     {
         private readonly ApplicationDbContext context;
         private readonly IFavoriteService favoriteService;
@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(int carId)
         {
-            bool isCarAddedToFavorites = await favoriteService.AddToFavoritesAsync(GetUserId() ?? 0, carId);
+            bool isCarAddedToFavorites = await favoriteService.AddToFavoritesAsync(GetUserId().Value, carId);
             if (!isCarAddedToFavorites)
             {
                 return BadRequest(BadRequestErrorMessage);
@@ -45,22 +45,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<IActionResult> Remove(int carId)
         {
-            bool isCarRemovedFromFavorites = await favoriteService.RemoveFromFavoritesAsync(GetUserId() ?? 0, carId);
+            bool isCarRemovedFromFavorites = await favoriteService.RemoveFromFavoritesAsync(GetUserId().Value, carId);
             if (!isCarRemovedFromFavorites)
             {
                 return BadRequest(BadRequestErrorMessage);
             }
             return RedirectToAction("Index", "Favorites");
-        }
-        private int? GetUserId()
-        {
-            int? userId = null;
-            Claim? idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (idClaim != null)
-            {
-                userId = int.Parse(idClaim.Value);
-            }
-            return userId;
         }
     }
 }

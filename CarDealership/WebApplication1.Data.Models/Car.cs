@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static WebApplication1.GCommon.EntityConstraints;
+using static WebApplication1.GCommon.EntityConstants;
 using WebApplication1.Data.Models.Enums;
 
 namespace WebApplication1.Data.Models

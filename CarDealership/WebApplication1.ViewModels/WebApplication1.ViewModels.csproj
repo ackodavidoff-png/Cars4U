@@ -16,4 +16,8 @@
     <ProjectReference Include="..\WebApplication1.GCommon\WebApplication1.GCommon.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FavoritesViewModels\" />
+  </ItemGroup>
+
 </Project>

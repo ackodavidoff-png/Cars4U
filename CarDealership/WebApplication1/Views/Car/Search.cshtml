@@ -1,19 +1,20 @@
 ﻿@using WebApplication1.Data.Models
 @using WebApplication1.GCommon
-@model PaginatedList<Car>
+@using WebApplication1.ViewModels.CarViewModels
+@model SearchCarsViewModel
 @{
-    ViewBag.Title = "Search results";
+    ViewBag.Title = $"Search results for {Model.SearchText}";
 }
-<h1>Search restults</h1>
+<h1>Search restults for @Model.SearchText</h1>
 <form asp-controller="Car" asp-action="Search" method="get">
     <input type="text" name="searchText" value="@Context.Request.Query["search"]" placeholder="Search cars (e.g. Ford)" />
     <button type="submit">Search</button>
 </form>
-@if (Model.Any())
+@if (Model.Cars.Any())
 {
-    <partial name="_CarTable" model="Model" />
+    <partial name="_CarTable" model="Model.Cars" />
 }
 else
 {
-    <p>No cars found</p>
+    <p>No results for '@Model.SearchText' found</p>
 }

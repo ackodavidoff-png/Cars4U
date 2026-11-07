@@ -5,22 +5,26 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
+using WebApplication1.Data.Repository;
+using WebApplication1.Data.Repository.Contracts;
 using WebApplication1.Services.Core;
-using WebApplication1.ViewModels;
+using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Services
 {
     public class CarService : ICarService
     {
-        private readonly ApplicationDbContext dbContext;
-        public CarService(ApplicationDbContext dbContext)
+        private readonly ICarRepository carRepository;
+        private readonly IFavoriteRepository favoriteRepository;
+        public CarService(ICarRepository carRepository, IFavoriteRepository favoriteRepository)
         {
-            this.dbContext = dbContext;
+            this.carRepository = carRepository;
+            this.favoriteRepository = favoriteRepository;
         }
 
         public async Task<bool> CarExistsAsync(int id)
         {
-            Car? car = await dbContext.Cars.FirstOrDefaultAsync(c => c.Id == id);
+            Car? car = await carRepository.GetAll().FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
                 return false;
@@ -55,22 +59,22 @@ namespace WebApplication1.Services
                 await image.CopyToAsync(memoryStream);
                 car.Image = memoryStream.ToArray();
             }
-            dbContext.Cars.Add(car);
-            await dbContext.SaveChangesAsync();
+            carRepository.Add(car);
+            await carRepository.SaveChangesAsync();
             return true;
         }
 
         public async Task<bool> DeleteCarAsync(int id)
         {
-            Car? car = await dbContext.Cars.FirstOrDefaultAsync(c => c.Id == id);
+            Car? car = await carRepository.GetAllAsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
                 return false;
             }
-            IEnumerable<Favorite> favorites = await dbContext.Favorites.Where(f => f.CarId == id).ToListAsync();
-            dbContext.Favorites.RemoveRange(favorites);
-            dbContext.Cars.Remove(car);
-            await dbContext.SaveChangesAsync();
+            IEnumerable<Favorite> favorites = await favoriteRepository.GetAll().Where(f => f.CarId == id).ToListAsync();
+            favoriteRepository.RemoveRange(favorites);
+            carRepository.Remove(car);
+            await carRepository.SaveChangesAsync();
             return true;
         }
 
@@ -81,7 +85,7 @@ namespace WebApplication1.Services
             {
                 return false;
             }
-            Car? car = dbContext.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == carId);
+            Car? car = carRepository.GetAll().Include(c => c.Seller).FirstOrDefault(c => c.Id == carId);
             //checking if the car exists
             if (car == null)
             {
@@ -117,13 +121,13 @@ namespace WebApplication1.Services
             car.State = carModel.State;
             car.Description = carModel.Description;
             //saving the changes in the context
-            await dbContext.SaveChangesAsync();
+            await carRepository.SaveChangesAsync();
             return true;
         }
 
         public async Task<Car?> GetDetailsAsync(int id)
         {
-            Car? car = await dbContext.Cars.AsNoTracking().Include(c => c.Seller).ThenInclude(s => s.Town).FirstOrDefaultAsync(c => c.Id == id);
+            Car? car = await carRepository.GetAllAsNoTracking().Include(c => c.Seller).ThenInclude(s => s.Town).FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
                 return null;
@@ -133,13 +137,13 @@ namespace WebApplication1.Services
 
         public IEnumerable<Car> ShowAllCars()
         {
-            IEnumerable<Car> cars = dbContext.Cars.OrderByDescending(c => c.CreatedOn).ToArray();
+            IEnumerable<Car> cars = carRepository.GetAll().OrderByDescending(c => c.CreatedOn).ToArray();
             return cars;
         }
 
         public IEnumerable<Car> ShowSearchResults(string searchText)
         {
-            IEnumerable<Car> carsFound = dbContext.Cars.Include(c => c.Seller).Where(c => c.Brand.ToLower().Contains(searchText.ToLower())).ToArray();
+            IEnumerable<Car> carsFound = carRepository.GetAll().Include(c => c.Seller).Where(c => c.Brand.ToLower().Contains(searchText.ToLower())).ToArray();
             return carsFound;
         }
     }

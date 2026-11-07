@@ -27,8 +27,22 @@ namespace WebApplication1.Controllers
             return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int? statusCode)
         {
+            ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            switch (statusCode)
+            {
+                case StatusCodes.Status400BadRequest:
+                    return View("BadRequest");
+                case StatusCodes.Status401Unauthorized:
+                    return View("Unauthorized");
+                case StatusCodes.Status403Forbidden:
+                    return View("Forbidden");
+                case StatusCodes.Status404NotFound:
+                    return View("NotFound");
+                case StatusCodes.Status500InternalServerError:
+                    return View("InternalServerError");
+            }
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

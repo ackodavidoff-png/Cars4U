@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
-using static WebApplication1.GCommon.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstants;
 using WebApplication1.Services.Core;
 
 namespace WebApplication1.Controllers

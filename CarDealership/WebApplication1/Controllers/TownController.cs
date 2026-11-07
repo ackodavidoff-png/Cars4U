@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.ViewModels;
 using WebApplication1.Services.Core;
 using WebApplication1.Data.Models;
 using System.Collections;
 using WebApplication1.GCommon;
-using static WebApplication1.GCommon.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstants;
+using WebApplication1.ViewModels.TownViewModels;
 
 namespace WebApplication1.Controllers
 {

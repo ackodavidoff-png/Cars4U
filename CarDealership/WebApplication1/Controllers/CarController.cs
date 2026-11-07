@@ -9,14 +9,14 @@ using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using WebApplication1.Services;
 using WebApplication1.Services.Core;
-using WebApplication1.ViewModels;
 using static System.Net.Mime.MediaTypeNames;
-using static WebApplication1.GCommon.ApplicationConstraints;
+using static WebApplication1.GCommon.ApplicationConstants;
 using static WebApplication1.GCommon.ErrorMessages;
+using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Controllers
 {
-    public class CarController : Controller
+    public class CarController : BaseController
     {
         private readonly ApplicationDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
@@ -31,9 +31,14 @@ namespace WebApplication1.Controllers
         }
         //all cars page
         [HttpGet]
-        public IActionResult Index(int? pageNumber)
+        public IActionResult Index(int? pageNumber, string sortOrder)
         {
             IEnumerable<Car> cars = carService.ShowAllCars();
+            //CarIndexViewModel viewModel = new CarIndexViewModel()
+            //{
+            //    Cars = PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage),
+            //    SortOrder = sortOrder
+            //};
             return View(PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //details page
@@ -45,7 +50,7 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            int userId = int.Parse(userManager.GetUserId(User));
+            int userId = int.Parse(userManager.GetUserId(User) ?? "0");
             bool isFavorite = await context.Favorites.AnyAsync(f => f.CarId == id && f.UserId == userId);
             CarDetailsViewModel viewModel = new CarDetailsViewModel()
             {
@@ -69,7 +74,7 @@ namespace WebApplication1.Controllers
             {
                 return View(carModel);
             }
-            int currentUserId = GetUserId() ?? 0;
+            int currentUserId = GetUserId().Value;
             bool isCarCreated = await carService.CreateCarAsync(carModel, image, currentUserId);
             if (!isCarCreated)
             {
@@ -85,7 +90,12 @@ namespace WebApplication1.Controllers
                 return RedirectToAction(nameof(Index));
             }
             IEnumerable<Car> carsFound = carService.ShowSearchResults(searchText);
-            return View(PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
+            SearchCarsViewModel viewModel = new SearchCarsViewModel()
+            {
+                SearchText = searchText,
+                Cars = PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage)
+            };
+            return View(viewModel);
         }
         //edit Get page
         [Authorize]
@@ -107,7 +117,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, EditCarViewModel carModel, IFormFile? image)
         {
-            bool isCarEdited = await carService.EditCarAsync(carModel, image, GetUserId() ?? 0, carModel.Id);
+            bool isCarEdited = await carService.EditCarAsync(carModel, image, GetUserId().Value, carModel.Id);
             if (!isCarEdited)
             {
                 return BadRequest(BadRequestErrorMessage);
@@ -124,7 +134,16 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            return View(carToDelete);
+            DeleteCarViewModel viewModel = new DeleteCarViewModel()
+            {
+                Id = carToDelete.Id,
+                Image = carToDelete.Image,
+                Brand = carToDelete.Brand,
+                Model = carToDelete.Model,
+                Year = carToDelete.Year,
+                Price = carToDelete.Price
+            };
+            return View(viewModel);
         }
         //delete confirmation Post method
         [HttpPost]
@@ -155,16 +174,6 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
             return File(car.Image, "image/jpeg");
-        }
-        private int? GetUserId()
-        {
-            int? userId = null;
-            Claim? idClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (idClaim != null)
-            {
-                userId = int.Parse(idClaim.Value);
-            }
-            return userId;
         }
     }
 }

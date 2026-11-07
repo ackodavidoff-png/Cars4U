@@ -131,12 +131,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/BadRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEJhZFJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/Forbidden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZvcmJpZGRlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/InternalServerError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEludGVybmFsU2VydmVyRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/Unauthorized.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVuYXV0aG9yaXplZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/_CarTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/_ErrorPagePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FcnJvclBhZ2VQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Shared/_LoginPartial.cshtml]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WebApplication1.Data.Models;
 
-namespace WebApplication1.ViewModels
+namespace WebApplication1.ViewModels.TownViewModels
 {
     public class TownIndexViewModel
     {

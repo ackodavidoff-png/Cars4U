@@ -471,3 +471,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\WebApplication1.pdb
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\ref\WebApplication1.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\EntityFramework.SqlServer.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\EntityFramework.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\System.Web.Providers.dll

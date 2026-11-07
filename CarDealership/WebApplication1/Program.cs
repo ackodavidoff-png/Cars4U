@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
+using WebApplication1.Data.Repository;
+using WebApplication1.Data.Repository.Contracts;
 using WebApplication1.Services;
 using WebApplication1.Services.Core;
 using static WebApplication1.GCommon.IdentityConstants;
@@ -23,6 +25,7 @@ namespace WebApplication1
                 options.UseSqlServer(connectionString);
             });
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
             builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = RequireConfirmedAccount;
@@ -31,11 +34,21 @@ namespace WebApplication1
                 options.Password.RequireUppercase = RequireUppercase;
                 options.Password.RequireLowercase = RequireLowercase;
             }).AddEntityFrameworkStores<ApplicationDbContext>();
+
             builder.Services.AddControllersWithViews();
+
+            //services
             builder.Services.AddScoped<ICarService, CarService>();
             builder.Services.AddScoped<IFavoriteService, FavoriteService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITownService, TownService>();
+
+            //repositories
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            builder.Services.AddScoped<ITownRepository, TownRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
             WebApplication app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -52,6 +65,8 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseStatusCodePagesWithReExecute("/Home/Error", "?statusCode={0}");
 
             app.UseAuthorization();
 

@@ -1,0 +1,23 @@
+﻿@{
+    string code = ViewData["ErrorCode"]?.ToString() ?? "";
+    string title = ViewData["ErrorTitle"]?.ToString() ?? "";
+    string message = ViewData["ErrorMessage"]?.ToString() ?? "";
+    string icon = ViewData["ErrorIcon"]?.ToString() ?? "bi-exclamation-triangle";
+    string requestId = ViewData["RequestId"]?.ToString() ?? "";
+}
+<div class="error-page error-@code">
+    <div class="error-content">
+        <i class="bi @icon error-icon"></i>
+        <div class="error-code">@code</div>
+        <h1 class="error-title">@title</h1>
+        <p class="error-message lead">@message</p>
+        <div class="d-flex gap-2 justify-content-center flex-wrap">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Go to Home page</a>
+            <a asp-controller="Car" asp-action="Index" class="btn btn-secondary">Browse cars</a>
+        </div>
+        @if (!string.IsNullOrEmpty(requestId))
+        {
+            <small class="error-request-id">Request ID: <code>@requestId</code></small>
+        }
+    </div>
+</div>

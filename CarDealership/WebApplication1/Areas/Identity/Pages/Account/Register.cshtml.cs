@@ -22,7 +22,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
-using static WebApplication1.GCommon.EntityConstraints;
+using static WebApplication1.GCommon.EntityConstants;
 using static WebApplication1.GCommon.ErrorMessages;
 
 namespace WebApplication1.Areas.Identity.Pages.Account

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using WebApplication1.Data.Models;
-using WebApplication1.ViewModels;
+using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Services.Core
 {
