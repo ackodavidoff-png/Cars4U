@@ -8,6 +8,6 @@ namespace WebApplication1.Services.Core
     public interface IUserService
     {
         IEnumerable<ApplicationUser> GetAllUsers();
-        Task<ApplicationUser?> GetUserDetailsAsync(int id);
+        Task<ApplicationUser?> GetUserDetailsAsync(string id);
     }
 }

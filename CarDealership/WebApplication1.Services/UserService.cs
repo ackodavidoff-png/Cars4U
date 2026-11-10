@@ -22,7 +22,7 @@ namespace WebApplication1.Services
             return users;
         }
 
-        public async Task<ApplicationUser?> GetUserDetailsAsync(int id)
+        public async Task<ApplicationUser?> GetUserDetailsAsync(string id)
         {
             ApplicationUser? user = await userRepository.GetAllAsNoTracking().Include(u => u.Cars).Include(u => u.Town).FirstOrDefaultAsync(u => u.Id == id);
             return user;

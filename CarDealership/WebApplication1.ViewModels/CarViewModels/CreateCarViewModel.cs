@@ -36,9 +36,9 @@ namespace WebApplication1.ViewModels.CarViewModels
         [StringLength(CarDescriptionMaxLength, MinimumLength = CarDescriptionMinLength)]
         public string? Description { get; set; }
         public DateTime CreatedOn { get; set; }
-        [Required]
+        //[Required]
         //[ForeignKey(nameof(Seller))]
-        public int SellerId { get; set; }
+        //public string SellerId { get; set; } = null!;   
         public IEnumerable<SelectListItem> Users { get; set; } = new List<SelectListItem>();
     }
 }

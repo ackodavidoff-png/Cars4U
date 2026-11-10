@@ -6,7 +6,7 @@ using static WebApplication1.GCommon.EntityConstants;
 
 namespace WebApplication1.Data.Models
 {
-    public class ApplicationUser : IdentityUser<int>
+    public class ApplicationUser : IdentityUser//<int>
     {
         [Required]
         [MaxLength(UserFirstNameMaxLength)]

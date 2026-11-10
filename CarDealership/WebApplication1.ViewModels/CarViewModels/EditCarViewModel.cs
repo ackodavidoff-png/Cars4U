@@ -6,7 +6,7 @@ namespace WebApplication1.ViewModels.CarViewModels
 {
     public class EditCarViewModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(CarBrandNameMaxLength, MinimumLength = CarBrandNameMinLength)]
         public string Brand { get; set; } = null!;
@@ -36,6 +36,6 @@ namespace WebApplication1.ViewModels.CarViewModels
         public string? Description { get; set; }
         [Required]
         //[ForeignKey(nameof(Seller))]
-        public int SellerId { get; set; }
+        public string SellerId { get; set; }
     }
 }

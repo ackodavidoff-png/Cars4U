@@ -5,10 +5,10 @@ namespace WebApplication1.Data.Models
     public class Favorite
     {
         [ForeignKey(nameof(ApplicationUser))]
-        public int UserId { get; set; }
+        public string UserId { get; set; } = null!;
         public virtual ApplicationUser ApplicationUser { get; set; } = null!;
         [ForeignKey(nameof(Car))]
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
         public virtual Car Car { get; set; } = null!;
     }
 }

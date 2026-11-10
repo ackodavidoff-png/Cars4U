@@ -43,14 +43,14 @@ namespace WebApplication1.Controllers
         }
         //details page
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(Guid id)
         {
             Car? car = await carService.GetDetailsAsync(id);
             if (car == null)
             {
                 return NotFound();
             }
-            int userId = int.Parse(userManager.GetUserId(User) ?? "0");
+            string userId = userManager.GetUserId(User)!;
             bool isFavorite = await context.Favorites.AnyAsync(f => f.CarId == id && f.UserId == userId);
             CarDetailsViewModel viewModel = new CarDetailsViewModel()
             {
@@ -74,7 +74,11 @@ namespace WebApplication1.Controllers
             {
                 return View(carModel);
             }
-            int currentUserId = GetUserId().Value;
+            string currentUserId = GetUserId();
+            if (currentUserId == null)
+            {
+                return Unauthorized();
+            }
             bool isCarCreated = await carService.CreateCarAsync(carModel, image, currentUserId);
             if (!isCarCreated)
             {
@@ -100,7 +104,7 @@ namespace WebApplication1.Controllers
         //edit Get page
         [Authorize]
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Guid id)
         {
             Car? car = context.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == id);
             if (car == null)
@@ -114,10 +118,16 @@ namespace WebApplication1.Controllers
             return View(car);
         }
         //Edit post page
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditCarViewModel carModel, IFormFile? image)
+        public async Task<IActionResult> Edit(Guid id, EditCarViewModel carModel, IFormFile? image)
         {
-            bool isCarEdited = await carService.EditCarAsync(carModel, image, GetUserId().Value, carModel.Id);
+            string userId = GetUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+            bool isCarEdited = await carService.EditCarAsync(carModel, image, userId, carModel.Id);
             if (!isCarEdited)
             {
                 return BadRequest(BadRequestErrorMessage);
@@ -127,7 +137,7 @@ namespace WebApplication1.Controllers
         //delete Get page
         [HttpGet]
         [Authorize]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             Car? carToDelete = context.Cars.FirstOrDefault(c => c.Id == id);
             if (carToDelete == null)
@@ -147,7 +157,7 @@ namespace WebApplication1.Controllers
         }
         //delete confirmation Post method
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmation(int id)
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
         {
             bool isCarDeleted = await carService.DeleteCarAsync(id);
             if (!isCarDeleted)
@@ -166,7 +176,7 @@ namespace WebApplication1.Controllers
             return View(paginatedCarList);
         }
         //car image
-        public IActionResult Image(int id)
+        public IActionResult Image(Guid id)
         {
             Car? car = context.Cars.FirstOrDefault(c => c.Id == id);
             if (car == null || car.Image == null)

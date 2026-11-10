@@ -22,7 +22,7 @@ namespace WebApplication1.Services
             this.favoriteRepository = favoriteRepository;
         }
 
-        public async Task<bool> CarExistsAsync(int id)
+        public async Task<bool> CarExistsAsync(Guid id)
         {
             Car? car = await carRepository.GetAll().FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
@@ -32,9 +32,9 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<bool> CreateCarAsync(CreateCarViewModel carModel, IFormFile? image, int userId)
+        public async Task<bool> CreateCarAsync(CreateCarViewModel carModel, IFormFile? image, string userId)
         {
-            if (userId <= 0)
+            if (userId == null)
             {
                 return false;
             }
@@ -64,7 +64,7 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<bool> DeleteCarAsync(int id)
+        public async Task<bool> DeleteCarAsync(Guid id)
         {
             Car? car = await carRepository.GetAllAsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
@@ -78,7 +78,7 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<bool> EditCarAsync(EditCarViewModel carModel, IFormFile? image, int userId, int carId)
+        public async Task<bool> EditCarAsync(EditCarViewModel carModel, IFormFile? image, string userId, Guid carId)
         {
             //validating the car
             if (carId != carModel.Id)
@@ -96,10 +96,6 @@ namespace WebApplication1.Services
                 return false;
             }
             if (car.Seller == null)
-            {
-                return false;
-            }
-            if (userId <= 0)
             {
                 return false;
             }
@@ -125,7 +121,7 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<Car?> GetDetailsAsync(int id)
+        public async Task<Car?> GetDetailsAsync(Guid id)
         {
             Car? car = await carRepository.GetAllAsNoTracking().Include(c => c.Seller).ThenInclude(s => s.Town).FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)

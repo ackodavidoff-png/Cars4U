@@ -7,11 +7,11 @@ namespace WebApplication1.Controllers
     //[Authorize]
     public abstract class BaseController : Controller
     {
-        protected int? GetUserId()
+        protected string? GetUserId()
         {
-            return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
-        protected string GetUserEmail()
+        protected string? GetUserEmail()
         {
             return User.FindFirstValue(ClaimTypes.Email);
         }

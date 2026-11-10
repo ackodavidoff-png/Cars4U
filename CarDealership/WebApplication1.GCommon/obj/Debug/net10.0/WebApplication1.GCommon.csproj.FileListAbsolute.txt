@@ -11,4 +11,3 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\refint\WebApplication1.GCommon.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebApplication1.GCommon.pdb
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\ref\WebApplication1.GCommon.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.GCommon\obj\Debug\net10.0\WebAppli.7C620B63.Up2Date

@@ -7,11 +7,11 @@ namespace WebApplication1.Services.Core
     public interface ICarService
     {
         IEnumerable<Car> ShowAllCars();
-        Task<bool> CarExistsAsync(int id);
-        Task<Car?> GetDetailsAsync(int id);
-        Task<bool> DeleteCarAsync(int id);
-        Task<bool> CreateCarAsync(CreateCarViewModel carModel, IFormFile? image, int userId);
-        Task<bool> EditCarAsync(EditCarViewModel carModel, IFormFile? image, int userId, int carId);
+        Task<bool> CarExistsAsync(Guid id);
+        Task<Car?> GetDetailsAsync(Guid id);
+        Task<bool> DeleteCarAsync(Guid id);
+        Task<bool> CreateCarAsync(CreateCarViewModel carModel, IFormFile? image, string userId);
+        Task<bool> EditCarAsync(EditCarViewModel carModel, IFormFile? image, string userId, Guid carId);
         IEnumerable<Car> ShowSearchResults(string searchText);
     }
 }

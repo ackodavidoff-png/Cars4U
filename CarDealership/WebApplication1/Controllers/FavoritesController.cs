@@ -32,9 +32,9 @@ namespace WebApplication1.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Add(int carId)
+        public async Task<IActionResult> Add(Guid carId)
         {
-            bool isCarAddedToFavorites = await favoriteService.AddToFavoritesAsync(GetUserId().Value, carId);
+            bool isCarAddedToFavorites = await favoriteService.AddToFavoritesAsync(GetUserId(), carId);
             if (!isCarAddedToFavorites)
             {
                 return BadRequest(BadRequestErrorMessage);
@@ -43,9 +43,9 @@ namespace WebApplication1.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Remove(int carId)
+        public async Task<IActionResult> Remove(Guid carId)
         {
-            bool isCarRemovedFromFavorites = await favoriteService.RemoveFromFavoritesAsync(GetUserId().Value, carId);
+            bool isCarRemovedFromFavorites = await favoriteService.RemoveFromFavoritesAsync(GetUserId(), carId);
             if (!isCarRemovedFromFavorites)
             {
                 return BadRequest(BadRequestErrorMessage);

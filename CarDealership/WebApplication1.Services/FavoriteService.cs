@@ -13,16 +13,16 @@ namespace WebApplication1.Services
         {
             this.favoriteRepository = favoriteRepository;
         }
-        public async Task<bool> AddToFavoritesAsync(int userId, int carId)
+        public async Task<bool> AddToFavoritesAsync(string userId, Guid carId)
         {
-            if (carId <= 0)
-            {
-                return false;
-            }
-            if (userId <= 0)
-            {
-                return false;
-            }
+            //if (carId <= 0)
+            //{
+            //    return false;
+            //}
+            //if (userId <= 0)
+            //{
+            //    return false;
+            //}
             bool doesItemExists = await favoriteRepository.GetAllAsNoTracking().AnyAsync(f => f.CarId == carId && f.UserId == userId);
             try
             {
@@ -44,16 +44,16 @@ namespace WebApplication1.Services
             return true;
         }
 
-        public async Task<bool> RemoveFromFavoritesAsync(int userId, int carId)
+        public async Task<bool> RemoveFromFavoritesAsync(string userId, Guid carId)
         {
-            if (carId <= 0)
-            {
-                return false;
-            }
-            if (userId <= 0)
-            {
-                return false;
-            }
+            //if (carId <= 0)
+            //{
+            //    return false;
+            //}
+            //if (userId <= 0)
+            //{
+            //    return false;
+            //}
             try
             {
                 Favorite? favorite = await favoriteRepository.GetAllAsNoTracking().Include(f => f.Car).ThenInclude(f => f.Seller).FirstOrDefaultAsync(f => f.UserId == userId && f.CarId == carId);

@@ -8,7 +8,7 @@ namespace WebApplication1.Data.Models
     public class Car
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(CarBrandNameMaxLength, MinimumLength = CarBrandNameMinLength)]
         public string Brand { get; set; } = null!;
@@ -39,7 +39,7 @@ namespace WebApplication1.Data.Models
         public DateTime CreatedOn { get; set; }
         [Required]
         [ForeignKey(nameof(Seller))]
-        public int SellerId { get; set; }
+        public string SellerId { get; set; } = null!;
         public virtual ApplicationUser Seller { get; set; } = null!;
     }
 }

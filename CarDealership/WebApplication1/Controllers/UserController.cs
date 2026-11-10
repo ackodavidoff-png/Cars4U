@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
             IEnumerable<ApplicationUser> users = userService.GetAllUsers();
             return View(PaginatedList<ApplicationUser>.Create(users.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(string id)
         {
             ApplicationUser? user = await userService.GetUserDetailsAsync(id);
             if (user == null)
