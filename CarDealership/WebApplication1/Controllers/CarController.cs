@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using WebApplication1.GCommon;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
-using WebApplication1.Services;
 using WebApplication1.Services.Core;
-using static System.Net.Mime.MediaTypeNames;
 using static WebApplication1.GCommon.ApplicationConstants;
 using static WebApplication1.GCommon.ErrorMessages;
 using WebApplication1.ViewModels.CarViewModels;
@@ -20,13 +16,11 @@ namespace WebApplication1.Controllers
     {
         private readonly ApplicationDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ICarService carService;
-        public CarController(ApplicationDbContext applicationDbContext, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ICarService carService)
+        public CarController(ApplicationDbContext applicationDbContext, UserManager<ApplicationUser> userManager, ICarService carService)
         {
             this.context = applicationDbContext;
             this.userManager = userManager;
-            this.signInManager = signInManager;
             this.carService = carService;
         }
         //all cars page
@@ -67,6 +61,7 @@ namespace WebApplication1.Controllers
             return View();
         }
         //create Post method
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CreateCarViewModel carModel, IFormFile? image)
         {
@@ -106,22 +101,43 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Edit(Guid id)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             Car? car = context.Cars.Include(c => c.Seller).FirstOrDefault(c => c.Id == id);
             if (car == null)
             {
                 return NotFound();
             }
+            EditCarViewModel viewModel = new EditCarViewModel()
+            {
+                Brand = car.Brand,
+                Model = car.Model,
+                Year = car.Year,
+                Price = car.Price,
+                Mileage = car.Mileage,
+                EngineType = car.EngineType,
+                TransmissionType = car.TransmissionType,
+                HorsePower = car.HorsePower,
+                State = car.State,
+                Description = car.Description
+            };
             if (car.SellerId != GetUserId())
             {
                 return Unauthorized();
             }
-            return View(car);
+            return View(viewModel);
         }
         //Edit post page
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> Edit(Guid id, EditCarViewModel carModel, IFormFile? image)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(carModel);
+            }
             string userId = GetUserId();
             if (userId == null)
             {
@@ -135,14 +151,22 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Details), new Car() { Id = carModel.Id });
         }
         //delete Get page
-        [HttpGet]
         [Authorize]
+        [HttpGet]
         public IActionResult Delete(Guid id)
         {
             Car? carToDelete = context.Cars.FirstOrDefault(c => c.Id == id);
             if (carToDelete == null)
             {
                 return NotFound();
+            }
+            if (GetUserId() == null)
+            {
+                return Unauthorized();
+            }
+            if (carToDelete.SellerId != GetUserId())
+            {
+                return Unauthorized();
             }
             DeleteCarViewModel viewModel = new DeleteCarViewModel()
             {
@@ -156,6 +180,7 @@ namespace WebApplication1.Controllers
             return View(viewModel);
         }
         //delete confirmation Post method
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmation(Guid id)
         {

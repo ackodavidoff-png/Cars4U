@@ -34,8 +34,8 @@ namespace WebApplication1.ViewModels.CarViewModels
         public State State { get; set; }
         [StringLength(CarDescriptionMaxLength, MinimumLength = CarDescriptionMinLength)]
         public string? Description { get; set; }
-        [Required]
+        //[Required]
         //[ForeignKey(nameof(Seller))]
-        public string SellerId { get; set; }
+        //public string SellerId { get; set; }
     }
 }

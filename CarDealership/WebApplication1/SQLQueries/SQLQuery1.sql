@@ -12,7 +12,6 @@ SELECT
 	[AspNetUsers].[UserName],
 	[AspNetUsers].[PhoneNumber],
 	[AspNetUsers].[Email],
-	[AspNetUsers].[IsAdmin],
 	[Towns].[Name] AS [Town]
 FROM [AspNetUsers]
 JOIN [Towns]
