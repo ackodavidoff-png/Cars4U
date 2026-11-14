@@ -22,7 +22,7 @@ namespace WebApplication1.GCommon
             public const string Title = "401 Unauthorized";
             public const string ErrorCode = "401";
             public const string ErrorTitle = "Unauthorized";
-            public const string ErrorMessage = "You are NOT authorized to access this page";
+            public const string ErrorMessage = "You are NOT authorized to access this page or perform this action.";
             public const string ErrorIcon = "bi-shield-lock";
         }
 

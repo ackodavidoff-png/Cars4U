@@ -5,7 +5,7 @@
 @{
     ViewBag.Title = $"Search results for {Model.SearchText}";
 }
-<h1>Search restults for @Model.SearchText</h1>
+<h1>Search restults for @Model.SearchText 🔍</h1>
 <form asp-controller="Car" asp-action="Search" method="get">
     <input type="text" name="searchText" value="@Context.Request.Query["search"]" placeholder="Search cars (e.g. Ford)" />
     <button type="submit">Search</button>

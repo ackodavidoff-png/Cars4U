@@ -56,7 +56,9 @@
     </div>
     <div class="mb-3">
         <label asp-for="State" class="form-label"></label>
-        <select asp-for="State" asp-items="Html.GetEnumSelectList<State>()" class="form-select"></select>
+        <select asp-for="State" asp-items="Html.GetEnumSelectList<State>()" class="form-select">
+            <option value="">-- Select car state (New or Used) --</option>
+        </select>
         <span asp-validation-for="State" class="text-danger"></span>
     </div>
     <div class="mb-3">
