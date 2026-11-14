@@ -20,3 +20,5 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Services\obj\Debug\net10.0\refint\WebApplication1.Services.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Services\obj\Debug\net10.0\WebApplication1.Services.pdb
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Services\obj\Debug\net10.0\ref\WebApplication1.Services.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Services\bin\Debug\net10.0\WebApplication1.Services.Data.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Services\bin\Debug\net10.0\WebApplication1.Services.Data.pdb

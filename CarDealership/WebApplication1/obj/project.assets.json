@@ -2810,6 +2810,7 @@
           "WebApplication1.Data": "1.0.0",
           "WebApplication1.Data.Models": "1.0.0",
           "WebApplication1.GCommon": "1.0.0",
+          "WebApplication1.Services.Data": "1.0.0",
           "WebApplication1.ViewModels": "1.0.0"
         },
         "compile": {
@@ -2817,6 +2818,19 @@
         },
         "runtime": {
           "bin/placeholder/WebApplication1.Services.dll": {}
+        }
+      },
+      "WebApplication1.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "WebApplication1.Data.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WebApplication1.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebApplication1.Services.Data.dll": {}
         }
       },
       "WebApplication1.ViewModels/1.0.0": {
@@ -7039,6 +7053,11 @@
       "type": "project",
       "path": "../WebApplication1.Services/WebApplication1.Services.csproj",
       "msbuildProject": "../WebApplication1.Services/WebApplication1.Services.csproj"
+    },
+    "WebApplication1.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../WebApplication1.Services.Data/WebApplication1.Services.Data.csproj",
+      "msbuildProject": "../WebApplication1.Services.Data/WebApplication1.Services.Data.csproj"
     },
     "WebApplication1.ViewModels/1.0.0": {
       "type": "project",

@@ -1,6 +1,8 @@
 ﻿@using WebApplication1.GCommon
 @using WebApplication1.Data.Models
-@model PaginatedList<Car>
+@using static WebApplication1.GCommon.ApplicationConstants
+@using WebApplication1.ViewModels.CarViewModels
+@model PaginatedList<CarTableViewModel>
 @{
 }
 <table class="table table-striped">
@@ -14,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Car car in Model)
+        @foreach (CarTableViewModel car in Model)
         {
             <tr>
                 <td>
@@ -29,7 +31,7 @@
                 </td>
                 <th>@car.Brand</th>
                 <th>@car.Model</th>
-                <th>@(car.Price.ToString("#,##0.00", System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</th>
+                <th>@(car.Price.ToString(PriceFormat, System.Globalization.CultureInfo.InvariantCulture).Replace(",", " ")) €</th>
                 <th>
                     <a class="btn btn-primary" asp-area="" asp-controller="Car" asp-action="Details" asp-route-id="@car.Id">Details</a>
                 </th>

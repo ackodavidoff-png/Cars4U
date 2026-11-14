@@ -9,6 +9,8 @@ using WebApplication1.Services.Core;
 using static WebApplication1.GCommon.ApplicationConstants;
 using static WebApplication1.GCommon.ErrorMessages;
 using WebApplication1.ViewModels.CarViewModels;
+using WebApplication1.Data.Repository;
+using WebApplication1.Services.Data.Car.Response;
 
 namespace WebApplication1.Controllers
 {
@@ -27,19 +29,26 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Index(int? pageNumber, string sortOrder)
         {
-            IEnumerable<Car> cars = carService.ShowAllCars();
-            //CarIndexViewModel viewModel = new CarIndexViewModel()
-            //{
-            //    Cars = PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage),
-            //    SortOrder = sortOrder
-            //};
-            return View(PaginatedList<Car>.Create(cars.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
+            IEnumerable<GetAllCarsResponseModel> allCarsResponseData = carService.ShowAllCars();
+            IEnumerable<CarTableViewModel> allCarsViewModel = allCarsResponseData.Select(c => new CarTableViewModel()
+            {
+                Id = c.Id,
+                Image = c.Image,
+                Brand = c.Brand,
+                Model = c.Model,
+                Price = c.Price
+            });
+            return View(PaginatedList<CarTableViewModel>.Create(allCarsViewModel.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         //details page
         [HttpGet]
-        public async Task<IActionResult> Details(Guid id)
+        public async Task<IActionResult> Details(Guid? id)
         {
-            Car? car = await carService.GetDetailsAsync(id);
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            Car? car = await carService.GetDetailsAsync(id.Value);
             if (car == null)
             {
                 return NotFound();

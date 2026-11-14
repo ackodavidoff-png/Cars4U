@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using WebApplication1.Data.Models;
+using WebApplication1.Services.Data.Car.Response;
 using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Services.Core
 {
     public interface ICarService
     {
-        IEnumerable<Car> ShowAllCars();
+        IEnumerable<GetAllCarsResponseModel> ShowAllCars();
         Task<bool> CarExistsAsync(Guid id);
         Task<Car?> GetDetailsAsync(Guid id);
         Task<bool> DeleteCarAsync(Guid id);

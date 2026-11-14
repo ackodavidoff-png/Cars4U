@@ -6,6 +6,7 @@ using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using static WebApplication1.GCommon.ApplicationConstants;
 using WebApplication1.Services.Core;
+using WebApplication1.ViewModels.UserViewModels;
 
 namespace WebApplication1.Controllers
 {
@@ -21,7 +22,15 @@ namespace WebApplication1.Controllers
         public IActionResult Index(int? pageNumber)
         {
             IEnumerable<ApplicationUser> users = userService.GetAllUsers();
-            return View(PaginatedList<ApplicationUser>.Create(users.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
+            IEnumerable<UserIndexPageViewModel> viewModel = users.Select(u => new UserIndexPageViewModel()
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                UserName = u.UserName,
+                CarsCount = u.Cars.Count
+            });
+            return View(PaginatedList<UserIndexPageViewModel>.Create(viewModel.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage));
         }
         public async Task<IActionResult> Details(string id)
         {
@@ -30,7 +39,18 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            return View(user);
+            UserDetailsViewModel viewModel = new UserDetailsViewModel()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Username = user.UserName,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email,
+                TownName = user.Town.Name,
+                Cars = user.Cars
+            };
+            return View(viewModel);
         }
     }
 }

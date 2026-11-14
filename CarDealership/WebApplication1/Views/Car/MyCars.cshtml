@@ -48,19 +48,19 @@
     </table>
     string prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     string nextDisabled = !Model.HasNextPage ? "disabled" : "";
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
+    <a asp-action="MyCars" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
     @for (int i = 1; i <= Model.TotalPages; i++)
     {
         if (i == Model.PageIndex)
         {
-            <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
+            <a asp-action="MyCars" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
         }
         else
         {
-            <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
+            <a asp-action="MyCars" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
         }
     }
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>
+    <a asp-action="MyCars" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>
 }
 else
 {

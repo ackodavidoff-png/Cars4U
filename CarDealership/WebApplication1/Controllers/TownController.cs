@@ -7,6 +7,7 @@ using System.Collections;
 using WebApplication1.GCommon;
 using static WebApplication1.GCommon.ApplicationConstants;
 using WebApplication1.ViewModels.TownViewModels;
+using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Controllers
 {
@@ -32,7 +33,15 @@ namespace WebApplication1.Controllers
         {
             Town? town = await townService.GetTownDetailsAsync(id);
             IEnumerable<Car> cars = townService.GetAllCarsFromTown(id);
-            PaginatedList<Car> carsPaginated = await PaginatedList<Car>.CreateAsync(cars.AsQueryable().AsNoTracking(), pageIndex ?? 1, MaxEntitiesPerPage);
+            IEnumerable<CarTableViewModel> allCarsViewModel = cars.Select(c => new CarTableViewModel()
+            {
+                Id = c.Id,
+                Brand = c.Brand,
+                Model = c.Model,
+                Price = c.Price,
+                Image = c.Image,
+            });
+            PaginatedList<CarTableViewModel> carsPaginated = PaginatedList<CarTableViewModel>.Create(allCarsViewModel.AsQueryable().AsNoTracking(), pageIndex ?? 1, MaxEntitiesPerPage);
             if (town == null)
             {
                 return NotFound();

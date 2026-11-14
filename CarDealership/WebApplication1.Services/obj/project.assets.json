@@ -673,18 +673,18 @@
           }
         }
       },
-      "Microsoft.AspNetCore.WebUtilities/2.3.0": {
+      "Microsoft.AspNetCore.WebUtilities/10.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Net.Http.Headers": "2.3.0"
+          "Microsoft.Net.Http.Headers": "10.0.15"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {
+          "lib/net10.0/Microsoft.AspNetCore.WebUtilities.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {
+          "lib/net10.0/Microsoft.AspNetCore.WebUtilities.dll": {
             "related": ".xml"
           }
         }
@@ -1700,7 +1700,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Primitives/10.0.13": {
+      "Microsoft.Extensions.Primitives/10.0.15": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
@@ -1915,18 +1915,18 @@
           }
         }
       },
-      "Microsoft.Net.Http.Headers/2.3.12": {
+      "Microsoft.Net.Http.Headers/10.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Primitives": "10.0.15"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {
+          "lib/net10.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {
+          "lib/net10.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         }
@@ -2341,11 +2341,25 @@
           "bin/placeholder/WebApplication1.GCommon.dll": {}
         }
       },
+      "WebApplication1.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "WebApplication1.Data.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WebApplication1.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebApplication1.Services.Data.dll": {}
+        }
+      },
       "WebApplication1.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.3.13",
+          "Microsoft.AspNetCore.WebUtilities": "10.0.15",
           "System.Security.Cryptography.Xml": "10.0.13",
           "WebApplication1.Data.Models": "1.0.0",
           "WebApplication1.GCommon": "1.0.0"
@@ -2920,16 +2934,18 @@
         "microsoft.aspnetcore.routing.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.WebUtilities/2.3.0": {
-      "sha512": "trbXdWzoAEUVd0PE2yTopkz4kjZaAIA7xUWekd5uBw+7xE8Do/YOVTeb9d9koPTlbtZT539aESJjSLSqD8eYrQ==",
+    "Microsoft.AspNetCore.WebUtilities/10.0.15": {
+      "sha512": "lDIvpCk/2sQqf7WRF0C2gW1oOnLsCMey4c11LkUVHJNnqhm3gGlKRdAXPhAKDNbrzK3e5izfWvRwzWtKkG2GCw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.webutilities/2.3.0",
+      "path": "microsoft.aspnetcore.webutilities/10.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.xml",
-        "microsoft.aspnetcore.webutilities.2.3.0.nupkg.sha512",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.WebUtilities.dll",
+        "lib/net10.0/Microsoft.AspNetCore.WebUtilities.xml",
+        "microsoft.aspnetcore.webutilities.10.0.15.nupkg.sha512",
         "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
@@ -4954,10 +4970,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/10.0.13": {
-      "sha512": "ZjTwxzhiw2TMEzIbUDkMF0dfDB2I4NQgIfKD0ELu9/5Mk+SRGdKZcD0/lvBrRCAPo6KN2r0BW86MRancoyJkoA==",
+    "Microsoft.Extensions.Primitives/10.0.15": {
+      "sha512": "NjzLiZ1/bYx8VwLqHxNnCfDTQQbCY7P1dwT7JM5FiANiaSfI6UKHi0/sla+jyRbOIbPAMJkhWQ/9pH3tMf+IrQ==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/10.0.13",
+      "path": "microsoft.extensions.primitives/10.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4978,7 +4994,7 @@
         "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.10.0.13.nupkg.sha512",
+        "microsoft.extensions.primitives.10.0.15.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -5221,16 +5237,18 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.Net.Http.Headers/2.3.12": {
-      "sha512": "lh9agX9zEuQy69kxwPTT2+OmK2Y49OA8r7qdwZNWNKGug45V050HLH3xhPF23y4sr5Nl6JKXo0AofCwxkNd6zw==",
+    "Microsoft.Net.Http.Headers/10.0.15": {
+      "sha512": "g3xR6vyq+3mmiZxsET77UAWC3fZo49Zan5/cqmN2XoryMOWIC4AwINwYowJao/3cx5D/L6lQSWXbHQmprvW/wg==",
       "type": "package",
-      "path": "microsoft.net.http.headers/2.3.12",
+      "path": "microsoft.net.http.headers/10.0.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll",
-        "lib/netstandard2.0/Microsoft.Net.Http.Headers.xml",
-        "microsoft.net.http.headers.2.3.12.nupkg.sha512",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.Net.Http.Headers.dll",
+        "lib/net10.0/Microsoft.Net.Http.Headers.xml",
+        "microsoft.net.http.headers.10.0.15.nupkg.sha512",
         "microsoft.net.http.headers.nuspec"
       ]
     },
@@ -5863,6 +5881,11 @@
       "path": "../WebApplication1.GCommon/WebApplication1.GCommon.csproj",
       "msbuildProject": "../WebApplication1.GCommon/WebApplication1.GCommon.csproj"
     },
+    "WebApplication1.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../WebApplication1.Services.Data/WebApplication1.Services.Data.csproj",
+      "msbuildProject": "../WebApplication1.Services.Data/WebApplication1.Services.Data.csproj"
+    },
     "WebApplication1.ViewModels/1.0.0": {
       "type": "project",
       "path": "../WebApplication1.ViewModels/WebApplication1.ViewModels.csproj",
@@ -5873,10 +5896,12 @@
     "net10.0": [
       "Microsoft.AspNetCore.Cors >= 2.3.13",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.13",
+      "Microsoft.AspNetCore.WebUtilities >= 10.0.15",
       "System.Security.Cryptography.Xml >= 10.0.13",
       "WebApplication1.Data >= 1.0.0",
       "WebApplication1.Data.Models >= 1.0.0",
       "WebApplication1.GCommon >= 1.0.0",
+      "WebApplication1.Services.Data >= 1.0.0",
       "WebApplication1.ViewModels >= 1.0.0"
     ]
   },
@@ -5922,6 +5947,9 @@
             "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj": {
               "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj"
             },
+            "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services.Data\\WebApplication1.Services.Data.csproj": {
+              "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services.Data\\WebApplication1.Services.Data.csproj"
+            },
             "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj": {
               "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj"
             }
@@ -5952,6 +5980,10 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[10.0.13, )"
+          },
+          "Microsoft.AspNetCore.WebUtilities": {
+            "target": "Package",
+            "version": "[10.0.15, )"
           },
           "System.Security.Cryptography.Xml": {
             "target": "Package",

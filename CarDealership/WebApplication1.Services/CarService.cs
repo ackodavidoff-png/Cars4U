@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
-using WebApplication1.Data;
 using WebApplication1.Data.Models;
-using WebApplication1.Data.Repository;
 using WebApplication1.Data.Repository.Contracts;
 using WebApplication1.Services.Core;
+using WebApplication1.Services.Data.Car.Response;
 using WebApplication1.ViewModels.CarViewModels;
 
 namespace WebApplication1.Services
@@ -131,9 +127,24 @@ namespace WebApplication1.Services
             return car;
         }
 
-        public IEnumerable<Car> ShowAllCars()
+        public IEnumerable<GetAllCarsResponseModel> ShowAllCars()
         {
-            IEnumerable<Car> cars = carRepository.GetAll().OrderByDescending(c => c.CreatedOn).ToArray();
+            IEnumerable<GetAllCarsResponseModel> cars = carRepository.GetAll().OrderByDescending(c => c.CreatedOn).Select(c => new GetAllCarsResponseModel()
+            {
+                Id = c.Id,
+                Brand = c.Brand,
+                Model = c.Model,
+                Year = c.Year,
+                Price = c.Price,
+                Mileage = c.Mileage,
+                EngineType = c.EngineType,
+                TransmissionType = c.TransmissionType,
+                HorsePower = c.HorsePower,
+                Image = c.Image,
+                State = c.State,
+                Description = c.Description,
+                SellerId = c.SellerId
+            });
             return cars;
         }
 

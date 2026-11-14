@@ -2288,10 +2288,22 @@
           "WebApplication1.Data": "1.0.0",
           "WebApplication1.Data.Models": "1.0.0",
           "WebApplication1.GCommon": "1.0.0",
+          "WebApplication1.Services.Data": "1.0.0",
           "WebApplication1.ViewModels": "1.0.0"
         },
         "runtime": {
           "WebApplication1.Services.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "WebApplication1.Services.Data/1.0.0": {
+        "dependencies": {
+          "WebApplication1.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "WebApplication1.Services.Data.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -3257,6 +3269,11 @@
       "sha512": ""
     },
     "WebApplication1.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WebApplication1.Services.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

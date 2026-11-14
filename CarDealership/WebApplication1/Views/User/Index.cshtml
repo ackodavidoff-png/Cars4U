@@ -1,6 +1,7 @@
 ﻿@using WebApplication1.Data.Models
 @using WebApplication1.GCommon
-@model PaginatedList<ApplicationUser>
+@using WebApplication1.ViewModels.UserViewModels
+@model PaginatedList<UserIndexPageViewModel>
 @{
     ViewBag.Title = "Users";
 }
@@ -18,12 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (ApplicationUser user in Model)
+            @foreach (UserIndexPageViewModel user in Model)
             {
                 <tr>
                     <th>@user.FirstName @user.LastName</th>
                     <th>@user.UserName</th>
-                    <th>@user.Cars.Count</th>
+                    <th>@user.CarsCount</th>
                     <th>
                         <a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@user.Id">Details</a>
                     </th>
