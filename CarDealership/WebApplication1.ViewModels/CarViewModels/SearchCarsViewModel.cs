@@ -9,6 +9,6 @@ namespace WebApplication1.ViewModels.CarViewModels
     public class SearchCarsViewModel
     {
         public string? SearchText { get; set; }
-        public PaginatedList<Car> Cars { get; set; }
+        public PaginatedList<CarTableViewModel> Cars { get; set; }
     }
 }

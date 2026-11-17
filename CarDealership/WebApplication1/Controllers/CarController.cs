@@ -98,10 +98,18 @@ namespace WebApplication1.Controllers
                 return RedirectToAction(nameof(Index));
             }
             IEnumerable<Car> carsFound = carService.ShowSearchResults(searchText);
+            IEnumerable<CarTableViewModel> carTableViewModel = carsFound.Select(c => new CarTableViewModel()
+            {
+                Id = c.Id,
+                Image = c.Image,
+                Brand = c.Brand,
+                Model = c.Model,
+                Price = c.Price,
+            });
             SearchCarsViewModel viewModel = new SearchCarsViewModel()
             {
                 SearchText = searchText,
-                Cars = PaginatedList<Car>.Create(carsFound.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage)
+                Cars = PaginatedList<CarTableViewModel>.Create(carTableViewModel.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage)
             };
             return View(viewModel);
         }
