@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
             };
             return View(viewModel);
         }
-        public async Task<IActionResult> Details(int id, int? pageIndex)
+        public async Task<IActionResult> Details(int id, int? pageNumber)
         {
             Town? town = await townService.GetTownDetailsAsync(id);
             IEnumerable<Car> cars = townService.GetAllCarsFromTown(id);
@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
                 Price = c.Price,
                 Image = c.Image,
             });
-            PaginatedList<CarTableViewModel> carsPaginated = PaginatedList<CarTableViewModel>.Create(allCarsViewModel.AsQueryable().AsNoTracking(), pageIndex ?? 1, MaxEntitiesPerPage);
+            PaginatedList<CarTableViewModel> carsPaginated = PaginatedList<CarTableViewModel>.Create(allCarsViewModel.AsQueryable().AsNoTracking(), pageNumber ?? 1, MaxEntitiesPerPage);
             if (town == null)
             {
                 return NotFound();
@@ -52,6 +52,7 @@ namespace WebApplication1.Controllers
             }
             TownDetailsViewModel viewModel = new TownDetailsViewModel()
             {
+                Id = town.Id,
                 Name = town.Name,
                 Cars = carsPaginated
             };

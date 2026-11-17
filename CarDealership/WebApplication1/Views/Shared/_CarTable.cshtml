@@ -42,17 +42,20 @@
 @{
     string prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     string nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    string controller = ViewData["Controller"]?.ToString() ?? "Car";
+    string action = ViewData["Action"]?.ToString() ?? "Index";
+    object? routeId = ViewData["RouteId"];
 }
-<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
+<a asp-controller="@controller" asp-action="@action" asp-route-id="@routeId" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
 @for (int i = 1; i <= Model.TotalPages; i++)
 {
     if (i == Model.PageIndex)
     {
-        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
+        <a asp-controller="@controller" asp-action="@action" asp-route-id="@routeId" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
     }
     else
     {
-        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
+        <a asp-controller="@controller" asp-action="@action" asp-route-id="@routeId" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
     }
 }
-<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>
+<a asp-controller="@controller" asp-action="@action" asp-route-id="@routeId" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>

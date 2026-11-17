@@ -10,6 +10,7 @@ namespace WebApplication1.ViewModels.TownViewModels
 {
     public class TownDetailsViewModel
     {
+        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public PaginatedList<CarTableViewModel> Cars { get; set; }
     }

@@ -3,11 +3,14 @@
 @model TownDetailsViewModel
 @{
     ViewBag.Title = Model.Name;
+    ViewData["Controller"] = "Town";
+    ViewData["Action"] = "Details";
+    ViewData["RouteId"] = Model.Id;
 }
 <h1>@Model.Name</h1>
 @if (Model.Cars.Any())
 {
-    <partial name="_CarTable" model="Model.Cars" />
+    <partial name="_CarTable" model="Model.Cars" view-data="ViewData" />
 }
 else
 {
