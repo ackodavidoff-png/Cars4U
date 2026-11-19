@@ -11,5 +11,10 @@
         public const string TownIsRequired = "Please select town from the list.";
         //controller errors
         public const string BadRequestErrorMessage = "There was an error with your request";
+        //role seeder error messages
+        public const string RoleCreateFail = "Role {0} can't be created.";
+        //Admin user seeder error messages
+        public const string AdminUserSeedFail = "Admin user {0} can't be seeded!";
+        public const string AdminUserRoleAddFail = "Admin user {0} can't be added to role {1}!";
     }
 }

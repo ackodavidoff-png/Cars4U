@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Data.Models;
 using WebApplication1.Data.Repository;
 using WebApplication1.Data.Repository.Contracts;
+using WebApplication1.Data.Seeding.Utilities;
 using WebApplication1.Services;
 using WebApplication1.Services.Core;
+using WebApplication1.Services.Data.AdminUser.Request;
 using static WebApplication1.GCommon.IdentityConstants;
 
 namespace WebApplication1
@@ -24,16 +27,22 @@ namespace WebApplication1
             {
                 options.UseSqlServer(connectionString);
             });
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = RequireConfirmedAccount;
                 options.Password.RequireDigit = RequireDigit;
                 options.Password.RequireNonAlphanumeric = RequireNonAlphanumeric;
                 options.Password.RequireUppercase = RequireUppercase;
                 options.Password.RequireLowercase = RequireLowercase;
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+            }).AddRoles<IdentityRole>()
+            .AddUserManager<UserManager<ApplicationUser>>()
+            .AddSignInManager<SignInManager<ApplicationUser>>()
+            .AddDefaultTokenProviders()
+            .AddDefaultUI()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddControllersWithViews();
 
@@ -78,7 +87,33 @@ namespace WebApplication1
             app.MapRazorPages()
                .WithStaticAssets();
 
+            UseDefaultRoles(app, app.Configuration);
+
             app.Run();
+        }
+        private static void UseDefaultRoles(WebApplication app, IConfiguration configuration)
+        {
+            using IServiceScope serviceScope = app.Services.CreateScope();
+            IServiceProvider serviceProvider = serviceScope.ServiceProvider;
+            string adminFirstName = configuration.GetValue<string>("AdminUser:FirstName") ?? throw new ArgumentException();
+            string adminLastName = configuration.GetValue<string>("AdminUser:LastName") ?? throw new ArgumentException();
+            string adminUsername = configuration.GetValue<string>("AdminUser:UserName") ?? throw new ArgumentException();
+            string adminEmail = configuration.GetValue<string>("AdminUser:Email") ?? throw new ArgumentException();
+            int adminTownId = configuration.GetValue<int>("AdminUser:TownId");
+            string adminPhoneNumber = configuration.GetValue<string>("AdminUser:PhoneNumber") ?? throw new ArgumentException();
+            string adminPassword = configuration.GetValue<string>("AdminUser:Password") ?? throw new ArgumentException();
+            IdentitySeeder.SeedRoles(serviceProvider);
+            AdminUserSeedRequestModel requestModel = new AdminUserSeedRequestModel()
+            {
+                FirstName = adminFirstName,
+                LastName = adminLastName,
+                UserName = adminUsername,
+                Email = adminEmail,
+                TownId = adminTownId,
+                PhoneNumber = adminPhoneNumber,
+                Password = adminPassword
+            };
+            IdentitySeeder.SeedAdminUser(serviceProvider, requestModel);
         }
     }
 }

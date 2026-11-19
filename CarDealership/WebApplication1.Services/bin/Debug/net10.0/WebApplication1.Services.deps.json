@@ -1658,7 +1658,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "10.0.13",
           "System.Security.Cryptography.Pkcs": "10.0.13",
           "WebApplication1.Data.Models": "1.0.0",
-          "WebApplication1.GCommon": "1.0.0"
+          "WebApplication1.GCommon": "1.0.0",
+          "WebApplication1.Services.Data": "1.0.0"
         },
         "runtime": {
           "WebApplication1.Data.dll": {

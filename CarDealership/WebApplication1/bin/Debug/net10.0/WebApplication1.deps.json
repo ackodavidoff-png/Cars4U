@@ -2250,7 +2250,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.13",
           "WebApplication1.Data.Models": "1.0.0",
-          "WebApplication1.GCommon": "1.0.0"
+          "WebApplication1.GCommon": "1.0.0",
+          "WebApplication1.Services.Data": "1.0.0"
         },
         "runtime": {
           "WebApplication1.Data.dll": {

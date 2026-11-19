@@ -8,5 +8,7 @@
         public const string PriceFormat = "#,##0.00";
         public const string DateFormat = "dd.MM.yyyy";
         public const string MileageFormat = "#,##";
+        //Admin constants
+        public const string AdminDefaultRole = "Admin";
     }
 }
