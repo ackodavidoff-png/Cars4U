@@ -11,9 +11,13 @@ namespace WebApplication1.Services
     public class AdminService : IAdminService
     {
         private readonly ITownRepository townRepository;
-        public AdminService(ITownRepository townRepository)
+        private readonly IUserRepository userRepository;
+        private readonly ICarRepository carRepository;
+        public AdminService(ITownRepository townRepository, IUserRepository userRepository, ICarRepository carRepository)
         {
             this.townRepository = townRepository;
+            this.userRepository = userRepository;
+            this.carRepository = carRepository;
         }
 
         public async Task<bool> CreateTownAsync(string name)
@@ -37,6 +41,23 @@ namespace WebApplication1.Services
             }
             townRepository.Remove(town);
             await townRepository.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteUserAsync(string id)
+        {
+            ApplicationUser? user = await userRepository.GetAllAsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                return false;
+            }
+            IEnumerable<Car> userCars = carRepository.GetAllAsNoTracking().Where(c => c.SellerId == user.Id);
+            if (userCars.Any())
+            {
+                carRepository.RemoveRange(userCars);
+            }
+            userRepository.Remove(user);
+            await userRepository.SaveChangesAsync();
             return true;
         }
 
@@ -66,9 +87,19 @@ namespace WebApplication1.Services
             return townRepository.GetAllAsNoTracking().Include(t => t.Users).ThenInclude(u => u.Cars).OrderBy(t => t.Name);
         }
 
+        public IQueryable<ApplicationUser> GetAllUsers()
+        {
+            return userRepository.GetAllAsNoTracking().Include(u => u.Cars).OrderBy(u => u.FirstName).ThenBy(u => u.LastName);
+        }
+
         public async Task<Town?> GetTownByIdAsync(int id)
         {
             return await townRepository.GetAllAsNoTracking().Include(t => t.Users).ThenInclude(u => u.Cars).FirstOrDefaultAsync(t => t.Id == id);
+        }
+
+        public async Task<ApplicationUser?> GetUserByIdAsync(string id)
+        {
+            return await userRepository.GetAllAsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
         }
     }
 }

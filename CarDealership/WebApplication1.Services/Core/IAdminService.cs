@@ -12,5 +12,8 @@ namespace WebApplication1.Services.Core
         Task<bool> DeleteTownAsync(int id);
         Task<bool> CreateTownAsync(string name);
         Task<bool> EditTownNameAsync(int id, string name);
+        IQueryable<ApplicationUser> GetAllUsers();
+        Task<ApplicationUser?> GetUserByIdAsync(string id);
+        Task<bool> DeleteUserAsync(string id);
     }
 }

@@ -1,0 +1,56 @@
+﻿@using WebApplication1.ViewModels.AdminPanelViewModels
+@using WebApplication1.GCommon
+@model PaginatedList<UserManagerViewModel>
+@{
+    ViewBag.Title = "User manager (Only for admins)";
+}
+<h1>User manager👥🛠️</h1>
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full name</th>
+                <th>Username</th>
+                <th>Cars count</th>
+                <th>Details</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserManagerViewModel user in Model)
+            {
+                <tr>
+                    <th>@user.Id</th>
+                    <th>@user.FirstName @user.LastName</th>
+                    <th>@user.UserName</th>
+                    <th>@user.CarsCount</th>
+                    <th>
+                        <a class="btn btn-primary" asp-area="" asp-controller="User" asp-action="Details" asp-route-id="@user.Id">Details</a>
+                    </th>
+                    <th>
+                        <a asp-area="" asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@{
+    string prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    string nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
+@for (int i = 1; i <= Model.TotalPages; i++)
+{
+    if (i == Model.PageIndex)
+    {
+        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default disabled">@i</a>
+    }
+    else
+    {
+        <a asp-action="Index" asp-route-pageNumber="@i" class="btn btn-default">@i</a>
+    }
+}
+<a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>

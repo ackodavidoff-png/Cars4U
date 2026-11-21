@@ -11,32 +11,32 @@
       "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\townmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\townmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\usermanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.viewmodels\\adminpanelviewmodels\\townmanagerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|solutionrelative:webapplication1.viewmodels\\adminpanelviewmodels\\townmanagerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\deletetown.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\deletetown.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.viewmodels\\adminpanelviewmodels\\deletetownconfirmationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|solutionrelative:webapplication1.viewmodels\\adminpanelviewmodels\\deletetownconfirmationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.viewmodels\\adminpanelviewmodels\\deleteuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|solutionrelative:webapplication1.viewmodels\\adminpanelviewmodels\\deleteuserviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.services\\core\\iadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34E612FC-4E46-4348-A73F-EA1D8A62B382}|WebApplication1.Services\\WebApplication1.Services.csproj|solutionrelative:webapplication1.services\\core\\iadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1.viewmodels\\adminpanelviewmodels\\usermanagerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95D3AB4-8932-4340-9E4B-94D33DCF74EE}|WebApplication1.ViewModels\\WebApplication1.ViewModels.csproj|solutionrelative:webapplication1.viewmodels\\adminpanelviewmodels\\usermanagerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\users\\\u0430\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\desktop\\asp.net-fundamentals-softuni\\cardealership\\webapplication1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,41 +54,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DeleteTownConfirmationViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteTownConfirmationViewModel.cs",
-              "RelativeDocumentMoniker": "WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteTownConfirmationViewModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteTownConfirmationViewModel.cs",
-              "RelativeToolTip": "WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteTownConfirmationViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T07:18:12.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DeleteTown.cshtml",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\DeleteTown.cshtml",
-              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\DeleteTown.cshtml",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\DeleteTown.cshtml",
-              "RelativeToolTip": "WebApplication1\\Views\\Admin\\DeleteTown.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "DeleteUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\DeleteUser.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\DeleteUser.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\DeleteUser.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Admin\\DeleteUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-20T07:16:17.864Z",
+              "WhenOpened": "2026-11-21T16:02:04.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "WebApplication1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DeleteUserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteUserViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteUserViewModel.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteUserViewModel.cs",
+              "RelativeToolTip": "WebApplication1.ViewModels\\AdminPanelViewModels\\DeleteUserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T13:17:51.181Z",
+              "WhenOpened": "2026-11-21T15:59:48.478Z",
               "EditorCaption": ""
             },
             {
@@ -97,63 +84,37 @@
               "Title": "AdminService.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\AdminService.cs",
               "RelativeDocumentMoniker": "WebApplication1.Services\\AdminService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\AdminService.cs",
-              "RelativeToolTip": "WebApplication1.Services\\AdminService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\AdminService.cs*",
+              "RelativeToolTip": "WebApplication1.Services\\AdminService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T13:15:24.626Z",
+              "WhenOpened": "2026-11-21T15:46:13.044Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "IAdminService.cs",
               "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\Core\\IAdminService.cs",
               "RelativeDocumentMoniker": "WebApplication1.Services\\Core\\IAdminService.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\Core\\IAdminService.cs",
               "RelativeToolTip": "WebApplication1.Services\\Core\\IAdminService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T13:15:03.712Z",
+              "WhenOpened": "2026-11-21T15:45:26.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TownManager.cshtml",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\TownManager.cshtml",
-              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\TownManager.cshtml",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\TownManager.cshtml",
-              "RelativeToolTip": "WebApplication1\\Views\\Admin\\TownManager.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T12:59:53.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TownManagerViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\TownManagerViewModel.cs",
-              "RelativeDocumentMoniker": "WebApplication1.ViewModels\\AdminPanelViewModels\\TownManagerViewModel.cs",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\TownManagerViewModel.cs",
-              "RelativeToolTip": "WebApplication1.ViewModels\\AdminPanelViewModels\\TownManagerViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "UserManagerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\UserManagerViewModel.cs",
+              "RelativeDocumentMoniker": "WebApplication1.ViewModels\\AdminPanelViewModels\\UserManagerViewModel.cs",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.ViewModels\\AdminPanelViewModels\\UserManagerViewModel.cs",
+              "RelativeToolTip": "WebApplication1.ViewModels\\AdminPanelViewModels\\UserManagerViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T13:11:26.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "WebApplication1\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T12:58:48.534Z",
+              "WhenOpened": "2026-11-21T15:41:50.395Z",
               "EditorCaption": ""
             },
             {
@@ -164,9 +125,48 @@
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Controllers\\AdminController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T12:57:52.152Z",
+              "WhenOpened": "2026-11-21T09:07:33.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T09:05:33.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T08:55:53.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserManager.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\UserManager.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Admin\\UserManager.cshtml",
+              "ToolTip": "C:\\Users\\\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u044A\u0440\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1\\Views\\Admin\\UserManager.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Admin\\UserManager.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T08:54:17.472Z",
               "EditorCaption": ""
             }
           ]

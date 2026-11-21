@@ -1,0 +1,15 @@
+﻿@using WebApplication1.ViewModels.AdminPanelViewModels
+@model DeleteUserViewModel
+@{
+    ViewBag.Title = "Delete user confirmation (Only for admins)";
+}
+<h1>Are you sure you want to delete the following user?</h1>
+<p>ID: @Model.Id</p>
+<p>FirstName: @Model.FirstName</p>
+<p>LastName: @Model.LastName</p>
+<p>Username: @Model.UserName</p>
+<form asp-action="DeleteUserConfirmation" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a asp-action="Index" class="btn btn-secondary">No</a>
+</form>

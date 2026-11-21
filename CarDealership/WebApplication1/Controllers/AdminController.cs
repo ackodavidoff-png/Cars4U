@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data.Models;
 using WebApplication1.Data.Repository;
 using WebApplication1.Data.Repository.Contracts;
+using WebApplication1.GCommon;
 using WebApplication1.Services.Core;
 using WebApplication1.ViewModels.AdminPanelViewModels;
 using static WebApplication1.GCommon.ApplicationConstants;
@@ -97,6 +98,51 @@ namespace WebApplication1.Controllers
                 return BadRequest();
             }
             return RedirectToAction(nameof(TownManager));
+        }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpGet]
+        public IActionResult UserManager(int? pageNumber)
+        {
+            IQueryable<ApplicationUser> users = adminService.GetAllUsers();
+            IQueryable<UserManagerViewModel> viewModel = users.Select(u => new UserManagerViewModel()
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                UserName = u.UserName,
+                CarsCount = u.Cars.Count
+            });
+            PaginatedList<UserManagerViewModel> viewModelPaginated = PaginatedList<UserManagerViewModel>.Create(viewModel, pageNumber ?? 1, MaxEntitiesPerPage);
+            return View(viewModelPaginated);
+        }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpGet]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            ApplicationUser? user = await adminService.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            DeleteUserViewModel viewModel = new DeleteUserViewModel()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.UserName
+            };
+            return View(viewModel);
+        }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpPost]
+        public async Task<IActionResult> DeleteUserConfirmation(string id)
+        {
+            bool isUserDeleted = await adminService.DeleteUserAsync(id);
+            if (!isUserDeleted)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(UserManager));
         }
     }
 }
