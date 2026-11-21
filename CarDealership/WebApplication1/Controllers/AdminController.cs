@@ -87,5 +87,16 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(TownManager));
         }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpPost]
+        public async Task<IActionResult> EditTownName(int id, string name)
+        {
+            bool isTownNameEdited = await adminService.EditTownNameAsync(id, name);
+            if (!isTownNameEdited)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(TownManager));
+        }
     }
 }

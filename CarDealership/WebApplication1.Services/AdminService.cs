@@ -40,6 +40,27 @@ namespace WebApplication1.Services
             return true;
         }
 
+        public async Task<bool> EditTownNameAsync(int id, string name)
+        {
+            if (townRepository.GetAllAsNoTracking().Any(t => t.Name == name))
+            {
+                return false;
+            }
+            Town? town = await townRepository.GetAllAsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
+            if (town == null)
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(name))
+            {
+                return false;
+            }
+            town.Name = name.Trim();
+            townRepository.Update(town);
+            await townRepository.SaveChangesAsync();
+            return true;
+        }
+
         public IQueryable<Town> GetAllTowns()
         {
             return townRepository.GetAllAsNoTracking().Include(t => t.Users).ThenInclude(u => u.Cars).OrderBy(t => t.Name);
