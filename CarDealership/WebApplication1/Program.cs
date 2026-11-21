@@ -51,6 +51,7 @@ namespace WebApplication1
             builder.Services.AddScoped<IFavoriteService, FavoriteService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITownService, TownService>();
+            builder.Services.AddScoped<IAdminService, AdminService>();
 
             //repositories
             builder.Services.AddScoped<ICarRepository, CarRepository>();

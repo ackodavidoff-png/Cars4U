@@ -1,0 +1,11 @@
+﻿@using WebApplication1.ViewModels.AdminPanelViewModels
+@model DeleteTownConfirmationViewModel
+@{
+    ViewBag.Title = "Delete town confirmation (Only for admins)";
+}
+<h1>Are you sure you want to delete @Model.Name</h1>
+<form asp-action="DeleteTownConfirmation" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a asp-action="Index" class="btn btn-secondary">No</a>
+</form>
