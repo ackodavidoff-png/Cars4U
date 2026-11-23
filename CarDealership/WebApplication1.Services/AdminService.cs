@@ -13,11 +13,13 @@ namespace WebApplication1.Services
         private readonly ITownRepository townRepository;
         private readonly IUserRepository userRepository;
         private readonly ICarRepository carRepository;
-        public AdminService(ITownRepository townRepository, IUserRepository userRepository, ICarRepository carRepository)
+        private readonly IFavoriteRepository favoriteRepository;
+        public AdminService(ITownRepository townRepository, IUserRepository userRepository, ICarRepository carRepository, IFavoriteRepository favoriteRepository)
         {
             this.townRepository = townRepository;
             this.userRepository = userRepository;
             this.carRepository = carRepository;
+            this.favoriteRepository = favoriteRepository;
         }
 
         public async Task<bool> CreateTownAsync(string name)
@@ -29,6 +31,23 @@ namespace WebApplication1.Services
             }
             await townRepository.AddAsync(new Town() { Name = name });
             await townRepository.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteCarAsync(Guid id)
+        {
+            Car? car = await carRepository.GetAllAsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+            if (car == null)
+            {
+                return false;
+            }
+            IEnumerable<Favorite> favorites = favoriteRepository.GetAllAsNoTracking().Where(f => f.CarId == car.Id);
+            if (favorites.Any(f => f.CarId == car.Id))
+            {
+                favoriteRepository.RemoveRange(favorites);
+            }
+            carRepository.Remove(car);
+            await carRepository.SaveChangesAsync();
             return true;
         }
 
@@ -82,6 +101,11 @@ namespace WebApplication1.Services
             return true;
         }
 
+        public IQueryable<Car> GetAllCars()
+        {
+            return carRepository.GetAllAsNoTracking().Include(c => c.Seller).OrderByDescending(c => c.CreatedOn);
+        }
+
         public IQueryable<Town> GetAllTowns()
         {
             return townRepository.GetAllAsNoTracking().Include(t => t.Users).ThenInclude(u => u.Cars).OrderBy(t => t.Name);
@@ -90,6 +114,11 @@ namespace WebApplication1.Services
         public IQueryable<ApplicationUser> GetAllUsers()
         {
             return userRepository.GetAllAsNoTracking().Include(u => u.Cars).OrderBy(u => u.FirstName).ThenBy(u => u.LastName);
+        }
+
+        public async Task<Car?> GetCarByIdAsync(Guid id)
+        {
+            return await carRepository.GetAllAsNoTracking().Include(c => c.Seller).ThenInclude(s => s.Town).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Town?> GetTownByIdAsync(int id)

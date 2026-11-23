@@ -87,6 +87,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Admin/CarManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FyTWFuYWdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Admin/DeleteCar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlQ2FyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Александър/Desktop/ASP.NET-Fundamentals-SoftUni/CarDealership/WebApplication1/Views/Admin/DeleteTown.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlVG93bi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

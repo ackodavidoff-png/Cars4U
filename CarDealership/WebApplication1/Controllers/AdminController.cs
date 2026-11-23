@@ -144,5 +144,65 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(UserManager));
         }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpGet]
+        public IActionResult CarManager(int? pageNumber)
+        {
+            IQueryable<Car> cars = adminService.GetAllCars();
+            IQueryable<CarManagerViewModel> viewModel = cars.Select(c => new CarManagerViewModel()
+            {
+                Id = c.Id,
+                Image = c.Image,
+                Brand = c.Brand,
+                Model = c.Model,
+                SellerId = c.SellerId,
+                SellerFirstName = c.Seller.FirstName,
+                SellerLastName = c.Seller.LastName,
+                SellerUsername = c.Seller.UserName,
+                Price = c.Price,
+                CreatedOn = c.CreatedOn
+            });
+            PaginatedList<CarManagerViewModel> viewModelPaginated = PaginatedList<CarManagerViewModel>.Create(viewModel, pageNumber ?? 1, MaxEntitiesPerPage);
+            return View(viewModelPaginated);
+        }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpGet]
+        public async Task<IActionResult> DeleteCar(Guid Id)
+        {
+            Car? car = await adminService.GetCarByIdAsync(Id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            DeleteCarViewModel viewModel = new DeleteCarViewModel()
+            {
+                Id = car.Id,
+                Image = car.Image,
+                Brand = car.Brand,
+                Model = car.Model,
+                Year = car.Year,
+                Price = car.Price,
+                CreatedOn = car.CreatedOn,
+                SellerId = car.SellerId,
+                SellerFirstName= car.Seller.FirstName,
+                SellerLastName= car.Seller.LastName,
+                SellerUsername = car.Seller.UserName,
+                TownName = car.Seller.Town.Name,
+                Email = car.Seller.Email,
+                PhoneNumber = car.Seller.PhoneNumber,
+            };
+            return View(viewModel);
+        }
+        [Authorize(Roles = AdminDefaultRole)]
+        [HttpPost]
+        public async Task<IActionResult> DeleteCarConfirmation(Guid id)
+        {
+            bool isCarDeleted = await adminService.DeleteCarAsync(id);
+            if (!isCarDeleted)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(CarManager));
+        }
     }
 }

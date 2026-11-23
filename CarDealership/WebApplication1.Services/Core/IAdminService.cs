@@ -15,5 +15,8 @@ namespace WebApplication1.Services.Core
         IQueryable<ApplicationUser> GetAllUsers();
         Task<ApplicationUser?> GetUserByIdAsync(string id);
         Task<bool> DeleteUserAsync(string id);
+        IQueryable<Car> GetAllCars();
+        Task<bool> DeleteCarAsync(Guid id);
+        Task<Car?> GetCarByIdAsync(Guid id);
     }
 }
