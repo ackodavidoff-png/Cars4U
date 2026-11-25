@@ -6,6 +6,8 @@ using WebApplication1.Data.Models;
 using WebApplication1.Data.Repository;
 using WebApplication1.Data.Repository.Contracts;
 using WebApplication1.Data.Seeding.Utilities;
+using WebApplication1.Infrastructure.Utilities;
+using WebApplication1.Infrastructure.Utilities.Contracts;
 using WebApplication1.Services;
 using WebApplication1.Services.Core;
 using WebApplication1.Services.Data.AdminUser.Request;
@@ -59,11 +61,15 @@ namespace WebApplication1
             builder.Services.AddScoped<ITownRepository, TownRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+            //generators
+            builder.Services.AddScoped<ISlugGenerator, SlugGenerator>();
+
             WebApplication app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
             else

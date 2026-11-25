@@ -394,7 +394,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\556miamfr6-{0}-lugek5hnai-lugek5hnai.gz
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\u3m5yo2x8f-{0}-65dhcedw2j-65dhcedw2j.gz
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\io302rucaj-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\w3u7ibosd4-{0}-fr7q2aak1r-fr7q2aak1r.gz
@@ -476,3 +475,6 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Services.Data.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Services.Data.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Infrastructure.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Infrastructure.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\556miamfr6-{0}-d8j5b1gwqx-d8j5b1gwqx.gz

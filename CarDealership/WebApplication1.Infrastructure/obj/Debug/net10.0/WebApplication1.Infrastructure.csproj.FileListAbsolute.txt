@@ -1,0 +1,13 @@
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\bin\Debug\net10.0\WebApplication1.Infrastructure.deps.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\bin\Debug\net10.0\WebApplication1.Infrastructure.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\bin\Debug\net10.0\WebApplication1.Infrastructure.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.AssemblyInfo.cs
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.sourcelink.json
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\refint\WebApplication1.Infrastructure.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebApplication1.Infrastructure.pdb
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\ref\WebApplication1.Infrastructure.dll
+C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1.Infrastructure\obj\Debug\net10.0\WebAppli.88944274.Up2Date

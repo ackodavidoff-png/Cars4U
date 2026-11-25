@@ -2803,6 +2803,16 @@
           "bin/placeholder/WebApplication1.GCommon.dll": {}
         }
       },
+      "WebApplication1.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/WebApplication1.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebApplication1.Infrastructure.dll": {}
+        }
+      },
       "WebApplication1.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -7050,6 +7060,11 @@
       "path": "../WebApplication1.GCommon/WebApplication1.GCommon.csproj",
       "msbuildProject": "../WebApplication1.GCommon/WebApplication1.GCommon.csproj"
     },
+    "WebApplication1.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../WebApplication1.Infrastructure/WebApplication1.Infrastructure.csproj",
+      "msbuildProject": "../WebApplication1.Infrastructure/WebApplication1.Infrastructure.csproj"
+    },
     "WebApplication1.Services/1.0.0": {
       "type": "project",
       "path": "../WebApplication1.Services/WebApplication1.Services.csproj",
@@ -7082,6 +7097,7 @@
       "System.Security.Cryptography.Pkcs >= 10.0.13",
       "WebApplication1.Data >= 1.0.0",
       "WebApplication1.GCommon >= 1.0.0",
+      "WebApplication1.Infrastructure >= 1.0.0",
       "WebApplication1.Services >= 1.0.0",
       "WebApplication1.ViewModels >= 1.0.0"
     ]
@@ -7124,6 +7140,9 @@
             },
             "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj": {
               "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.GCommon\\WebApplication1.GCommon.csproj"
+            },
+            "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Infrastructure\\WebApplication1.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Infrastructure\\WebApplication1.Infrastructure.csproj"
             },
             "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\WebApplication1.Services.csproj": {
               "projectPath": "C:\\Users\\Александър\\Desktop\\ASP.NET-Fundamentals-SoftUni\\CarDealership\\WebApplication1.Services\\WebApplication1.Services.csproj"

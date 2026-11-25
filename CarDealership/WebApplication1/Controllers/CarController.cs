@@ -11,6 +11,7 @@ using static WebApplication1.GCommon.ErrorMessages;
 using WebApplication1.ViewModels.CarViewModels;
 using WebApplication1.Data.Repository;
 using WebApplication1.Services.Data.Car.Response;
+using static WebApplication1.GCommon.NotificationMessages;
 
 namespace WebApplication1.Controllers
 {
@@ -88,6 +89,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest(BadRequestErrorMessage);
             }
+            TempData[SuccessNotificationKey] = CarCreatedSuccessfully;
             return RedirectToAction(nameof(Index));
         }
         //search controller

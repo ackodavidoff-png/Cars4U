@@ -20,6 +20,7 @@
           "SQLitePCLRaw.lib.e_sqlite3": "3.53.3",
           "WebApplication1.Data": "1.0.0",
           "WebApplication1.GCommon": "1.0.0",
+          "WebApplication1.Infrastructure": "1.0.0",
           "WebApplication1.Services": "1.0.0",
           "WebApplication1.ViewModels": "1.0.0"
         },
@@ -2283,6 +2284,14 @@
           }
         }
       },
+      "WebApplication1.Infrastructure/1.0.0": {
+        "runtime": {
+          "WebApplication1.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "WebApplication1.Services/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.13",
@@ -3265,6 +3274,11 @@
       "sha512": ""
     },
     "WebApplication1.GCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WebApplication1.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,30 +1,35 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data.Models;
 using WebApplication1.Data.Repository;
 using WebApplication1.Data.Repository.Contracts;
+using WebApplication1.Data.Seeding.Utilities;
 using WebApplication1.GCommon;
 using WebApplication1.Services.Core;
 using WebApplication1.ViewModels.AdminPanelViewModels;
 using static WebApplication1.GCommon.ApplicationConstants;
+using static WebApplication1.GCommon.NotificationMessages;
 
 namespace WebApplication1.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseAdminController
     {
         private readonly IAdminService adminService;
-        public AdminController(IAdminService adminService)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
+        public AdminController(IAdminService adminService, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.adminService = adminService;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
         }
-
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public IActionResult TownManager()
         {
@@ -38,7 +43,6 @@ namespace WebApplication1.Controllers
             }).AsQueryable();
             return View(viewModel);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public async Task<IActionResult> DeleteTown(int id)
         {
@@ -62,7 +66,6 @@ namespace WebApplication1.Controllers
             };
             return View(viewModel);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpPost]
         public async Task<IActionResult> DeleteTownConfirmation(int id)
         {
@@ -73,7 +76,6 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(TownManager));
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpPost]
         public async Task<IActionResult> CreateTownAsync(string townName)
         {
@@ -88,7 +90,6 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(TownManager));
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpPost]
         public async Task<IActionResult> EditTownName(int id, string name)
         {
@@ -99,7 +100,6 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(TownManager));
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public IActionResult UserManager(int? pageNumber)
         {
@@ -115,7 +115,6 @@ namespace WebApplication1.Controllers
             PaginatedList<UserManagerViewModel> viewModelPaginated = PaginatedList<UserManagerViewModel>.Create(viewModel, pageNumber ?? 1, MaxEntitiesPerPage);
             return View(viewModelPaginated);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -133,7 +132,6 @@ namespace WebApplication1.Controllers
             };
             return View(viewModel);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpPost]
         public async Task<IActionResult> DeleteUserConfirmation(string id)
         {
@@ -144,7 +142,6 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction(nameof(UserManager));
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public IActionResult CarManager(int? pageNumber)
         {
@@ -165,7 +162,6 @@ namespace WebApplication1.Controllers
             PaginatedList<CarManagerViewModel> viewModelPaginated = PaginatedList<CarManagerViewModel>.Create(viewModel, pageNumber ?? 1, MaxEntitiesPerPage);
             return View(viewModelPaginated);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpGet]
         public async Task<IActionResult> DeleteCar(Guid Id)
         {
@@ -193,7 +189,6 @@ namespace WebApplication1.Controllers
             };
             return View(viewModel);
         }
-        [Authorize(Roles = AdminDefaultRole)]
         [HttpPost]
         public async Task<IActionResult> DeleteCarConfirmation(Guid id)
         {
@@ -203,6 +198,104 @@ namespace WebApplication1.Controllers
                 return BadRequest();
             }
             return RedirectToAction(nameof(CarManager));
+        }
+        [HttpGet]
+        public async Task<IActionResult> UserRoleChanger()
+        {
+            IEnumerable<UserRoleManagerViewModel> viewModel = await adminService.GetAllUsers().AsSplitQuery().Select(u => new UserRoleManagerViewModel()
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                UserName = u.UserName
+            }).ToArrayAsync();
+            foreach (UserRoleManagerViewModel model in viewModel)
+            {
+                ApplicationUser user = (await adminService.GetUserByIdAsync(model.Id))!;
+                model.Roles = await userManager.GetRolesAsync(user);
+            }
+            ViewData["ApplicationRoles"] = IdentitySeeder.DefaultRoles;
+            return View(viewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(UserRoleInputModel inputModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            ApplicationUser? dbUser = await userManager.FindByIdAsync(inputModel.UserId);
+            if (dbUser == null)
+            {
+                TempData[ErrorNotificationKey] = UserNotExists;
+                return RedirectToAction(nameof(Index));
+            }
+
+            IdentityRole? dbRole = await roleManager.FindByNameAsync(inputModel.RoleName);
+            if (dbRole == null)
+            {
+                TempData[ErrorNotificationKey] = RoleAssignNotEists;
+                return RedirectToAction(nameof(Index));
+            }
+
+            bool userAlreadyInRole = await userManager.IsInRoleAsync(dbUser, inputModel.RoleName);
+            if (userAlreadyInRole)
+            {
+                TempData[WarningNotificationKey] = UserAlreadyinRole;
+                return RedirectToAction(nameof(Index));
+            }
+
+            IdentityResult result = await userManager.AddToRoleAsync(dbUser, inputModel.RoleName);
+            if (!result.Succeeded)
+            {
+                TempData[ErrorNotificationKey] = UnexpectedError;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData[SuccessNotificationKey] = RoleAssigned;
+
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpPost]
+        public async Task<IActionResult> RemoveRole(UserRoleInputModel inputModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            ApplicationUser? dbUser = await userManager.FindByIdAsync(inputModel.UserId);
+            if (dbUser == null)
+            {
+                TempData[ErrorNotificationKey] = UserNotExists;
+                return RedirectToAction(nameof(Index));
+            }
+
+            IdentityRole? dbRole = await roleManager.FindByNameAsync(inputModel.RoleName);
+            if (dbRole == null)
+            {
+                TempData[ErrorNotificationKey] = RoleRemoveNotExists;
+                return RedirectToAction(nameof(Index));
+            }
+
+            bool userAlreadyInRole = await userManager.IsInRoleAsync(dbUser, inputModel.RoleName);
+            if (!userAlreadyInRole)
+            {
+                TempData[WarningNotificationKey] = UserNotInRole;
+                return RedirectToAction(nameof(Index));
+            }
+
+            IdentityResult result = await userManager.RemoveFromRoleAsync(dbUser, inputModel.RoleName);
+            if (!result.Succeeded)
+            {
+                TempData[ErrorNotificationKey] = UnexpectedError;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData[SuccessNotificationKey] = RoleRemoved;
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

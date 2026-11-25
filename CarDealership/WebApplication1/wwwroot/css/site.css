@@ -29,3 +29,55 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.notification {
+    position: relative;
+    padding: 16px 22px;
+    margin: 15px 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid transparent;
+    animation: notificationSlideIn 0.4s ease;
+}
+.notification-success {
+    background: #eafaf1;
+    color: #146c43;
+    border-left: 5px solid #198754;
+}
+
+.notification-error {
+    background: #fff0f0;
+    color: #b02a37;
+    border-left: 5px solid #dc3545;
+}
+
+.notification-warning {
+    background: #fff8e6;
+    color: #997404;
+    border-left: 5px solid #ffc107;
+}
+
+.notification-info {
+    background: #eaf4ff;
+    color: #084298;
+    border-left: 5px solid #0d6efd;
+}
+
+.notification-icon {
+    font-size: 23px;
+    flex-shrink: 0;
+}
+@keyframes notificationSlideIn {
+    from {
+        transform: translateY(-12px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-12px);
+        opacity: 1;
+    }
+}

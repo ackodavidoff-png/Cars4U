@@ -4,7 +4,7 @@ using System.Security.Claims;
 
 namespace WebApplication1.Controllers
 {
-    //[Authorize]
+    [AutoValidateAntiforgeryToken]
     public abstract class BaseController : Controller
     {
         protected string? GetUserId()

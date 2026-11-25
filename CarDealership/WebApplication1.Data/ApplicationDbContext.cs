@@ -8,13 +8,11 @@ using WebApplication1.Data.Models.Enums;
 
 namespace WebApplication1.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>//, IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-
-        //public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; } = null!;
         public virtual DbSet<Car> Cars { get; set; } = null!;
         public virtual DbSet<Town> Towns { get; set; } = null!;
         public virtual DbSet<Favorite> Favorites { get; set; } = null!;

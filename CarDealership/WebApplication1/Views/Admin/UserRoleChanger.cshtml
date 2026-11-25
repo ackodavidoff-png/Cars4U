@@ -1,0 +1,75 @@
+﻿@using WebApplication1.ViewModels.AdminPanelViewModels
+@model IEnumerable<UserRoleManagerViewModel>
+@{
+    ViewBag.Title = "Role changer (Only for admins)";
+    string[] applicationRoles = ViewData["ApplicationRoles"] as string[] ?? Array.Empty<string>();
+}
+<h1>User role changer 👥🛠️</h1>
+@section Scripts {
+    <script>
+        function setRoleValue(userId, inputId) {
+            let dropdown = document.getElementById(`roleDropdown-${userId}`);
+            let input = document.getElementById(`${inputId}-${userId}`);
+
+            input.value = dropdown.value;
+        }
+    </script>
+}
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full name</th>
+                <th>Username</th>
+                <th>Roles</th>
+                <th>Roles list</th>
+                <th>Assign role</th>
+                <th>Remove role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserRoleManagerViewModel user in Model)
+            {
+                <tr>
+                    <th>@user.Id</th>
+                    <th>@user.FirstName @user.LastName</th>
+                    <th>@user.UserName</th>
+                    @if (user.Roles.Any())
+                    {
+                        <th>@string.Join(", ", user.Roles)</th>
+                    }
+                    else
+                    {
+                        <th>This user has no roles</th>
+                    }
+                    <th>
+                        <select id="roleDropdown-@user.Id" class="form-select form-select-sm w-auto me-2">
+                            @foreach (string role in applicationRoles)
+                            {
+                                <option value="@role" selected="@(user.Roles.Contains(role) ? "selected" : null)">@role</option>
+                            }
+                        </select>
+                    </th>
+                    <th>
+                        <form method="post" asp-action="AssignRole" asp-controller="Admin" asp-area="" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <input type="hidden" name="roleName" id="assignRoleInput-@user.Id" />
+                            <button type="submit" class="btn btn-primary" onclick="setRoleValue('@user.Id', 'assignRoleInput')">Assign</button>
+                        </form>
+                    </th>
+                    <th>
+                        <form method="post" asp-action="RemoveRole" asp-controller="Admin" asp-area="" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <input type="hidden" name="roleName" id="removeRoleInput-@user.Id" />
+                            <button type="submit" class="btn btn-warning" onclick="setRoleValue('@user.Id', 'removeRoleInput')">Remove</button>
+                        </form>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

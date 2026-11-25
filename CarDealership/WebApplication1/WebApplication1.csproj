@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WebApplication1.Data\WebApplication1.Data.csproj" />
     <ProjectReference Include="..\WebApplication1.GCommon\WebApplication1.GCommon.csproj" />
+    <ProjectReference Include="..\WebApplication1.Infrastructure\WebApplication1.Infrastructure.csproj" />
     <ProjectReference Include="..\WebApplication1.Services\WebApplication1.Services.csproj" />
     <ProjectReference Include="..\WebApplication1.ViewModels\WebApplication1.ViewModels.csproj" />
   </ItemGroup>

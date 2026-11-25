@@ -1,0 +1,16 @@
+﻿@using static WebApplication1.GCommon.ApplicationConstants
+
+@if (TempData[ErrorNotificationKey] != null)
+{
+    <div class="notification notification-error"> <span class="notification-icon">✕</span> <span>@TempData[ErrorNotificationKey]</span> </div>
+}
+else if (TempData[WarningNotificationKey] != null)
+{
+
+    <div class="notification notification-warning"> <span class="notification-icon">⚠</span> <span>@TempData[WarningNotificationKey]</span> </div>
+}
+else if (TempData[SuccessNotificationKey] != null)
+{
+
+    <div class="notification notification-success"> <span class="notification-icon">✓</span> <span>@TempData[SuccessNotificationKey]</span> </div>
+}
