@@ -1,0 +1,68 @@
+﻿using MockQueryable.Moq;
+using Moq;
+using WebApplication1.Data.Models;
+using WebApplication1.Data.Models.Enums;
+using WebApplication1.Data.Repository.Contracts;
+
+namespace WebApplication1.Services.Tests
+{
+    [TestFixture]
+    public class CarServiceTests
+    {
+        private Mock<ICarRepository> carRepositoryMock;
+        private Mock<IFavoriteRepository> favoriteRepositoryMock;
+        private CarService carService;
+
+        [SetUp]
+        public void Setup()
+        {
+            carRepositoryMock = new Mock<ICarRepository>();
+            favoriteRepositoryMock = new Mock<IFavoriteRepository>();
+            carService = new CarService(carRepositoryMock.Object, favoriteRepositoryMock.Object);
+        }
+
+        [Test]
+        public void Test00_Positive()
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        public async Task Test01_CarExistsAsync_ReturnsTrue_WhenCarExists()
+        {
+            // Arrange
+            string userId = Guid.NewGuid().ToString();
+            Car car = new Car
+            {
+                Id = Guid.NewGuid(),
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = userId,
+                CreatedOn = DateTime.Now
+            };
+
+            List<Car> cars = new List<Car> { car };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+
+            // Act
+            bool result = await carService.CarExistsAsync(car.Id);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+    }
+}
+
+// Use 'MockQueryable.Moq' so FirstOrDefaultAsync is supported.
+// Extension namespace is provided by the package: MockQueryable.Moq.
+// Remove this comment-style note before finalizing the test file.

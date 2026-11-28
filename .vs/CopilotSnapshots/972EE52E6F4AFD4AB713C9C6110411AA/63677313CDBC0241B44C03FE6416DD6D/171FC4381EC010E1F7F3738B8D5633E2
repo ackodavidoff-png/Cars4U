@@ -1,0 +1,58 @@
+﻿using Moq;
+using Moq.EntityFrameworkCore;
+using MockQueryable;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using WebApplication1.Data.Models;
+using WebApplication1.Data.Models.Enums;
+using WebApplication1.Services.Core;
+
+namespace WebApplication1.Services.Tests
+{
+    [TestFixture]
+    public class CarServiceTests
+    {
+        private Mock<ICarService> carServiceMock;
+        [SetUp]
+        public void Setup()
+        {
+            carServiceMock = new Mock<ICarService>();
+        }
+        [Test]
+        public void Test00_Positive()
+        {
+            Assert.Pass();
+        }
+        [Test]
+        public void Test01_CarExistsAsync_ReturnsTrue_WhenCarExists()
+        {
+            // Arrange
+            string userId = Guid.NewGuid().ToString();
+            Car car = new Car
+            {
+                Id = Guid.NewGuid(),
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = userId,
+                CreatedOn = DateTime.Now
+            };
+            List<Car> cars = new List<Car>() { car };
+            IQueryable<Car> carsQueryableMock = cars.AsQueryable().BuildMock();
+            var carId = car.Id;
+            carServiceMock.Setup(service => service.CarExistsAsync(carId)).ReturnsAsync(true);
+            // Act
+            var result = carServiceMock.Object.CarExistsAsync(carId).Result;
+            // Assert
+            Assert.IsTrue(result);
+        }
+    }
+}

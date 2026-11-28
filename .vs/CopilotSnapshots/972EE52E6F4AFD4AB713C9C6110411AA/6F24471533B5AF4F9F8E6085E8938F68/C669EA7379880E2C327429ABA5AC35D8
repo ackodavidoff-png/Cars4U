@@ -1,0 +1,228 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
+using MockQueryable;
+using MockQueryable.Moq;
+using Moq;
+using WebApplication1.Data.Models;
+using WebApplication1.Data.Models.Enums;
+using WebApplication1.Data.Repository.Contracts;
+using WebApplication1.ViewModels.CarViewModels;
+
+namespace WebApplication1.Services.Tests
+{
+    [TestFixture]
+    public class CarServiceTests
+    {
+        private Mock<ICarRepository> carRepositoryMock;
+        private Mock<IFavoriteRepository> favoriteRepositoryMock;
+        private CarService carService;
+
+        [SetUp]
+        public void Setup()
+        {
+            carRepositoryMock = new Mock<ICarRepository>();
+            favoriteRepositoryMock = new Mock<IFavoriteRepository>();
+            carService = new CarService(carRepositoryMock.Object, favoriteRepositoryMock.Object);
+        }
+
+        [Test]
+        public void Test00_Positive()
+        {
+            Assert.Pass();
+        }
+
+        //Tests for CarExistsAsync() method
+        //Test 1 - CarExistsAsync() reutrns true when car exists
+        [Test]
+        public async Task Test01_CarExistsAsync_ReturnsTrue_WhenCarExists_Positive()
+        {
+            // Arrange
+            string userId = Guid.NewGuid().ToString();
+            Car car = new Car
+            {
+                Id = Guid.NewGuid(),
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = userId,
+                CreatedOn = DateTime.Now
+            };
+
+            List<Car> cars = new List<Car> { car };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+
+            // Act
+            bool result = await carService.CarExistsAsync(car.Id);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        //Test 2 - CarExistsAsync() returns false when car does not exist
+        [Test]
+        public async Task Test02_CarExistsAsync_ReturnsFalse_WhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid nonExistentCarId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.CarExistsAsync(nonExistentCarId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 3 - CarExistsAsync() returns false when car is null
+        [Test]
+        public async Task Test03_CarExistsAsync_ReturnsFalse_WhenCarIsNull_Negative()
+        {
+            //Arrange
+            Guid carId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.CarExistsAsync(carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Tests for CreateCarAsync() method
+        //Test 4 - CreateCarAsync() returns true when car is created successfully
+        [Test]
+        public async Task Test04_CreateCarAsyncReturnsTrueWhenCarIsCreatedSuccessfully_Positive()
+        {
+            // Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            string userId = Guid.NewGuid().ToString();
+            // Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        //Test 5 - CreateCarAsync() returns false when userId is null
+        [Test]
+        public async Task Test05_CreateCarsAsyncReturnsFalseWhenUserIdIsNull_Negative()
+        {
+            //Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            string? userId = null; // User ID is null
+            //Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            //Assert
+            Assert.That(result, Is.False);
+        }
+        //Test 6 - CreateCarAsync() returns true when image is provided
+        [Test]
+        public async Task Test06_CreateCarAsyncReturnsTrueWhenImageIsProvided_Positive()
+        {
+            // Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            byte[] imageData = new byte[] { 1, 2, 3 }; // Sample image data
+            IFormFile image = new FormFile(new MemoryStream(imageData), 0, imageData.Length, "image", "image.jpg");
+            string userId = Guid.NewGuid().ToString();
+            // Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+        //Test 7 - CreateCarAsync() throws exception when carModel is null
+        [Test]
+        public async Task Test07_CreateCarAsyncThrownsExceptionWhenCarModelIsNull_Negative()
+        {
+            // Arrange
+            CreateCarViewModel? carModel = null; // Car model is null
+            IFormFile? image = null; // No image provided
+            string userId = Guid.NewGuid().ToString();
+            // Assert
+            Assert.ThrowsAsync<NullReferenceException>(() => carService.CreateCarAsync(carModel, image, userId));
+        }
+
+        //Tests for DeleteCarAsync() method
+        //Test 8 - DeleteCarAsync() returns true when car is deleted successfully
+        [Test]
+        public async Task Test08_DeleteCarAsyncReturnsTrueWhenCarIsDeletedSuccessfully_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            List<Car> cars = new List<Car>
+            {
+                new Car()
+                {
+                    Id = carId,
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = Guid.NewGuid().ToString(),
+                    CreatedOn = DateTime.Now
+                }
+            };
+            List<Favorite> favorites = new List<Favorite>(); // No favorites for this car
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.DeleteCarAsync(carId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+    }
+}

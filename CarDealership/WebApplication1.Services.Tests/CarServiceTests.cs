@@ -1,0 +1,1161 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Internal;
+using MockQueryable;
+using MockQueryable.Moq;
+using Moq;
+using WebApplication1.Data.Models;
+using WebApplication1.Data.Models.Enums;
+using WebApplication1.Data.Repository.Contracts;
+using WebApplication1.Services.Data.Car.Response;
+using WebApplication1.ViewModels.CarViewModels;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser;
+
+namespace WebApplication1.Services.Tests
+{
+    [TestFixture]
+    public class CarServiceTests
+    {
+        private Mock<ICarRepository> carRepositoryMock;
+        private Mock<IFavoriteRepository> favoriteRepositoryMock;
+        private Mock<IUserRepository> userRepositoryMock;
+        private Mock<ITownRepository> townRepositoryMock;
+        private CarService carService;
+
+        [SetUp]
+        public void Setup()
+        {
+            carRepositoryMock = new Mock<ICarRepository>();
+            favoriteRepositoryMock = new Mock<IFavoriteRepository>();
+            userRepositoryMock = new Mock<IUserRepository>();
+            townRepositoryMock = new Mock<ITownRepository>();
+            carService = new CarService(carRepositoryMock.Object, favoriteRepositoryMock.Object);
+        }
+
+        [Test]
+        public void Test00_Positive()
+        {
+            Assert.Pass();
+        }
+
+        //Tests for CarExistsAsync() method
+        //Test 1 - CarExistsAsync() reutrns true when car exists
+        [Test]
+        public async Task Test01_CarExistsAsync_ReturnsTrue_WhenCarExists_Positive()
+        {
+            // Arrange
+            string userId = Guid.NewGuid().ToString();
+            Car car = new Car
+            {
+                Id = Guid.NewGuid(),
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = userId,
+                CreatedOn = DateTime.Now
+            };
+
+            List<Car> cars = new List<Car> { car };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+
+            // Act
+            bool result = await carService.CarExistsAsync(car.Id);
+
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        //Test 2 - CarExistsAsync() returns false when car does not exist
+        [Test]
+        public async Task Test02_CarExistsAsync_ReturnsFalse_WhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid nonExistentCarId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.CarExistsAsync(nonExistentCarId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 3 - CarExistsAsync() returns false when car is null
+        [Test]
+        public async Task Test03_CarExistsAsync_ReturnsFalse_WhenCarIsNull_Negative()
+        {
+            //Arrange
+            Guid carId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.CarExistsAsync(carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Tests for CreateCarAsync() method
+        //Test 4 - CreateCarAsync() returns true when car is created successfully
+        [Test]
+        public async Task Test04_CreateCarAsyncReturnsTrueWhenCarIsCreatedSuccessfully_Positive()
+        {
+            // Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            string userId = Guid.NewGuid().ToString();
+            // Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        //Test 5 - CreateCarAsync() returns false when userId is null
+        [Test]
+        public async Task Test05_CreateCarsAsyncReturnsFalseWhenUserIdIsNull_Negative()
+        {
+            //Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            string? userId = null; // User ID is null
+            //Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            //Assert
+            Assert.That(result, Is.False);
+        }
+        //Test 6 - CreateCarAsync() returns true when image is provided
+        [Test]
+        public async Task Test06_CreateCarAsyncReturnsTrueWhenImageIsProvided_Positive()
+        {
+            // Arrange
+            CreateCarViewModel carModel = new CreateCarViewModel
+            {
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car."
+            };
+            byte[] imageData = new byte[] { 1, 2, 3 }; // Sample image data
+            IFormFile image = new FormFile(new MemoryStream(imageData), 0, imageData.Length, "image", "image.jpg");
+            string userId = Guid.NewGuid().ToString();
+            // Act
+            bool result = await carService.CreateCarAsync(carModel, image, userId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+        //Test 7 - CreateCarAsync() throws exception when carModel is null
+        [Test]
+        public async Task Test07_CreateCarAsyncThrownsExceptionWhenCarModelIsNull_Negative()
+        {
+            // Arrange
+            CreateCarViewModel? carModel = null; // Car model is null
+            IFormFile? image = null; // No image provided
+            string userId = Guid.NewGuid().ToString();
+            // Assert
+            Assert.ThrowsAsync<NullReferenceException>(() => carService.CreateCarAsync(carModel, image, userId));
+        }
+
+        //Tests for DeleteCarAsync() method
+        //Test 8 - DeleteCarAsync() returns true when car is deleted successfully
+        [Test]
+        public async Task Test08_DeleteCarAsyncReturnsTrueWhenCarIsDeletedSuccessfully_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            List<Car> cars = new List<Car>
+            {
+                new Car()
+                {
+                    Id = carId,
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = Guid.NewGuid().ToString(),
+                    CreatedOn = DateTime.Now
+                }
+            };
+            List<Favorite> favorites = new List<Favorite>(); // No favorites for this car
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<Favorite> favoritesQueryableMock = favorites.BuildMock();
+
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(favoritesQueryableMock);
+
+            // Act
+            bool result = await carService.DeleteCarAsync(carId);
+            // Assert
+            Assert.That(result, Is.True);
+        }
+
+        //Test 9 - DeleteCarAsync() returns false when car does not exist
+        [Test]
+        public async Task Test09_DeleteCarAsyncReturnsFalseWhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid nonExistentCarId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<Favorite> favoritesQueryableMock = new List<Favorite>().BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(favoritesQueryableMock);
+            // Act
+            bool result = await carService.DeleteCarAsync(nonExistentCarId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 10 - DeleteCarAsync() returns false when car is null
+        [Test]
+        public async Task Test10_DeleteCarAsyncReturnsFalseWhenCarIsNull_Negative()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<Favorite> favoritesQueryableMock = new List<Favorite>().BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(favoritesQueryableMock);
+            // Act
+            bool result = await carService.DeleteCarAsync(carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 11 - DeleteCarAsync() removes associated favorites when car is deleted
+        [Test]
+        public async Task Test11_DeleteCarAsyncRemovesAssociatedFavoritesWhenCarIsDeleted_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            List<Car> cars = new List<Car>
+            {
+                new Car()
+                {
+                    Id = carId,
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                }
+            };
+            List<Favorite> favorites = new List<Favorite>
+            {
+                new Favorite()
+                {
+                    CarId = carId,
+                    UserId = userId
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<Favorite> favoritesQueryableMock = favorites.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(favoritesQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.RemoveRange(It.IsAny<IEnumerable<Favorite>>()))
+                .Callback<IEnumerable<Favorite>>(removedFavorites =>
+                {
+                    foreach (Favorite favorite in removedFavorites.ToList())
+                    {
+                        favorites.Remove(favorite);
+                    }
+                });
+
+            // Act
+            bool result = await carService.DeleteCarAsync(carId);
+
+            // Assert
+            favoriteRepositoryMock.Verify(repository => repository.RemoveRange(
+                It.Is<IEnumerable<Favorite>>(removed => removed.Count() == 1 && removed.All(f => f.CarId == carId))),
+                Times.Once);
+            Assert.That(favorites, Is.Empty);
+            Assert.That(result, Is.True);
+        }
+
+        //Test 12 - DeleteCarAsync() does not remove favorites when car does not exist
+        [Test]
+        public async Task Test12_DeleteCarAsyncDoesNotRemoveFavoritesWhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid nonExistentCarId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            List<Favorite> favorites = new List<Favorite>
+            {
+                new Favorite()
+                {
+                    CarId = Guid.NewGuid(),
+                    UserId = Guid.NewGuid().ToString()
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<Favorite> favoritesQueryableMock = favorites.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            favoriteRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(favoritesQueryableMock);
+            // Act
+            bool result = await carService.DeleteCarAsync(nonExistentCarId);
+            // Assert
+            favoriteRepositoryMock.Verify(repository => repository.RemoveRange(It.IsAny<IEnumerable<Favorite>>()), Times.Never);
+            Assert.That(favorites.Count, Is.EqualTo(1)); // Favorites should remain unchanged
+            Assert.That(result, Is.False);
+        }
+
+        //Tests for EditCarAsync() method
+        //Test 13 - EditCarAsync() returns true when car is edited successfully
+        [Test]
+        public async Task Test13_EditCarAsyncReturnsTrueWhenCarIsEditedSuccessfully_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+
+            ApplicationUser seller = new ApplicationUser
+            {
+                Id = userId,
+                FirstName = "Test",
+                LastName = "User",
+                UserName = "testuser",
+                Email = "testuser@example.com", //This is a valid email address for testing purposes
+                PhoneNumber = "0888555123" //This is a valid phone number for testing purposes. DO NOT use this phone number for any other purposes. DO NOT call this number. It is used for testing purposes only.
+            };
+
+            IFormFile? image = null; // No image provided
+            Car existingCar = new Car
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = seller.Id,
+                Seller = seller,
+                CreatedOn = DateTime.Now
+            };
+
+            EditCarViewModel carModel = new EditCarViewModel
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021, // Updated year
+                Price = 26000, // Updated price
+                Mileage = 9000, // Updated mileage
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210, // Updated horsepower
+                State = State.Used, // Updated state
+                Description = "An updated reliable car."
+            };
+            List<Car> cars = new List<Car> { existingCar };
+            List<ApplicationUser> users = new List<ApplicationUser> { seller };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<ApplicationUser> usersQueryableMock = users.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            userRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(usersQueryableMock);
+            // Act
+            bool result = await carService.EditCarAsync(carModel, image, userId, carId);
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(existingCar.Year, Is.EqualTo(2021));
+            Assert.That(existingCar.Price, Is.EqualTo(26000));
+            Assert.That(existingCar.Mileage, Is.EqualTo(9000));
+            Assert.That(existingCar.HorsePower, Is.EqualTo(210));
+            Assert.That(existingCar.State, Is.EqualTo(State.Used));
+            Assert.That(existingCar.Description, Is.EqualTo("An updated reliable car."));
+        }
+
+        //Test 14 - EditCarAsync() returns false when carId does not match carModel.Id
+        [Test]
+        public async Task Test14_EditCarAsyncReturnsFalseWhenCarIdDoesNotMatchCarModelId_Negative()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            EditCarViewModel carModel = new EditCarViewModel
+            {
+                Id = Guid.NewGuid(), // Different ID than carId
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "An updated reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            // Act
+            bool result = await carService.EditCarAsync(carModel, image, userId, carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 15 - EditCarAsync() returns false when car does not exist
+        [Test]
+        public async Task Test15_EditCarAsyncReturnsFalseWhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            EditCarViewModel carModel = new EditCarViewModel
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "An updated reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.EditCarAsync(carModel, image, userId, carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 16 - EditCarAsync() returns false when userId does not match car.SellerId
+        [Test]
+        public async Task Test16_EditCarAsyncReturnsFalseWhenUserIdDoesNotMatchCarSellerId_Negative()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            EditCarViewModel carModel = new EditCarViewModel
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "An updated reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            Car existingCar = new Car
+            {
+                Id = carId,
+                SellerId = Guid.NewGuid().ToString(), // Different seller ID than userId
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "A reliable car."
+            };
+            List<Car> cars = new List<Car> { existingCar };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.EditCarAsync(carModel, image, userId, carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test 17 - EditCarAsync() returns false when car.Seller is null
+        [Test]
+        public async Task Test17_EditCarAsyncReturnsFalseWhenCarSellerIsNull_Negative()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            EditCarViewModel carModel = new EditCarViewModel
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "An updated reliable car."
+            };
+            IFormFile? image = null; // No image provided
+            Car existingCar = new Car
+            {
+                Id = carId,
+                SellerId = userId, // Matching seller ID
+                Seller = null, // Seller is null
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2021,
+                Price = 26000,
+                Mileage = 9000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 210,
+                State = State.Used,
+                Description = "A reliable car."
+            };
+            List<Car> cars = new List<Car> { existingCar };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            // Act
+            bool result = await carService.EditCarAsync(carModel, image, userId, carId);
+            // Assert
+            Assert.That(result, Is.False);
+        }
+
+        //Test18 - EditCarAsync() updates car image when image is provided
+        [Test]
+        public async Task Test18_EditCarAsyncUpdatesCarImageWhenImageIsProvided_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            ApplicationUser seller = new ApplicationUser
+            {
+                Id = userId,
+                FirstName = "Test",
+                LastName = "User",
+                UserName = "testuser",
+                Email = "testuser@example.com", //This is a valid email address for testing purposes
+                PhoneNumber = "0888555123" //This is a valid phone number for testing purposes. DO NOT use this phone number for any other purposes. DO NOT call this number. It is used for testing purposes only.
+            };
+            Car car = new Car()
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+                SellerId = seller.Id,
+                Seller = seller,
+                CreatedOn = DateTime.Now
+            };
+            IFormFile image = new FormFile(new MemoryStream(new byte[] { 1, 2, 3 }), 0, 3, "image", "image.jpg");
+            EditCarViewModel model = new EditCarViewModel()
+            {
+                Id = carId,
+                Brand = "Toyota",
+                Model = "Camry",
+                Year = 2020,
+                Price = 25000,
+                Mileage = 10000,
+                EngineType = EngineType.Gasoline,
+                TransmissionType = TransmissionType.Automatic,
+                HorsePower = 200,
+                State = State.New,
+                Description = "A reliable car.",
+            };
+            List<Car> cars = new List<Car> { car };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+
+            // Act
+            bool result = await carService.EditCarAsync(model, image, userId, carId);
+
+            // Assert
+            Assert.That(result, Is.True);
+            Assert.That(car.Image, Is.Not.Null);
+            Assert.That(car.Image.Length, Is.EqualTo(3));
+            Assert.That(car.Image, Is.EqualTo(new byte[] { 1, 2, 3 }));
+            Assert.That(car.Brand, Is.EqualTo("Toyota"));
+            Assert.That(car.Model, Is.EqualTo("Camry"));
+            Assert.That(car.Year, Is.EqualTo(2020));
+            Assert.That(car.Price, Is.EqualTo(25000));
+            Assert.That(car.Mileage, Is.EqualTo(10000));
+            Assert.That(car.EngineType, Is.EqualTo(EngineType.Gasoline));
+            Assert.That(car.TransmissionType, Is.EqualTo(TransmissionType.Automatic));
+            Assert.That(car.HorsePower, Is.EqualTo(200));
+            Assert.That(car.State, Is.EqualTo(State.New));
+            Assert.That(car.Description, Is.EqualTo("A reliable car."));
+            Assert.That(car.SellerId, Is.EqualTo(seller.Id));
+            Assert.That(car.Seller, Is.EqualTo(seller));
+            Assert.That(car.CreatedOn, Is.EqualTo(car.CreatedOn));
+        }
+
+        //Tests for GetDetailsAsync() method
+        //Test 19 - GetDetailsAsync() returns car details when car exists
+        [Test]
+        public async Task Test19_GetDetailsAsyncReturnsCarDetails_Positive()
+        {
+            // Arrange
+            Guid carId = Guid.NewGuid();
+            string userId = Guid.NewGuid().ToString();
+            List<Town> towns = new List<Town>
+            {
+                new Town
+                {
+                    Id = 1,
+                    Name = "TestTown"
+                }
+            };
+            List<ApplicationUser> users = new List<ApplicationUser>()
+            {
+                new ApplicationUser
+                {
+                    Id = userId,
+                    FirstName = "Test",
+                    LastName = "User",
+                    UserName = "testuser",
+                    Email = "testuser@example.com", //This is a valid email address for testing purposes
+                    PhoneNumber = "0888555123", //This is a valid phone number for testing purposes. DO NOT use this phone number for any other purposes. DO NOT call this number. It is used for testing purposes only.
+                    Town = towns[0]
+                }
+            };
+
+            List<Car> cars = new List<Car>
+            {
+                new Car()
+                {
+                    Id = carId,
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = users[0].Id,
+                    Seller = users[0],
+                    CreatedOn = DateTime.Now
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            IQueryable<ApplicationUser> usersQueryableMock = users.BuildMock();
+            IQueryable<Town> townsQueryableMock = towns.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            userRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(usersQueryableMock);
+            townRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(townsQueryableMock);
+
+            // Act
+            Car? result = await carService.GetDetailsAsync(carId);
+
+            // Assert
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Id, Is.EqualTo(carId));
+            Assert.That(result.Brand, Is.EqualTo("Toyota"));
+            Assert.That(result.Model, Is.EqualTo("Camry"));
+            Assert.That(result.Year, Is.EqualTo(2020));
+            Assert.That(result.Price, Is.EqualTo(25000));
+            Assert.That(result.Mileage, Is.EqualTo(10000));
+            Assert.That(result.EngineType, Is.EqualTo(EngineType.Gasoline));
+            Assert.That(result.TransmissionType, Is.EqualTo(TransmissionType.Automatic));
+            Assert.That(result.HorsePower, Is.EqualTo(200));
+            Assert.That(result.State, Is.EqualTo(State.New));
+            Assert.That(result.Description, Is.EqualTo("A reliable car."));
+            Assert.That(result.SellerId, Is.EqualTo(users[0].Id));
+            Assert.That(result.Seller, Is.EqualTo(users[0]));
+        }
+
+        //Test 20 - GetDetailsAsync() returns null when car does not exist
+        [Test]
+        public async Task Test20_GetDetailsAsyncReturnsNullWhenCarDoesNotExist_Negative()
+        {
+            // Arrange
+            Guid nonExistentCarId = Guid.NewGuid();
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAllAsNoTracking())
+                .Returns(carsQueryableMock);
+            // Act
+            Car? result = await carService.GetDetailsAsync(nonExistentCarId);
+            // Assert
+            Assert.That(result, Is.Null);
+        }
+
+        //Tests for ShowAllCars() method
+        //Test 21 - ShowAllCars() should show all the cars in the collection
+        [Test]
+        public void Test21_ShowAllCarsShouldShowAllTheCarsInTheCollection_Positive()
+        {
+            //Arrange
+            string userId = Guid.NewGuid().ToString();
+            List<Car> cars = new List<Car>()
+            {
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Honda",
+                    Model = "Accord",
+                    Year = 2019,
+                    Price = 22000,
+                    Mileage = 15000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Manual,
+                    HorsePower = 180,
+                    State = State.Used,
+                    Description = "A sporty car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Ford",
+                    Model = "Focus",
+                    Year = 2021,
+                    Price = 15000,
+                    Mileage = 5000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 300,
+                    State = State.New,
+                    Description = "A powerful car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            IEnumerable<GetAllCarsResponseModel> expectedCars = carsQueryableMock
+                .OrderByDescending(c => c.CreatedOn)
+                .Select(c => new GetAllCarsResponseModel
+                {
+                    Id = c.Id,
+                    Brand = c.Brand,
+                    Model = c.Model,
+                    Year = c.Year,
+                    Price = c.Price,
+                    Mileage = c.Mileage,
+                    EngineType = c.EngineType,
+                    TransmissionType = c.TransmissionType,
+                    HorsePower = c.HorsePower,
+                    State = c.State,
+                    Description = c.Description,
+                    SellerId = c.SellerId
+                });
+
+            //Act
+            IEnumerable<GetAllCarsResponseModel> result = carService.ShowAllCars();
+
+            //Assert
+            for (int i = 0; i < expectedCars.Count(); i++)
+            {
+                Assert.Multiple(() =>
+                {
+                    Assert.That(result.ElementAt(i).Id, Is.EqualTo(expectedCars.ElementAt(i).Id));
+                    Assert.That(result.ElementAt(i).Brand, Is.EqualTo(expectedCars.ElementAt(i).Brand));
+                    Assert.That(result.ElementAt(i).Model, Is.EqualTo(expectedCars.ElementAt(i).Model));
+                    Assert.That(result.ElementAt(i).Year, Is.EqualTo(expectedCars.ElementAt(i).Year));
+                    Assert.That(result.ElementAt(i).Price, Is.EqualTo(expectedCars.ElementAt(i).Price));
+                    Assert.That(result.ElementAt(i).Mileage, Is.EqualTo(expectedCars.ElementAt(i).Mileage));
+                    Assert.That(result.ElementAt(i).EngineType, Is.EqualTo(expectedCars.ElementAt(i).EngineType));
+                    Assert.That(result.ElementAt(i).TransmissionType, Is.EqualTo(expectedCars.ElementAt(i).TransmissionType));
+                    Assert.That(result.ElementAt(i).HorsePower, Is.EqualTo(expectedCars.ElementAt(i).HorsePower));
+                    Assert.That(result.ElementAt(i).State, Is.EqualTo(expectedCars.ElementAt(i).State));
+                    Assert.That(result.ElementAt(i).Description, Is.EqualTo(expectedCars.ElementAt(i).Description));
+                    Assert.That(result.ElementAt(i).SellerId, Is.EqualTo(expectedCars.ElementAt(i).SellerId));
+                });
+            }
+        }
+
+        //Test 22 - ShowAllCars() should return an empty collection when there are no cars
+        [Test]
+        public void Test22_ShowAllCarsShouldReturnEmptyCollectionWhenThereAreNoCars_Negative()
+        {
+            //Arrange
+            List<Car> cars = new List<Car>(); // Empty list, no cars exist
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            //Act
+            IEnumerable<GetAllCarsResponseModel> result = carService.ShowAllCars();
+            //Assert
+            Assert.That(result, Is.Empty);
+        }
+
+        //Test 23 - ShowAllCars() should return cars ordered by CreatedOn descending
+        [Test]
+        public void Test23_ShowAllCarsShouldReturnCarsOrderedByCreatedOnDescending_Positive()
+        {
+            //Arrange
+            string userId = Guid.NewGuid().ToString();
+            List<Car> cars = new List<Car>()
+            {
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now.AddDays(-1) // Older car
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Honda",
+                    Model = "Accord",
+                    Year = 2019,
+                    Price = 22000,
+                    Mileage = 15000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Manual,
+                    HorsePower = 180,
+                    State = State.Used,
+                    Description = "A sporty car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now // Newer car
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            IEnumerable<GetAllCarsResponseModel> expectedCars =
+                carsQueryableMock.OrderByDescending(c => c.CreatedOn)
+                .Select(c => new GetAllCarsResponseModel
+                {
+                    Id = c.Id,
+                    Brand = c.Brand,
+                    Model = c.Model,
+                    Year = c.Year,
+                    Price = c.Price,
+                    Mileage = c.Mileage,
+                    EngineType = c.EngineType,
+                    TransmissionType = c.TransmissionType,
+                    HorsePower = c.HorsePower,
+                    State = c.State,
+                    Description = c.Description,
+                    SellerId = c.SellerId
+                });
+            //Act
+            IEnumerable<GetAllCarsResponseModel> result =
+                carService.ShowAllCars();
+
+            //Assert
+            for (int i = 0; i < result.Count(); i++)
+            {
+                Assert.Multiple(() =>
+                {
+
+                    Assert.That(result.ElementAt(i).Id, Is.EqualTo(expectedCars.ElementAt(i).Id));
+                    Assert.That(result.ElementAt(i).Brand, Is.EqualTo(expectedCars.ElementAt(i).Brand));
+                    Assert.That(result.ElementAt(i).Model, Is.EqualTo(expectedCars.ElementAt(i).Model));
+                    Assert.That(result.ElementAt(i).Year, Is.EqualTo(expectedCars.ElementAt(i).Year));
+                    Assert.That(result.ElementAt(i).Price, Is.EqualTo(expectedCars.ElementAt(i).Price));
+                    Assert.That(result.ElementAt(i).Mileage, Is.EqualTo(expectedCars.ElementAt(i).Mileage));
+                    Assert.That(result.ElementAt(i).EngineType, Is.EqualTo(expectedCars.ElementAt(i).EngineType));
+                    Assert.That(result.ElementAt(i).TransmissionType, Is.EqualTo(expectedCars.ElementAt(i).TransmissionType));
+                    Assert.That(result.ElementAt(i).HorsePower, Is.EqualTo(expectedCars.ElementAt(i).HorsePower));
+                    Assert.That(result.ElementAt(i).State, Is.EqualTo(expectedCars.ElementAt(i).State));
+                    Assert.That(result.ElementAt(i).Description, Is.EqualTo(expectedCars.ElementAt(i).Description));
+                    Assert.That(result.ElementAt(i).SellerId, Is.EqualTo(expectedCars.ElementAt(i).SellerId));
+                });
+            }
+        }
+
+        //Test 24 - In ShowAllCars() image data is mapped without modification
+        [Test]
+        public void Test24_InShowAllCarsImageDataIsMappedWithoutModification_Positive()
+        {
+            string userId = Guid.NewGuid().ToString();
+            List<Car> cars = new List<Car>()
+            {
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Image = new byte[] { 1, 2, 3 },
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Image = new byte[] {1, 3, 2},
+                    Brand = "Honda",
+                    Model = "Accord",
+                    Year = 2019,
+                    Price = 22000,
+                    Mileage = 15000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Manual,
+                    HorsePower = 180,
+                    State = State.Used,
+                    Description = "A sporty car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                }
+            };
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+            IEnumerable<GetAllCarsResponseModel> expectedCars =
+                carsQueryableMock.OrderByDescending(c => c.CreatedOn)
+                .Select(c => new GetAllCarsResponseModel
+                {
+                    Id = c.Id,
+                    Image = c.Image,
+                    Brand = c.Brand,
+                    Model = c.Model,
+                    Year = c.Year,
+                    Price = c.Price,
+                    Mileage = c.Mileage,
+                    EngineType = c.EngineType,
+                    TransmissionType = c.TransmissionType,
+                    HorsePower = c.HorsePower,
+                    State = c.State,
+                    Description = c.Description,
+                    SellerId = c.SellerId
+                });
+            //Act
+            IEnumerable<GetAllCarsResponseModel> result =
+                carService.ShowAllCars();
+
+            //Assert
+            for (int i = 0; i < result.Count(); i++)
+            {
+                Assert.Multiple(() =>
+                {
+
+                    Assert.That(result.ElementAt(i).Id, Is.EqualTo(expectedCars.ElementAt(i).Id));
+                    Assert.That(result.ElementAt(i).Brand, Is.EqualTo(expectedCars.ElementAt(i).Brand));
+                    Assert.That(result.ElementAt(i).Model, Is.EqualTo(expectedCars.ElementAt(i).Model));
+                    Assert.That(result.ElementAt(i).Year, Is.EqualTo(expectedCars.ElementAt(i).Year));
+                    Assert.That(result.ElementAt(i).Price, Is.EqualTo(expectedCars.ElementAt(i).Price));
+                    Assert.That(result.ElementAt(i).Mileage, Is.EqualTo(expectedCars.ElementAt(i).Mileage));
+                    Assert.That(result.ElementAt(i).EngineType, Is.EqualTo(expectedCars.ElementAt(i).EngineType));
+                    Assert.That(result.ElementAt(i).TransmissionType, Is.EqualTo(expectedCars.ElementAt(i).TransmissionType));
+                    Assert.That(result.ElementAt(i).HorsePower, Is.EqualTo(expectedCars.ElementAt(i).HorsePower));
+                    Assert.That(result.ElementAt(i).State, Is.EqualTo(expectedCars.ElementAt(i).State));
+                    Assert.That(result.ElementAt(i).Description, Is.EqualTo(expectedCars.ElementAt(i).Description));
+                    Assert.That(result.ElementAt(i).SellerId, Is.EqualTo(expectedCars.ElementAt(i).SellerId));
+                });
+            }
+        }
+
+        //Tests for ShowSearchResults()
+        //Test 25 - ShowSearchResults() returns all the cars with matching brand name
+        [Test]
+        public void Test25_ShowSearchResultsReturnsAllTheCarsWithMatchingBrandName()
+        {
+            //Arrange
+            string userId = Guid.NewGuid().ToString();
+            List<Town> towns = new List<Town>
+            {
+                new Town
+                {
+                    Id = 1,
+                    Name = "TestTown"
+                }
+            };
+            List<ApplicationUser> users = new List<ApplicationUser>()
+            {
+                new ApplicationUser
+                {
+                    Id = userId,
+                    FirstName = "Test",
+                    LastName = "User",
+                    UserName = "testuser",
+                    Email = "testuser@example.com", //This is a valid email address for testing purposes
+                    PhoneNumber = "0888555123", //This is a valid phone number for testing purposes. DO NOT use this phone number for any other purposes. DO NOT call this number. It is used for testing purposes only.
+                    Town = towns[0]
+                }
+            };
+            List<Car> cars = new List<Car>()
+            {
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Image = new byte[] { 1, 2, 3 },
+                    Brand = "Toyota",
+                    Model = "Camry",
+                    Year = 2020,
+                    Price = 25000,
+                    Mileage = 10000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 200,
+                    State = State.New,
+                    Description = "A reliable car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Image = new byte[] {1, 3, 2},
+                    Brand = "Honda",
+                    Model = "Accord",
+                    Year = 2019,
+                    Price = 22000,
+                    Mileage = 15000,
+                    EngineType = EngineType.Gasoline,
+                    TransmissionType = TransmissionType.Manual,
+                    HorsePower = 180,
+                    State = State.Used,
+                    Description = "A sporty car.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                },
+                new Car()
+                {
+                    Id = Guid.NewGuid(),
+                    Brand = "Toyota",
+                    Model = "Yaris",
+                    Year = 2016,
+                    Price = 5000,
+                    Mileage = 120000,
+                    EngineType = EngineType.Hybrid,
+                    TransmissionType = TransmissionType.Automatic,
+                    HorsePower = 150,
+                    State = State.Used,
+                    Description = "Totally preserved car, suitable for in-town and highway driving. The price is negotiable.",
+                    SellerId = userId,
+                    CreatedOn = DateTime.Now
+                }
+            };
+
+            string brandNameToSearch = "Toyota";
+
+            IQueryable<Car> carsQueryableMock = cars.BuildMock();
+            carRepositoryMock.Setup(repository => repository.GetAll())
+                .Returns(carsQueryableMock);
+
+            IEnumerable<Car> expected = cars.Where(c => c.Brand == brandNameToSearch);
+
+            //Act
+            IEnumerable<Car> searchResults = carService.ShowSearchResults(brandNameToSearch);
+
+            //Assert
+            Assert.That(searchResults.Count(), Is.EqualTo(2));
+            for (int i = 0; i < searchResults.Count(); i++)
+            {
+                Assert.That(searchResults.ElementAt(i).Brand, Is.EqualTo(brandNameToSearch));
+                Assert.That(searchResults.ElementAt(i).Model, Is.EqualTo(expected.ElementAt(i).Model));
+            }
+        }
+    }
+}

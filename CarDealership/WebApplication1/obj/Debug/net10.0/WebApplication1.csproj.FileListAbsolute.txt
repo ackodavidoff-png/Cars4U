@@ -475,6 +475,4 @@ C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Services.Data.dll
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Services.Data.pdb
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Infrastructure.dll
-C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\bin\Debug\net10.0\WebApplication1.Infrastructure.pdb
 C:\Users\Александър\Desktop\ASP.NET-Fundamentals-SoftUni\CarDealership\WebApplication1\obj\Debug\net10.0\compressed\556miamfr6-{0}-d8j5b1gwqx-d8j5b1gwqx.gz
